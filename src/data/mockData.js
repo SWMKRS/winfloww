@@ -1,0 +1,196 @@
+// Mock data for the dashboard
+
+export const earningsData = {
+  'Yesterday': {
+    'Gross earnings': {
+      total: 1245.50,
+      subscriptions: 450.00,
+      posts: 320.50,
+      messages: 180.00,
+      tips: 195.00,
+      referrals: 50.00,
+      streams: 50.00
+    },
+    'Net earnings': {
+      total: 996.40,
+      subscriptions: 360.00,
+      posts: 256.40,
+      messages: 144.00,
+      tips: 156.00,
+      referrals: 40.00,
+      streams: 40.00
+    }
+  },
+  'Today': {
+    'Gross earnings': {
+      total: 892.30,
+      subscriptions: 320.00,
+      posts: 245.30,
+      messages: 135.00,
+      tips: 142.00,
+      referrals: 30.00,
+      streams: 20.00
+    },
+    'Net earnings': {
+      total: 713.84,
+      subscriptions: 256.00,
+      posts: 196.24,
+      messages: 108.00,
+      tips: 113.60,
+      referrals: 24.00,
+      streams: 16.00
+    }
+  },
+  'This week': {
+    'Gross earnings': {
+      total: 7856.75,
+      subscriptions: 2800.00,
+      posts: 1950.50,
+      messages: 1350.25,
+      tips: 1256.00,
+      referrals: 300.00,
+      streams: 200.00
+    },
+    'Net earnings': {
+      total: 6285.40,
+      subscriptions: 2240.00,
+      posts: 1560.40,
+      messages: 1080.20,
+      tips: 1004.80,
+      referrals: 240.00,
+      streams: 160.00
+    }
+  },
+  'This month': {
+    'Gross earnings': {
+      total: 28456.50,
+      subscriptions: 10500.00,
+      posts: 7250.50,
+      messages: 4850.00,
+      tips: 4206.00,
+      referrals: 1050.00,
+      streams: 600.00
+    },
+    'Net earnings': {
+      total: 22765.20,
+      subscriptions: 8400.00,
+      posts: 5800.40,
+      messages: 3880.00,
+      tips: 3364.80,
+      referrals: 840.00,
+      streams: 480.00
+    }
+  }
+};
+
+export const salesChartData = {
+  'Yesterday': [
+    { date: '12 AM', value: 45.50, earnings: 45.50 },
+    { date: '3 AM', value: 23.20, earnings: 68.70 },
+    { date: '6 AM', value: 12.30, earnings: 81.00 },
+    { date: '9 AM', value: 89.40, earnings: 170.40 },
+    { date: '12 PM', value: 234.60, earnings: 405.00 },
+    { date: '3 PM', value: 456.20, earnings: 861.20 },
+    { date: '6 PM', value: 384.30, earnings: 1245.50 }
+  ],
+  'Today': [
+    { date: '12 AM', value: 32.10, earnings: 32.10 },
+    { date: '3 AM', value: 18.50, earnings: 50.60 },
+    { date: '6 AM', value: 24.30, earnings: 74.90 },
+    { date: '9 AM', value: 156.40, earnings: 231.30 },
+    { date: '12 PM', value: 298.50, earnings: 529.80 },
+    { date: '3 PM', value: 362.50, earnings: 892.30 },
+    { date: 'Now', value: 0, earnings: 892.30 }
+  ],
+  'This week': [
+    { date: 'Oct 5', value: 856.20, earnings: 856.20 },
+    { date: 'Oct 6', value: 1024.50, earnings: 1880.70 },
+    { date: 'Oct 7', value: 1245.50, earnings: 3126.20 },
+    { date: 'Oct 8', value: 1156.30, earnings: 4282.50 },
+    { date: 'Oct 9', value: 982.45, earnings: 5264.95 },
+    { date: 'Oct 10', value: 1299.50, earnings: 6564.45 },
+    { date: 'Oct 11', value: 1292.30, earnings: 7856.75 }
+  ],
+  'This month': [
+    { date: 'Week 1', value: 6245.50, earnings: 6245.50 },
+    { date: 'Week 2', value: 7856.75, earnings: 14102.25 },
+    { date: 'Week 3', value: 8234.25, earnings: 22336.50 },
+    { date: 'Week 4', value: 6120.00, earnings: 28456.50 }
+  ]
+};
+
+export const employeesData = {
+  'Yesterday': [
+    { id: 1, name: 'Sarah Johnson', status: 'clocked-out', hours: 8.5, sales: 456.20 },
+    { id: 2, name: 'Mike Chen', status: 'clocked-out', hours: 7.0, sales: 389.30 },
+    { id: 3, name: 'Emma Davis', status: 'clocked-out', hours: 6.5, sales: 400.00 }
+  ],
+  'Today': [
+    { id: 1, name: 'Sarah Johnson', status: 'clocked-in', hours: 4.2, sales: 298.50 },
+    { id: 2, name: 'Mike Chen', status: 'clocked-in', hours: 3.5, sales: 256.30 },
+    { id: 4, name: 'Alex Rodriguez', status: 'clocked-in', hours: 2.0, sales: 128.50 }
+  ],
+  'This week': [
+    { id: 1, name: 'Sarah Johnson', hours: 42.5, sales: 2856.40 },
+    { id: 2, name: 'Mike Chen', hours: 38.0, sales: 2345.60 },
+    { id: 3, name: 'Emma Davis', hours: 35.5, sales: 1654.75 },
+    { id: 4, name: 'Alex Rodriguez', hours: 28.0, sales: 1000.00 }
+  ],
+  'This month': [
+    { id: 1, name: 'Sarah Johnson', hours: 168.5, sales: 10456.20 },
+    { id: 2, name: 'Mike Chen', hours: 152.0, sales: 8934.50 },
+    { id: 3, name: 'Emma Davis', hours: 145.5, sales: 6234.80 },
+    { id: 4, name: 'Alex Rodriguez', hours: 112.0, sales: 2831.00 }
+  ]
+};
+
+export const shiftsData = {
+  'Yesterday': [
+    { employee: 'Sarah Johnson', start: '9:00 AM', end: '5:30 PM' },
+    { employee: 'Mike Chen', start: '10:00 AM', end: '5:00 PM' },
+    { employee: 'Emma Davis', start: '11:00 AM', end: '5:30 PM' }
+  ],
+  'Today': [
+    { employee: 'Sarah Johnson', start: '9:00 AM', end: '5:30 PM', current: true },
+    { employee: 'Mike Chen', start: '10:00 AM', end: '6:00 PM', current: true },
+    { employee: 'Alex Rodriguez', start: '12:00 PM', end: '8:00 PM', current: true }
+  ],
+  'This week': [
+    { employee: 'Sarah Johnson', totalHours: 42.5, shifts: 6 },
+    { employee: 'Mike Chen', totalHours: 38.0, shifts: 5 },
+    { employee: 'Emma Davis', totalHours: 35.5, shifts: 5 },
+    { employee: 'Alex Rodriguez', totalHours: 28.0, shifts: 4 }
+  ],
+  'This month': [
+    { employee: 'Sarah Johnson', totalHours: 168.5, shifts: 22 },
+    { employee: 'Mike Chen', totalHours: 152.0, shifts: 20 },
+    { employee: 'Emma Davis', totalHours: 145.5, shifts: 19 },
+    { employee: 'Alex Rodriguez', totalHours: 112.0, shifts: 15 }
+  ]
+};
+
+export const scheduledHoursData = {
+  'Yesterday': [
+    { employee: 'Sarah Johnson', scheduled: 8, worked: 8.5 },
+    { employee: 'Mike Chen', scheduled: 7, worked: 7.0 },
+    { employee: 'Emma Davis', scheduled: 6.5, worked: 6.5 }
+  ],
+  'Today': [
+    { employee: 'Sarah Johnson', scheduled: 8.5, worked: 4.2, inProgress: true },
+    { employee: 'Mike Chen', scheduled: 8, worked: 3.5, inProgress: true },
+    { employee: 'Alex Rodriguez', scheduled: 8, worked: 2.0, inProgress: true }
+  ],
+  'This week': [
+    { employee: 'Sarah Johnson', scheduled: 40, worked: 42.5 },
+    { employee: 'Mike Chen', scheduled: 40, worked: 38.0 },
+    { employee: 'Emma Davis', scheduled: 35, worked: 35.5 },
+    { employee: 'Alex Rodriguez', scheduled: 30, worked: 28.0 }
+  ],
+  'This month': [
+    { employee: 'Sarah Johnson', scheduled: 160, worked: 168.5 },
+    { employee: 'Mike Chen', scheduled: 160, worked: 152.0 },
+    { employee: 'Emma Davis', scheduled: 140, worked: 145.5 },
+    { employee: 'Alex Rodriguez', scheduled: 120, worked: 112.0 }
+  ]
+};
+

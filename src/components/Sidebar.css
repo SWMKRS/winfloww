@@ -1,0 +1,67 @@
+.app-sidebar {
+  overflow: auto;
+  height: 100vh;
+  position: relative;
+}
+
+.sidebar-header {
+  padding: 20px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.sidebar-logo {
+  height: 32px;
+  width: auto;
+}
+
+.platform-selector .ant-select-selector {
+  border-radius: 8px !important;
+  border: 1px solid #e0e0e0 !important;
+  background: #f8f8f8 !important;
+}
+
+.sidebar-menu {
+  border-right: none;
+  padding: 8px 8px 80px 8px;
+}
+
+.sidebar-menu .ant-menu-item {
+  border-radius: 8px;
+  margin-bottom: 4px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.sidebar-menu .ant-menu-item-selected {
+  background-color: #e6f0ff;
+  color: #3467ff;
+}
+
+.sidebar-menu .ant-menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.sidebar-bottom-menu {
+  border-right: none;
+  border-top: 1px solid #f0f0f0;
+  padding: 8px;
+}
+
+.sidebar-bottom-menu .ant-menu-item {
+  border-radius: 8px;
+  margin-bottom: 4px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.sidebar-version {
+  padding: 16px;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+

@@ -1,0 +1,73 @@
+version: '3'
+
+vars:
+  APP_NAME: WinFlowW Dashboard
+
+tasks:
+  install:
+    desc: 'Install all dependencies'
+    cmds:
+      - npm install
+
+  dev:
+    desc: 'Start React development server'
+    cmds:
+      - npm start
+
+  electron:
+    desc: 'Run Electron app (after building React)'
+    cmds:
+      - npm run electron
+
+  electron-dev:
+    desc: 'Run Electron in development mode with React dev server'
+    cmds:
+      - npm run electron-dev
+
+  build:
+    desc: 'Build React app for production'
+    cmds:
+      - npm run build
+
+  pack:
+    desc: 'Package Electron app for distribution'
+    deps: [build]
+    cmds:
+      - npm run electron-pack
+
+  clean:
+    desc: 'Clean build artifacts and node_modules'
+    cmds:
+      - rm -rf build/
+      - rm -rf dist/
+      - rm -rf node_modules/
+
+  clean-build:
+    desc: 'Clean and rebuild everything'
+    cmds:
+      - task: clean
+      - task: install
+      - task: build
+
+  start:
+    desc: 'Start both React dev server and Electron (recommended for development)'
+    cmds:
+      - echo "Starting {{.APP_NAME}}..."
+      - echo "1. Run 'npm start' in one terminal"
+      - echo "2. Run 'npm run electron-dev' in another terminal"
+      - echo "Or use concurrently by running both commands together"
+
+  lint:
+    desc: 'Run linter on source files'
+    cmds:
+      - npm run test -- --watchAll=false
+
+  format:
+    desc: 'Format code (if prettier is added)'
+    cmds:
+      - echo "Add prettier to package.json for formatting"
+
+  help:
+    desc: 'Show available tasks'
+    cmds:
+      - task --list
