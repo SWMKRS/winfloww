@@ -1,5 +1,5 @@
 .dashboard {
-  padding-bottom: 24px;
+  padding: 16px;
 }
 
 .dashboard-card {
@@ -72,12 +72,6 @@
   height: 48px;
   margin-bottom: 12px;
   object-fit: contain;
-}
-
-.earnings-label {
-  font-size: 13px;
-  color: #3467ff;
-  margin-bottom: 8px;
 }
 
 .earnings-amount {

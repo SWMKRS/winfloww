@@ -1,65 +1,18 @@
 import { useState, useMemo } from 'react';
-import { Card, Row, Col, Segmented, Tooltip, Empty, Select, Table, Button } from 'antd';
+import { Card, Row, Col, Tooltip, Empty, Select, Table, Button, Tabs, DatePicker } from 'antd';
 import {
   InfoCircleOutlined,
-  CreditCardOutlined,
-  FileTextOutlined,
-  MessageOutlined,
-  BulbOutlined,
-  TeamOutlined,
-  BarChartOutlined,
   PieChartOutlined,
   DownloadOutlined,
-  SettingOutlined
+  SettingOutlined,
+  FilterOutlined,
+  CalendarOutlined
 } from '@ant-design/icons';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
-import { earningsData as mockEarningsData, salesChartData as mockSalesData, employeesData, shiftsData, scheduledHoursData } from '../data/mockData';
+import dayjs from 'dayjs';
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
+import { earningsData as mockEarningsData } from '../data/mockData';
+import EarningsOverview from '../components/EarningsOverview';
 import './CreatorReports.css';
-
-const earningsConfig = [
-  {
-    key: 'subscriptions',
-    title: 'Subscriptions',
-    icon: CreditCardOutlined,
-    color: '#10b981',
-    bgColor: '#d1fae5'
-  },
-  {
-    key: 'posts',
-    title: 'Posts',
-    icon: FileTextOutlined,
-    color: '#06b6d4',
-    bgColor: '#cffafe'
-  },
-  {
-    key: 'messages',
-    title: 'Messages',
-    icon: MessageOutlined,
-    color: '#a855f7',
-    bgColor: '#e9d5ff'
-  },
-  {
-    key: 'tips',
-    title: 'Tips',
-    icon: BulbOutlined,
-    color: '#f59e0b',
-    bgColor: '#fef3c7'
-  },
-  {
-    key: 'referrals',
-    title: 'Referrals',
-    icon: TeamOutlined,
-    color: '#ef4444',
-    bgColor: '#fee2e2'
-  },
-  {
-    key: 'streams',
-    title: 'Streams',
-    icon: BarChartOutlined,
-    color: '#3b82f6',
-    bgColor: '#dbeafe'
-  },
-];
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -82,523 +35,911 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
+const { RangePicker } = DatePicker;
+
+const earningsTrendsData = [
+  { date: 'Oct 5', value: 210 },
+  { date: 'Oct 6', value: 1420 },
+  { date: 'Oct 7', value: 285 },
+  { date: 'Oct 8', value: 350 },
+  { date: 'Oct 9', value: 195 },
+  { date: 'Oct 10', value: 280 },
+  { date: 'Oct 11', value: 165 },
+];
+
+const salesChartData = [
+  { date: 'Oct 5', subscriptions: 850, tips: 120, posts: 450, messages: 320, referrals: 80, streams: 45 },
+  { date: 'Oct 6', subscriptions: 920, tips: 180, posts: 520, messages: 410, referrals: 95, streams: 60 },
+  { date: 'Oct 7', subscriptions: 780, tips: 145, posts: 390, messages: 350, referrals: 70, streams: 40 },
+  { date: 'Oct 8', subscriptions: 890, tips: 165, posts: 480, messages: 380, referrals: 88, streams: 52 },
+  { date: 'Oct 9', subscriptions: 740, tips: 135, posts: 360, messages: 310, referrals: 65, streams: 38 },
+  { date: 'Oct 10', subscriptions: 860, tips: 155, posts: 440, messages: 365, referrals: 82, streams: 48 },
+  { date: 'Oct 11', subscriptions: 720, tips: 125, posts: 340, messages: 295, referrals: 60, streams: 35 },
+];
+
+const creatorStatistics = {
+  creators: 8,
+  messageEarnings: 4523.75,
+  totalEarnings: 12856.50,
+  refunded: 245.00
+};
+
+const creatorTableData = [
+  {
+    key: '1',
+    creator: '@sophia_rose',
+    subscriptions: '$2,450.00',
+    subscriptionsChange: 8.5,
+    newSubscriptions: 45,
+    newSubscriptionsChange: 12.5,
+    recurringSubscriptions: 120,
+    recurringSubscriptionsChange: 5.3,
+    tips: '$890.50',
+    message: '$1,234.25',
+    totalEarnings: '$4,574.75',
+    totalEarningsChange: 15.2,
+    contribution: '35.6%',
+    contributionChange: 2.4,
+    ofRanking: '0.8%',
+    following: '125K',
+    fansWithRenewOn: 98,
+    renewOnPercent: '81.7%',
+    newFans: 52,
+    activeFans: 165,
+    activeFansChange: 7.8,
+    changeInExpiredFanCount: '-8',
+    avgSpendPerSpender: '$27.73',
+    avgSpendPerSpenderChange: 13.1,
+    avgSpendPerTransaction: '$18.45',
+    avgSpendPerTransactionChange: 11.4,
+    avgEarningsPerFan: '$27.73',
+    avgSubscriptionLength: '4.2 months'
+  },
+  {
+    key: '2',
+    creator: '@emma_jade',
+    subscriptions: '$1,890.00',
+    subscriptionsChange: 6.2,
+    newSubscriptions: 32,
+    newSubscriptionsChange: 9.5,
+    recurringSubscriptions: 95,
+    recurringSubscriptionsChange: 3.8,
+    tips: '$645.25',
+    message: '$987.50',
+    totalEarnings: '$3,522.75',
+    totalEarningsChange: 10.7,
+    contribution: '27.4%',
+    contributionChange: 1.8,
+    ofRanking: '1.2%',
+    following: '98K',
+    fansWithRenewOn: 76,
+    renewOnPercent: '80.0%',
+    newFans: 38,
+    activeFans: 142,
+    activeFansChange: 5.9,
+    changeInExpiredFanCount: '-5',
+    avgSpendPerSpender: '$24.81',
+    avgSpendPerSpenderChange: 9.5,
+    avgSpendPerTransaction: '$16.92',
+    avgSpendPerTransactionChange: 8.6,
+    avgEarningsPerFan: '$24.81',
+    avgSubscriptionLength: '3.8 months'
+  },
+  {
+    key: '3',
+    creator: '@ava_luna',
+    subscriptions: '$1,560.00',
+    subscriptionsChange: -2.3,
+    newSubscriptions: 28,
+    newSubscriptionsChange: 7.2,
+    recurringSubscriptions: 82,
+    recurringSubscriptionsChange: 2.5,
+    tips: '$523.75',
+    message: '$768.90',
+    totalEarnings: '$2,852.65',
+    totalEarningsChange: 8.4,
+    contribution: '22.2%',
+    contributionChange: -1.2,
+    ofRanking: '1.5%',
+    following: '76K',
+    fansWithRenewOn: 65,
+    renewOnPercent: '79.3%',
+    newFans: 31,
+    activeFans: 118,
+    activeFansChange: 5.3,
+    changeInExpiredFanCount: '-3',
+    avgSpendPerSpender: '$24.17',
+    avgSpendPerSpenderChange: 8.4,
+    avgSpendPerTransaction: '$15.73',
+    avgSpendPerTransactionChange: 6.6,
+    avgEarningsPerFan: '$24.17',
+    avgSubscriptionLength: '3.5 months'
+  },
+  {
+    key: '4',
+    creator: '@mia_grace',
+    subscriptions: '$1,240.00',
+    subscriptionsChange: 4.1,
+    newSubscriptions: 22,
+    newSubscriptionsChange: 0,
+    recurringSubscriptions: 68,
+    recurringSubscriptionsChange: 1.5,
+    tips: '$412.50',
+    message: '$645.30',
+    totalEarnings: '$2,297.80',
+    totalEarningsChange: 6.3,
+    contribution: '17.9%',
+    contributionChange: 0.9,
+    ofRanking: '2.1%',
+    following: '62K',
+    fansWithRenewOn: 54,
+    renewOnPercent: '79.4%',
+    newFans: 25,
+    activeFans: 98,
+    activeFansChange: 4.2,
+    changeInExpiredFanCount: '-2',
+    avgSpendPerSpender: '$23.45',
+    avgSpendPerSpenderChange: 7.1,
+    avgSpendPerTransaction: '$14.87',
+    avgSpendPerTransactionChange: 5.5,
+    avgEarningsPerFan: '$23.45',
+    avgSubscriptionLength: '3.2 months'
+  },
+  {
+    key: '5',
+    creator: '@olivia_sky',
+    subscriptions: '$980.00',
+    subscriptionsChange: -3.8,
+    newSubscriptions: 18,
+    newSubscriptionsChange: 5.9,
+    recurringSubscriptions: 54,
+    recurringSubscriptionsChange: -1.8,
+    tips: '$325.40',
+    message: '$489.75',
+    totalEarnings: '$1,795.15',
+    totalEarningsChange: 3.2,
+    contribution: '14.0%',
+    contributionChange: -0.5,
+    ofRanking: '2.8%',
+    following: '48K',
+    fansWithRenewOn: 43,
+    renewOnPercent: '79.6%',
+    newFans: 20,
+    activeFans: 82,
+    activeFansChange: 3.8,
+    changeInExpiredFanCount: '-1',
+    avgSpendPerSpender: '$21.89',
+    avgSpendPerSpenderChange: 5.9,
+    avgSpendPerTransaction: '$13.54',
+    avgSpendPerTransactionChange: 5.0,
+    avgEarningsPerFan: '$21.89',
+    avgSubscriptionLength: '2.9 months'
+  }
+];
+
 function CreatorReports() {
   const [timeFilter, setTimeFilter] = useState('This week');
-  const [earningsType, setEarningsType] = useState('Gross earnings');
+  const [earningsType, setEarningsType] = useState('Net earnings');
+  const [activeTab, setActiveTab] = useState('overview');
+  const [dateRange, setDateRange] = useState([dayjs().subtract(6, 'days'), dayjs()]);
+  const [shownBy, setShownBy] = useState('day');
 
-  // Get current data based on filters
-  const currentEarnings = useMemo(() => {
-    return mockEarningsData[timeFilter]?.[earningsType] || mockEarningsData['This week']['Gross earnings'];
-  }, [timeFilter, earningsType]);
+  // helper function to render percentage change
+  const renderPercentageChange = (change) => {
+    if (change === undefined || change === null) return null;
+    const color = change > 0 ? '#10b981' : '#ef4444';
+    const sign = change > 0 ? '+' : '';
+    return (
+      <span style={{
+        color,
+        fontSize: '11px',
+        fontWeight: 700,
+        marginLeft: '8px'
+      }}>
+        {sign}{change.toFixed(1)}%
+      </span>
+    );
+  };
 
-  const earningsData = useMemo(() => {
-    return earningsConfig.map(config => ({
-      ...config,
-      amount: `$${currentEarnings[config.key].toFixed(2)}`
-    }));
-  }, [currentEarnings]);
+  // generate dynamic month presets (current month + 5 previous months)
+  const monthPresets = useMemo(() => {
+    const presets = [];
+    const currentYear = dayjs().year();
 
-  const salesChartData = useMemo(() => {
-    return mockSalesData[timeFilter] || mockSalesData['This week'];
-  }, [timeFilter]);
+    presets.push({
+      label: currentYear.toString(),
+      value: [dayjs(`${currentYear}-01-01`), dayjs(`${currentYear}-12-31`)]
+    });
 
-  const currentEmployees = useMemo(() => {
-    return employeesData[timeFilter] || [];
-  }, [timeFilter]);
-
-  const currentShifts = useMemo(() => {
-    return shiftsData[timeFilter] || [];
-  }, [timeFilter]);
-
-  const currentScheduledHours = useMemo(() => {
-    return scheduledHoursData[timeFilter] || [];
-  }, [timeFilter]);
-
-  const clockedInCount = useMemo(() => {
-    if (timeFilter === 'Today') {
-      return currentEmployees.filter(e => e.status === 'clocked-in').length;
+    for (let i = 0; i < 6; i++) {
+      const monthDate = dayjs().subtract(i, 'month');
+      const monthName = monthDate.format('MMMM');
+      const startOfMonth = monthDate.startOf('month');
+      const endOfMonth = monthDate.endOf('month');
+      presets.push({
+        label: monthName,
+        value: [startOfMonth, endOfMonth]
+      });
     }
-    return 0;
-  }, [timeFilter, currentEmployees]);
+
+    return presets;
+  }, []);
+
+  // calculate days in selected range
+  const daysInRange = useMemo(() => {
+    if (!dateRange || !dateRange[0] || !dateRange[1]) return 7;
+    return dateRange[1].diff(dateRange[0], 'day') + 1;
+  }, [dateRange]);
+
+  // get current data based on date range
+  const currentEarnings = useMemo(() => {
+    // scale earnings based on days in range
+    const baseEarnings = mockEarningsData['This week'][earningsType] || mockEarningsData['This week']['Gross earnings'];
+    const scaleFactor = daysInRange / 7;
+
+    return {
+      total: baseEarnings.total * scaleFactor,
+      subscriptions: baseEarnings.subscriptions * scaleFactor,
+      posts: baseEarnings.posts * scaleFactor,
+      messages: baseEarnings.messages * scaleFactor,
+      tips: baseEarnings.tips * scaleFactor,
+      referrals: baseEarnings.referrals * scaleFactor,
+      streams: baseEarnings.streams * scaleFactor
+    };
+  }, [dateRange, earningsType, daysInRange]);
+
+  // generate dynamic chart data based on date range
+  const dynamicEarningsTrends = useMemo(() => {
+    const data = [];
+    const days = Math.min(daysInRange, 30);
+
+    for (let i = 0; i < days; i++) {
+      const date = dateRange[0].add(i, 'day');
+      const baseValue = 200 + Math.random() * 300;
+      data.push({
+        date: date.format('MMM D'),
+        value: baseValue
+      });
+    }
+
+    return data;
+  }, [dateRange, daysInRange]);
+
+  const dynamicSalesChart = useMemo(() => {
+    const data = [];
+    const days = Math.min(daysInRange, 30);
+
+    for (let i = 0; i < days; i++) {
+      const date = dateRange[0].add(i, 'day');
+      data.push({
+        date: date.format('MMM D'),
+        subscriptions: 700 + Math.floor(Math.random() * 300),
+        tips: 100 + Math.floor(Math.random() * 100),
+        posts: 300 + Math.floor(Math.random() * 250),
+        messages: 250 + Math.floor(Math.random() * 200),
+        referrals: 60 + Math.floor(Math.random() * 40),
+        streams: 30 + Math.floor(Math.random() * 30)
+      });
+    }
+
+    return data;
+  }, [dateRange, daysInRange]);
 
   return (
     <div className="creator-reports">
-      {/* Creator Earnings Overview */}
-      <Card
-        className="creator-reports-card earnings-overview-card"
-        title={
-          <div className="card-title-row">
-            <div style={{ paddingTop: '90px' }}>
-            </div>
-            <span>
-              Creator earnings overview
-              <Tooltip title="View your earnings breakdown">
-                <InfoCircleOutlined style={{ marginLeft: 8, color: '#999' }} />
-              </Tooltip>
-            </span>
-            <span className="timezone-label">
-              UTC-07:00
-              <Tooltip title="Timezone information">
-                <InfoCircleOutlined style={{ marginLeft: 6, color: '#999' }} />
-              </Tooltip>
-            </span>
+      {/* Page Header */}
+      <div className="page-header">
+        <div className="page-header-top">
+          <div>
+            <h1 className="page-title">
+              Creator reports
+              <span className="timezone-badge">
+                UTC+02:00
+                <Tooltip title="Timezone information">
+                  <InfoCircleOutlined style={{ marginLeft: 6, fontSize: 14 }} />
+                </Tooltip>
+              </span>
+            </h1>
           </div>
-        }
-        extra={
-          <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+        </div>
+
+        <div className="page-header-content">
+          <Tabs
+            activeKey={activeTab}
+            onChange={setActiveTab}
+            className="page-tabs"
+            items={[
+              { key: 'overview', label: 'Overview' },
+              { key: 'creator-performance', label: 'Creator performance' }
+            ]}
+          />
+
+          <div className="page-filters">
+            <RangePicker
+              value={dateRange}
+              onChange={setDateRange}
+              format="MMM. DD, YYYY"
+              suffixIcon={<CalendarOutlined />}
+              className="date-range-picker"
+              dropdownClassName="custom-date-picker-dropdown"
+              presets={[
+                { label: 'Custom', value: dateRange },
+                { label: 'Last 7 days', value: [dayjs().subtract(6, 'days'), dayjs()] },
+                { label: 'Last 30 days', value: [dayjs().subtract(29, 'days'), dayjs()] },
+                { label: 'Last 90 days', value: [dayjs().subtract(89, 'days'), dayjs()] },
+                { label: 'Last 365 days', value: [dayjs().subtract(364, 'days'), dayjs()] },
+                ...monthPresets
+              ]}
+              panelRender={(panelNode) => (
+                <div className="custom-range-picker-panel">
+                  {panelNode}
+                </div>
+              )}
+            />
             <Select
-              className="earnings-type-select"
+              value={shownBy}
+              onChange={setShownBy}
+              className="filter-select"
+              suffixIcon={<InfoCircleOutlined style={{ color: '#999' }} />}
+              options={[
+                { value: 'day', label: 'Shown by day' },
+                { value: 'week', label: 'Shown by week' },
+                { value: 'month', label: 'Shown by month' }
+              ]}
+            />
+            <Select
               value={earningsType}
               onChange={setEarningsType}
-              style={{ width: 150 }}
+              className="filter-select"
               options={[
                 { value: 'Gross earnings', label: 'Gross earnings' },
                 { value: 'Net earnings', label: 'Net earnings' }
               ]}
             />
-            <Segmented
-              className="time-filter-segmented"
-              options={['Yesterday', 'Today', 'This week', 'This month']}
-              value={timeFilter}
-              onChange={setTimeFilter}
-            />
+            <Button icon={<FilterOutlined />} className="filters-button">
+              Filters
+            </Button>
           </div>
-        }
-      >
-        <Row gutter={[16, 16]}>
-          {/* Total Earnings Circle */}
-          <Col xs={24} lg={6}>
-            <div className="total-earnings-circle">
-              <img src="/of_logo.png" alt="OnlyFans" className="earnings-logo" />
-              <div className="earnings-label">Total earnings</div>
-              <div className="earnings-amount">${currentEarnings.total.toFixed(2)}</div>
-            </div>
-          </Col>
+        </div>
+      </div>
 
-          {/* Earnings Cards Grid */}
-          <Col xs={24} lg={18}>
-            <div className="earnings-cards-wrapper">
-              <Row gutter={[16, 8]}>
-                {earningsData.map((item, index) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <Col xs={24} sm={12} md={8} lg={8} key={index}>
-                      <div className="earnings-card">
-                        <div className="earnings-card-content">
-                          <div className="earnings-card-amount">{item.amount}</div>
-                          <div className="earnings-card-title">{item.title}</div>
-                        </div>
-                        <div
-                          className="earnings-card-icon"
-                          style={{ background: item.bgColor, color: item.color }}
-                        >
-                          <IconComponent />
-                        </div>
-                      </div>
-                    </Col>
-                  );
-                })}
-              </Row>
-            </div>
-          </Col>
-        </Row>
-      </Card>
+        <div className="creator-reports-container">
 
-      {/* Second Row: My Shifts, Clocked-in Employees, Employee Sales */}
-      <Row gutter={[16, 16]} style={{ marginTop: 16 }}>
-        {/* My Shifts */}
-        <Col xs={24} md={4}>
-          <Card
-            className="creator-reports-card shifts-card"
-            title={
-              <span>
-                My shifts
-                <Tooltip title="View your shift schedule">
-                  <InfoCircleOutlined style={{ marginLeft: 8, color: '#999' }} />
-                </Tooltip>
-              </span>
-            }
-          >
-            <Empty
-              image="/infloww-assets/preload/messages/no-data.svg"
-              description="No data"
-              imageStyle={{ height: 80 }}
-            />
-          </Card>
-        </Col>
+        {/* Earnings Summary */}
+        <div className="earnings-summary-section">
+            <h2 className="section-title">
+            Earnings summary
+            <Tooltip title="View your earnings breakdown">
+                <InfoCircleOutlined style={{ marginLeft: 8, color: '#999', fontSize: 16 }} />
+            </Tooltip>
+            </h2>
+            <EarningsOverview currentEarnings={currentEarnings} />
+        </div>
 
-        {/* Right Column: Clocked-in Employees and Employee Sales */}
-        <Col xs={24} md={20}>
-          <Row gutter={[0, 16]}>
-            {/* Current Clocked-in Employees */}
-            <Col xs={24}>
-              <Card
-                className="creator-reports-card employees-card"
-                title={
-                  <span>
-                    Current clocked-in employees
-                    <Tooltip title="See who is currently working">
-                      <TeamOutlined style={{ marginLeft: 8, color: '#999' }} />
-                    </Tooltip>
-                    <span className="employee-count">{clockedInCount}</span>
-                  </span>
-                }
-              >
-                <div className="empty-employees">
-                    <Empty
-                    image="/infloww-assets/preload/messages/no-data.svg"
-                    description="No employees have clocked in."
-                    imageStyle={{ height: 80 }}
-                    />
-                  {/* <p className="empty-text">No employees have clocked in.</p> */}
-                </div>
-              </Card>
-            </Col>
+        {/* Earnings Trends Section */}
+        <div className="earnings-trends-section">
+            <h2 className="section-title">
+            Earnings trends
+            <Tooltip title="View your earnings trends over time">
+                <InfoCircleOutlined style={{ marginLeft: 8, color: '#999', fontSize: 16 }} />
+            </Tooltip>
+            </h2>
 
-            {/* Employee Sales Chart */}
-            <Col xs={24}>
-              <Card
-                className="creator-reports-card sales-chart-card"
-                title={
-                  <span>
-                    Employee sales
-                    <Tooltip title="Track employee performance">
-                      <InfoCircleOutlined style={{ marginLeft: 8, color: '#999' }} />
-                    </Tooltip>
-                  </span>
-                }
-              >
-                <ResponsiveContainer width="100%" height={300}>
-                  <LineChart data={salesChartData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#d9d9d9" vertical={false} />
-                    <XAxis
-                      dataKey="date"
-                      stroke="#999"
-                      style={{ fontSize: 12 }}
-                      padding={{ left: 80, right: 80 }}
-                      axisLine={false}
-                    />
-                <YAxis
-                  stroke="#999"
-                  style={{ fontSize: 12 }}
-                  ticks={[0, 0.2, 0.4, 0.6, 0.8, 1]}
-                  axisLine={false}
-                  tickLine={false}
-                  width={30}
+            <div className="earnings-trends-chart">
+            <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={dynamicEarningsTrends} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
+                <CartesianGrid
+                    strokeDasharray="3 3"
+                    stroke="#e5e5e5"
+                    vertical={false}
+                    syncWithTicks={true}
                 />
-                    <RechartsTooltip
-                      content={<CustomTooltip />}
-                      cursor={{ stroke: '#999', strokeWidth: 0.5, strokeDasharray: '3 3' }}
-                    />
-                    <Line
-                      type="monotone"
-                      dataKey="value"
-                      stroke="#3467ff"
-                      strokeWidth={3}
-                      dot={{ fill: 'white', stroke: '#3467ff', strokeWidth: 2, r: 6 }}
-                      activeDot={{ r: 8 }}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
-              </Card>
-            </Col>
-
-            {/* Scheduled Hours */}
-            <Col xs={24}>
-              <Card
-                className="creator-reports-card scheduled-hours-card"
-                title={
-                  <span>
-                    Scheduled hours
-                    <Tooltip title="View scheduled work hours">
-                      <InfoCircleOutlined style={{ marginLeft: 8, color: '#999' }} />
-                    </Tooltip>
-                  </span>
-                }
-              >
-                <div className="empty-employees">
-                  <Empty
-                    image="/infloww-assets/preload/messages/no-data.svg"
-                    description="No data"
-                    imageStyle={{ height: 80 }}
-                  />
-                </div>
-              </Card>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-
-      {/* Earnings by Channel */}
-      <Row style={{ marginTop: 16 }}>
-        <Col xs={24}>
-          <Card
-            className="creator-reports-card earnings-channel-card"
-            title={
-              <span>
-                Earnings by channel
-                <Tooltip title="View earnings breakdown by channel">
-                  <InfoCircleOutlined style={{ marginLeft: 8, color: '#999' }} />
-                </Tooltip>
-              </span>
-            }
-          >
-            <div style={{ display: 'flex', gap: '24px' }}>
-              <div style={{ flex: 1 }}>
-                <ResponsiveContainer width="100%" height={250}>
-                  <LineChart data={salesChartData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e5e5" vertical={false} />
-                    <XAxis
-                      dataKey="date"
-                      stroke="#999"
-                      style={{ fontSize: 12 }}
-                      padding={{ left: 20, right: 20 }}
-                      axisLine={false}
-                      tickLine={false}
-                    />
-                    <YAxis
-                      stroke="#999"
-                      style={{ fontSize: 12 }}
-                      ticks={[0, 0.2, 0.4, 0.6, 0.8, 1]}
-                      axisLine={false}
-                      tickLine={false}
-                      width={30}
-                    />
-                    <RechartsTooltip
-                      content={<CustomTooltip />}
-                      cursor={{ stroke: '#999', strokeWidth: 0.5, strokeDasharray: '3 3' }}
-                    />
-                    <Line
-                      type="monotone"
-                      dataKey="value"
-                      stroke="#3b82f6"
-                      strokeWidth={2}
-                      dot={false}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
-              </div>
-              <div className="earnings-legend">
-                <div className="legend-item">
-                  <span className="legend-dot" style={{ backgroundColor: '#3b82f6' }}></span>
-                  <span className="legend-label">Subscriptions</span>
-                  <span className="legend-percentage">0%</span>
-                  <span className="legend-amount">$0</span>
-                </div>
-                <div className="legend-item">
-                  <span className="legend-dot" style={{ backgroundColor: '#06b6d4' }}></span>
-                  <span className="legend-label">Tips</span>
-                  <span className="legend-percentage">0%</span>
-                  <span className="legend-amount">$0</span>
-                </div>
-                <div className="legend-item">
-                  <span className="legend-dot" style={{ backgroundColor: '#ef4444' }}></span>
-                  <span className="legend-label">Posts</span>
-                  <span className="legend-percentage">0%</span>
-                  <span className="legend-amount">$0</span>
-                </div>
-                <div className="legend-item">
-                  <span className="legend-dot" style={{ backgroundColor: '#f59e0b' }}></span>
-                  <span className="legend-label">Messages</span>
-                  <span className="legend-percentage">0%</span>
-                  <span className="legend-amount">$0</span>
-                </div>
-                <div className="legend-item">
-                  <span className="legend-dot" style={{ backgroundColor: '#06b6d4' }}></span>
-                  <span className="legend-label">Referrals</span>
-                  <span className="legend-percentage">0%</span>
-                  <span className="legend-amount">$0</span>
-                </div>
-                <div className="legend-item">
-                  <span className="legend-dot" style={{ backgroundColor: '#a855f7' }}></span>
-                  <span className="legend-label">Streams</span>
-                  <span className="legend-percentage">0%</span>
-                  <span className="legend-amount">$0</span>
-                </div>
-              </div>
+                <XAxis
+                    dataKey="date"
+                    stroke="#999"
+                    style={{ fontSize: 12 }}
+                    axisLine={false}
+                    tickLine={false}
+                />
+                <YAxis
+                    stroke="#999"
+                    style={{ fontSize: 12 }}
+                    ticks={[0, 300, 600, 900, 1200, 1500]}
+                    axisLine={false}
+                    tickLine={false}
+                    width={40}
+                />
+                <RechartsTooltip
+                    cursor={{ fill: 'rgba(52, 103, 255, 0.1)' }}
+                    contentStyle={{
+                    backgroundColor: '#4a4a4a',
+                    border: 'none',
+                    borderRadius: '8px',
+                    color: 'white',
+                    fontSize: '14px',
+                    padding: '12px 16px'
+                    }}
+                    labelStyle={{ fontWeight: 500, marginBottom: '4px' }}
+                />
+              <Bar
+                dataKey="value"
+                fill="#3467ff"
+                maxBarSize={60}
+              />
+                </BarChart>
+            </ResponsiveContainer>
             </div>
-          </Card>
-        </Col>
-      </Row>
+        </div>
 
-      {/* Creator Statistics */}
-      <Row style={{ marginTop: 16 }}>
-        <Col xs={24}>
-          <Card
-            className="creator-reports-card creator-statistics-card"
-            title={
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <span>Creator statistics</span>
-                <span style={{ fontSize: '13px', fontWeight: 400, color: '#999' }}>
-                  Percentage change is calculated based on the change in value in the selected time frame against the same time frame immediately before it.
+        {/* Earnings by Channel */}
+        <Row>
+            <Col xs={24}>
+            <Card
+                className="creator-reports-card earnings-channel-card"
+                title={
+                <span>
+                    Earnings by channel
+                    <Tooltip title="View earnings breakdown by channel">
+                    <InfoCircleOutlined style={{ marginLeft: 8, color: '#999' }} />
+                    </Tooltip>
                 </span>
-              </div>
-            }
-            extra={
-              <div style={{ display: 'flex', gap: '12px' }}>
-                <Button icon={<SettingOutlined />}>Custom metrics</Button>
-                <Button icon={<DownloadOutlined />}>Export</Button>
-              </div>
-            }
-          >
-            {/* Stats Cards */}
-            <Row gutter={[16, 16]} style={{ marginBottom: 24 }}>
-              <Col xs={24} sm={12} md={6}>
-                <div className="stat-card">
-                  <div className="stat-value">0</div>
-                  <div className="stat-label">
-                    Creators
-                    <Tooltip title="Total number of creators">
-                      <InfoCircleOutlined style={{ marginLeft: 6, fontSize: 12 }} />
-                    </Tooltip>
-                  </div>
+                }
+            >
+                <div style={{ display: 'flex', gap: '24px', marginTop: '36px' }}>
+                <div style={{ flex: 1 }}>
+                    <ResponsiveContainer width="100%" height={250}>
+                    <LineChart data={dynamicSalesChart}
+                        // margin={{ top: 16}}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" stroke="#e5e5e5" vertical={false} />
+                        <XAxis
+                        dataKey="date"
+                        stroke="#999"
+                        style={{ fontSize: 12 }}
+                        padding={{ left: 20, right: 20 }}
+                        axisLine={false}
+                        tickLine={false}
+                        />
+                        <YAxis
+                        stroke="#999"
+                        style={{ fontSize: 12 }}
+                        ticks={[0, 200, 400, 600, 800, 1000]}
+                        axisLine={false}
+                        tickLine={false}
+                        width={40}
+                        />
+                        <RechartsTooltip
+                        cursor={{ stroke: '#999', strokeWidth: 0.5, strokeDasharray: '3 3' }}
+                        />
+                        <Line
+                        dataKey="subscriptions"
+                        stroke="#3b82f6"
+                        strokeWidth={2}
+                        dot={{ fill: 'white', stroke: '#3b82f6', strokeWidth: 2, r: 2 }}
+                        />
+                        <Line
+                        dataKey="tips"
+                        stroke="#06b6d4"
+                        strokeWidth={2}
+                        dot={{ fill: 'white', stroke: '#06b6d4', strokeWidth: 2, r: 2 }}
+                        />
+                        <Line
+                        dataKey="posts"
+                        stroke="#ef4444"
+                        strokeWidth={2}
+                        dot={{ fill: 'white', stroke: '#ef4444', strokeWidth: 2, r: 2 }}
+                        />
+                        <Line
+                        dataKey="messages"
+                        stroke="#f59e0b"
+                        strokeWidth={2}
+                        dot={{ fill: 'white', stroke: '#f59e0b', strokeWidth: 2, r: 2 }}
+                        />
+                        <Line
+                        dataKey="referrals"
+                        stroke="#10b981"
+                        strokeWidth={2}
+                        dot={{ fill: 'white', stroke: '#10b981', strokeWidth: 2, r: 2 }}
+                        />
+                        <Line
+                        dataKey="streams"
+                        stroke="#a855f7"
+                        strokeWidth={2}
+                        dot={{ fill: 'white', stroke: '#a855f7', strokeWidth: 2, r: 2 }}
+                        />
+                    </LineChart>
+                    </ResponsiveContainer>
                 </div>
-              </Col>
-              <Col xs={24} sm={12} md={6}>
-                <div className="stat-card">
-                  <div className="stat-value">$0.00</div>
-                  <div className="stat-label">
-                    Message earnings
-                    <Tooltip title="Total earnings from messages">
-                      <InfoCircleOutlined style={{ marginLeft: 6, fontSize: 12 }} />
-                    </Tooltip>
-                  </div>
+                <div className="earnings-legend">
+                    <div className="legend-item">
+                    <span className="legend-dot" style={{ backgroundColor: '#3b82f6' }}></span>
+                    <span className="legend-label">Subscriptions</span>
+                    <span className="legend-percentage">{((currentEarnings.subscriptions / currentEarnings.total) * 100).toFixed(1)}%</span>
+                    <span className="legend-amount">${currentEarnings.subscriptions.toFixed(0)}</span>
+                    </div>
+                    <div className="legend-item">
+                    <span className="legend-dot" style={{ backgroundColor: '#06b6d4' }}></span>
+                    <span className="legend-label">Tips</span>
+                    <span className="legend-percentage">{((currentEarnings.tips / currentEarnings.total) * 100).toFixed(1)}%</span>
+                    <span className="legend-amount">${currentEarnings.tips.toFixed(0)}</span>
+                    </div>
+                    <div className="legend-item">
+                    <span className="legend-dot" style={{ backgroundColor: '#ef4444' }}></span>
+                    <span className="legend-label">Posts</span>
+                    <span className="legend-percentage">{((currentEarnings.posts / currentEarnings.total) * 100).toFixed(1)}%</span>
+                    <span className="legend-amount">${currentEarnings.posts.toFixed(0)}</span>
+                    </div>
+                    <div className="legend-item">
+                    <span className="legend-dot" style={{ backgroundColor: '#f59e0b' }}></span>
+                    <span className="legend-label">Messages</span>
+                    <span className="legend-percentage">{((currentEarnings.messages / currentEarnings.total) * 100).toFixed(1)}%</span>
+                    <span className="legend-amount">${currentEarnings.messages.toFixed(0)}</span>
+                    </div>
+                    <div className="legend-item">
+                    <span className="legend-dot" style={{ backgroundColor: '#10b981' }}></span>
+                    <span className="legend-label">Referrals</span>
+                    <span className="legend-percentage">{((currentEarnings.referrals / currentEarnings.total) * 100).toFixed(1)}%</span>
+                    <span className="legend-amount">${currentEarnings.referrals.toFixed(0)}</span>
+                    </div>
+                    <div className="legend-item">
+                    <span className="legend-dot" style={{ backgroundColor: '#a855f7' }}></span>
+                    <span className="legend-label">Streams</span>
+                    <span className="legend-percentage">{((currentEarnings.streams / currentEarnings.total) * 100).toFixed(1)}%</span>
+                    <span className="legend-amount">${currentEarnings.streams.toFixed(0)}</span>
+                    </div>
                 </div>
-              </Col>
-              <Col xs={24} sm={12} md={6}>
-                <div className="stat-card">
-                  <div className="stat-value">$0.00</div>
-                  <div className="stat-label">
-                    Total earnings
-                    <Tooltip title="Total earnings across all channels">
-                      <InfoCircleOutlined style={{ marginLeft: 6, fontSize: 12 }} />
-                    </Tooltip>
-                  </div>
                 </div>
-              </Col>
-              <Col xs={24} sm={12} md={6}>
-                <div className="stat-card">
-                  <div className="stat-value">$0.00</div>
-                  <div className="stat-label">
-                    Refunded
-                    <Tooltip title="Total amount refunded">
-                      <InfoCircleOutlined style={{ marginLeft: 6, fontSize: 12 }} />
-                    </Tooltip>
-                  </div>
-                </div>
-              </Col>
-            </Row>
+            </Card>
+            </Col>
+        </Row>
 
-            {/* Creator Table */}
-            <Table
-              className="creator-table"
-              columns={[
-                {
-                  title: () => (
-                    <span>
-                      Creator <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+        {/* Creator Statistics */}
+        <Row>
+            <Col xs={24}>
+            <Card
+                className="creator-reports-card creator-statistics-card"
+                title={
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0px' }}>
+                    <span>Creator statistics</span>
+                    <span style={{ fontSize: '14px', fontWeight: 500, color: '#999' }}>
+                    Percentage change is calculated based on the change in value in the selected time frame against the same time frame immediately before it.
                     </span>
-                  ),
-                  dataIndex: 'creator',
-                  key: 'creator',
-                  fixed: 'left',
-                },
-                {
-                  title: () => (
-                    <span>
-                      Subscriptions <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
-                    </span>
-                  ),
-                  dataIndex: 'subscriptions',
-                  key: 'subscriptions',
-                  sorter: true,
-                },
-                {
-                  title: () => (
-                    <span>
-                      New subscriptions <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
-                    </span>
-                  ),
-                  dataIndex: 'newSubscriptions',
-                  key: 'newSubscriptions',
-                  sorter: true,
-                },
-                {
-                  title: () => (
-                    <span>
-                      Recurring subscriptions <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
-                    </span>
-                  ),
-                  dataIndex: 'recurringSubscriptions',
-                  key: 'recurringSubscriptions',
-                  sorter: true,
-                },
-                {
-                  title: () => (
-                    <span>
-                      Tips <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
-                    </span>
-                  ),
-                  dataIndex: 'tips',
-                  key: 'tips',
-                  sorter: true,
-                },
-                {
-                  title: () => (
-                    <span>
-                      Message <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
-                    </span>
-                  ),
-                  dataIndex: 'message',
-                  key: 'message',
-                  sorter: true,
-                },
-                {
-                  title: () => (
-                    <span>
-                      Total earnings <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
-                    </span>
-                  ),
-                  dataIndex: 'totalEarnings',
-                  key: 'totalEarnings',
-                  sorter: true,
-                },
-                {
-                  title: () => (
-                    <span>
-                      Contribution % <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
-                    </span>
-                  ),
-                  dataIndex: 'contribution',
-                  key: 'contribution',
-                  sorter: true,
-                },
-                {
-                  title: () => (
-                    <span>
-                      OF ranking <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
-                    </span>
-                  ),
-                  dataIndex: 'ofRanking',
-                  key: 'ofRanking',
-                  sorter: true,
-                },
-              ]}
-              dataSource={[]}
-              pagination={false}
-              locale={{
-                emptyText: (
-                  <Empty
-                    image="/infloww-assets/preload/messages/no-data.svg"
-                    description="No data"
-                    imageStyle={{ height: 80 }}
-                  />
-                ),
-              }}
-            />
-          </Card>
-        </Col>
-      </Row>
+                </div>
+                }
+                extra={
+                <div style={{ display: 'flex', gap: '12px' }}>
+                    <Button icon={<SettingOutlined />}>Custom metrics</Button>
+                    <Button icon={<DownloadOutlined />}>Export</Button>
+                </div>
+                }
+            >
+                {/* Stats Cards */}
+                <Row gutter={[16, 16]} style={{ marginBottom: 24 }}>
+                <Col xs={24} sm={12} md={6}>
+                    <div className="stat-card">
+                    <div className="stat-value">{creatorStatistics.creators}</div>
+                    <div className="stat-label">
+                        <span>Creators</span>
+                        <Tooltip title="Total number of creators">
+                        <InfoCircleOutlined style={{ fontSize: 12 }} />
+                        </Tooltip>
+                    </div>
+                    </div>
+                </Col>
+                <Col xs={24} sm={12} md={6}>
+                    <div className="stat-card">
+                    <div className="stat-value">${creatorStatistics.messageEarnings.toFixed(2)}</div>
+                    <div className="stat-label">
+                        <span>Message earnings</span>
+                        <Tooltip title="Total earnings from messages">
+                        <InfoCircleOutlined style={{ fontSize: 12 }} />
+                        </Tooltip>
+                    </div>
+                    </div>
+                </Col>
+                <Col xs={24} sm={12} md={6}>
+                    <div className="stat-card">
+                    <div className="stat-value">${creatorStatistics.totalEarnings.toFixed(2)}</div>
+                    <div className="stat-label">
+                        <span>Total earnings</span>
+                        <Tooltip title="Total earnings across all channels">
+                        <InfoCircleOutlined style={{ fontSize: 12 }} />
+                        </Tooltip>
+                    </div>
+                    </div>
+                </Col>
+                <Col xs={24} sm={12} md={6}>
+                    <div className="stat-card">
+                    <div className="stat-value">${creatorStatistics.refunded.toFixed(2)}</div>
+                    <div className="stat-label">
+                        <span>Refunded</span>
+                        <Tooltip title="Total amount refunded">
+                        <InfoCircleOutlined style={{ fontSize: 12 }} />
+                        </Tooltip>
+                    </div>
+                    </div>
+                </Col>
+                </Row>
+
+                {/* Creator Table */}
+                <Table
+                className="creator-table"
+                scroll={{ x: 'max-content' }}
+                columns={[
+                    {
+                    title: () => (
+                        <span>
+                        Creator <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'creator',
+                    key: 'creator',
+                    fixed: 'left',
+                    width: 150,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Subscriptions <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'subscriptions',
+                    key: 'subscriptions',
+                    sorter: true,
+                    width: 180,
+                    render: (text, record) => (
+                        <span>
+                        {text}
+                        {renderPercentageChange(record.subscriptionsChange)}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        New subscriptions <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'newSubscriptions',
+                    key: 'newSubscriptions',
+                    sorter: true,
+                    width: 200,
+                    render: (text, record) => (
+                        <span>
+                        {text}
+                        {renderPercentageChange(record.newSubscriptionsChange)}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Recurring subscriptions <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'recurringSubscriptions',
+                    key: 'recurringSubscriptions',
+                    sorter: true,
+                    width: 240,
+                    render: (text, record) => (
+                        <span>
+                        {text}
+                        {renderPercentageChange(record.recurringSubscriptionsChange)}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Tips <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'tips',
+                    key: 'tips',
+                    sorter: true,
+                    width: 120,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Message <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'message',
+                    key: 'message',
+                    sorter: true,
+                    width: 120,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Total earnings <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'totalEarnings',
+                    key: 'totalEarnings',
+                    sorter: true,
+                    width: 180,
+                    render: (text, record) => (
+                        <span>
+                        {text}
+                        {renderPercentageChange(record.totalEarningsChange)}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Contribution % <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'contribution',
+                    key: 'contribution',
+                    sorter: true,
+                    width: 180,
+                    render: (text, record) => (
+                        <span>
+                        {text}
+                        {renderPercentageChange(record.contributionChange)}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        OF ranking <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'ofRanking',
+                    key: 'ofRanking',
+                    sorter: true,
+                    width: 120,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Following <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'following',
+                    key: 'following',
+                    sorter: true,
+                    width: 120,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Fans with renew on <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'fansWithRenewOn',
+                    key: 'fansWithRenewOn',
+                    sorter: true,
+                    width: 170,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Renew on % <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'renewOnPercent',
+                    key: 'renewOnPercent',
+                    sorter: true,
+                    width: 130,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        New fans <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'newFans',
+                    key: 'newFans',
+                    sorter: true,
+                    width: 120,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Active fans <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'activeFans',
+                    key: 'activeFans',
+                    sorter: true,
+                    width: 180,
+                    render: (text, record) => (
+                        <span>
+                        {text}
+                        {renderPercentageChange(record.activeFansChange)}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Change in expired fan count <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'changeInExpiredFanCount',
+                    key: 'changeInExpiredFanCount',
+                    sorter: true,
+                    width: 230,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Avg spend per spender <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'avgSpendPerSpender',
+                    key: 'avgSpendPerSpender',
+                    sorter: true,
+                    width: 240,
+                    render: (text, record) => (
+                        <span>
+                        {text}
+                        {renderPercentageChange(record.avgSpendPerSpenderChange)}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Avg spend per transaction <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'avgSpendPerTransaction',
+                    key: 'avgSpendPerTransaction',
+                    sorter: true,
+                    width: 250,
+                    render: (text, record) => (
+                        <span>
+                        {text}
+                        {renderPercentageChange(record.avgSpendPerTransactionChange)}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Avg earnings per fan <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'avgEarningsPerFan',
+                    key: 'avgEarningsPerFan',
+                    sorter: true,
+                    width: 180,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Avg subscription length <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'avgSubscriptionLength',
+                    key: 'avgSubscriptionLength',
+                    sorter: true,
+                    width: 200,
+                    },
+                ]}
+                dataSource={creatorTableData}
+                pagination={false}
+                locale={{
+                    emptyText: (
+                    <Empty
+                        image="/src/assets/no_data.png"
+                        description="No data"
+                        styles={{ image: { height: 80 } }}
+                    />
+                    ),
+                }}
+                />
+            </Card>
+            </Col>
+        </Row>
+        </div>
     </div>
   );
 }

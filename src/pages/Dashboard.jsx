@@ -2,62 +2,13 @@ import { useState, useMemo } from 'react';
 import { Card, Row, Col, Segmented, Tooltip, Empty, Select } from 'antd';
 import {
   InfoCircleOutlined,
-  CreditCardOutlined,
-  FileTextOutlined,
-  MessageOutlined,
-  BulbOutlined,
   TeamOutlined,
-  BarChartOutlined,
   PieChartOutlined
 } from '@ant-design/icons';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
 import { earningsData as mockEarningsData, salesChartData as mockSalesData, employeesData, shiftsData, scheduledHoursData } from '../data/mockData';
+import EarningsOverview from '../components/EarningsOverview';
 import './Dashboard.css';
-
-const earningsConfig = [
-  {
-    key: 'subscriptions',
-    title: 'Subscriptions',
-    icon: CreditCardOutlined,
-    color: '#10b981',
-    bgColor: '#d1fae5'
-  },
-  {
-    key: 'posts',
-    title: 'Posts',
-    icon: FileTextOutlined,
-    color: '#06b6d4',
-    bgColor: '#cffafe'
-  },
-  {
-    key: 'messages',
-    title: 'Messages',
-    icon: MessageOutlined,
-    color: '#a855f7',
-    bgColor: '#e9d5ff'
-  },
-  {
-    key: 'tips',
-    title: 'Tips',
-    icon: BulbOutlined,
-    color: '#f59e0b',
-    bgColor: '#fef3c7'
-  },
-  {
-    key: 'referrals',
-    title: 'Referrals',
-    icon: TeamOutlined,
-    color: '#ef4444',
-    bgColor: '#fee2e2'
-  },
-  {
-    key: 'streams',
-    title: 'Streams',
-    icon: BarChartOutlined,
-    color: '#3b82f6',
-    bgColor: '#dbeafe'
-  },
-];
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -88,13 +39,6 @@ function Dashboard() {
   const currentEarnings = useMemo(() => {
     return mockEarningsData[timeFilter]?.[earningsType] || mockEarningsData['This week']['Gross earnings'];
   }, [timeFilter, earningsType]);
-
-  const earningsData = useMemo(() => {
-    return earningsConfig.map(config => ({
-      ...config,
-      amount: `$${currentEarnings[config.key].toFixed(2)}`
-    }));
-  }, [currentEarnings]);
 
   const salesChartData = useMemo(() => {
     return mockSalesData[timeFilter] || mockSalesData['This week'];
@@ -163,43 +107,7 @@ function Dashboard() {
           </div>
         }
       >
-        <Row gutter={[16, 16]}>
-          {/* Total Earnings Circle */}
-          <Col xs={24} lg={6}>
-            <div className="total-earnings-circle">
-              <img src="/of_logo.png" alt="OnlyFans" className="earnings-logo" />
-              <div className="earnings-label">Total earnings</div>
-              <div className="earnings-amount">${currentEarnings.total.toFixed(2)}</div>
-            </div>
-          </Col>
-
-          {/* Earnings Cards Grid */}
-          <Col xs={24} lg={18}>
-            <div className="earnings-cards-wrapper">
-              <Row gutter={[16, 8]}>
-                {earningsData.map((item, index) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <Col xs={24} sm={12} md={8} lg={8} key={index}>
-                      <div className="earnings-card">
-                        <div className="earnings-card-content">
-                          <div className="earnings-card-amount">{item.amount}</div>
-                          <div className="earnings-card-title">{item.title}</div>
-                        </div>
-                        <div
-                          className="earnings-card-icon"
-                          style={{ background: item.bgColor, color: item.color }}
-                        >
-                          <IconComponent />
-                        </div>
-                      </div>
-                    </Col>
-                  );
-                })}
-              </Row>
-            </div>
-          </Col>
-        </Row>
+        <EarningsOverview currentEarnings={currentEarnings} padding="24px" />
       </Card>
 
       {/* Second Row: My Shifts, Clocked-in Employees, Employee Sales */}
@@ -218,9 +126,9 @@ function Dashboard() {
             }
           >
             <Empty
-              image="/infloww-assets/preload/messages/no-data.svg"
+              image="/src/assets/no_data.png"
               description="No data"
-              imageStyle={{ height: 80 }}
+              styles={{ image: { height: 80 } }}
             />
           </Card>
         </Col>
@@ -244,9 +152,9 @@ function Dashboard() {
               >
                 <div className="empty-employees">
                     <Empty
-                    image="/infloww-assets/preload/messages/no-data.svg"
+                    image="/src/assets/no_data.png"
                     description="No employees have clocked in."
-                    imageStyle={{ height: 80 }}
+                    styles={{ image: { height: 80 } }}
                     />
                   {/* <p className="empty-text">No employees have clocked in.</p> */}
                 </div>
@@ -316,9 +224,9 @@ function Dashboard() {
               >
                 <div className="empty-employees">
                   <Empty
-                    image="/infloww-assets/preload/messages/no-data.svg"
+                    image="/src/assets/no_data.png"
                     description="No data"
-                    imageStyle={{ height: 80 }}
+                    styles={{ image: { height: 80 } }}
                   />
                 </div>
               </Card>

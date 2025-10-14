@@ -58,3 +58,60 @@ body {
   border-color: #2954d9 !important;
 }
 
+/* date picker preset overrides */
+.custom-date-picker-dropdown .ant-picker-presets {
+  padding: 16px !important;
+  min-width: 280px !important;
+  max-width: 280px !important;
+  border-right: 1px solid #f0f0f0 !important;
+}
+
+.custom-date-picker-dropdown .ant-picker-presets > ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+
+.custom-date-picker-dropdown .ant-picker-presets > ul > li {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.custom-date-picker-dropdown .ant-picker-presets > ul > li:first-child button {
+  background: #3467ff !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 500 !important;
+}
+
+.custom-date-picker-dropdown .ant-picker-presets > ul > li:first-child button:hover {
+  background: #2555dd !important;
+  color: white !important;
+}
+
+.custom-date-picker-dropdown .ant-picker-presets > ul > li button {
+  width: 100% !important;
+  text-align: center !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: #333 !important;
+  font-size: 14px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+  border-radius: 6px !important;
+  padding: 0 8px !important;
+  display: block !important;
+  cursor: pointer !important;
+}
+
+.custom-date-picker-dropdown .ant-picker-presets > ul > li button:hover {
+  background: #f5f5f5 !important;
+  color: #333 !important;
+}
+

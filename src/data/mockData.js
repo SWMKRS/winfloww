@@ -121,26 +121,26 @@ export const salesChartData = {
 
 export const employeesData = {
   'Yesterday': [
-    { id: 1, name: 'Sarah Johnson', status: 'clocked-out', hours: 8.5, sales: 456.20 },
-    { id: 2, name: 'Mike Chen', status: 'clocked-out', hours: 7.0, sales: 389.30 },
-    { id: 3, name: 'Emma Davis', status: 'clocked-out', hours: 6.5, sales: 400.00 }
+    { id: 1, name: 'Sarah Johnson', status: 'clocked-out', hours: 8.5, sales: 0 },
+    { id: 2, name: 'Mike Chen', status: 'clocked-out', hours: 7.0, sales: 0 },
+    { id: 3, name: 'Emma Davis', status: 'clocked-out', hours: 6.5, sales: 0 }
   ],
   'Today': [
-    { id: 1, name: 'Sarah Johnson', status: 'clocked-in', hours: 4.2, sales: 298.50 },
-    { id: 2, name: 'Mike Chen', status: 'clocked-in', hours: 3.5, sales: 256.30 },
-    { id: 4, name: 'Alex Rodriguez', status: 'clocked-in', hours: 2.0, sales: 128.50 }
+    { id: 1, name: 'Sarah Johnson', status: 'clocked-in', hours: 4.2, sales: 0 },
+    { id: 2, name: 'Mike Chen', status: 'clocked-in', hours: 3.5, sales: 0 },
+    { id: 4, name: 'Alex Rodriguez', status: 'clocked-in', hours: 2.0, sales: 0 }
   ],
   'This week': [
-    { id: 1, name: 'Sarah Johnson', hours: 42.5, sales: 2856.40 },
-    { id: 2, name: 'Mike Chen', hours: 38.0, sales: 2345.60 },
-    { id: 3, name: 'Emma Davis', hours: 35.5, sales: 1654.75 },
-    { id: 4, name: 'Alex Rodriguez', hours: 28.0, sales: 1000.00 }
+    { id: 1, name: 'Sarah Johnson', hours: 42.5, sales: 0 },
+    { id: 2, name: 'Mike Chen', hours: 38.0, sales: 0 },
+    { id: 3, name: 'Emma Davis', hours: 35.5, sales: 0 },
+    { id: 4, name: 'Alex Rodriguez', hours: 28.0, sales: 0 }
   ],
   'This month': [
-    { id: 1, name: 'Sarah Johnson', hours: 168.5, sales: 10456.20 },
-    { id: 2, name: 'Mike Chen', hours: 152.0, sales: 8934.50 },
-    { id: 3, name: 'Emma Davis', hours: 145.5, sales: 6234.80 },
-    { id: 4, name: 'Alex Rodriguez', hours: 112.0, sales: 2831.00 }
+    { id: 1, name: 'Sarah Johnson', hours: 168.5, sales: 0 },
+    { id: 2, name: 'Mike Chen', hours: 152.0, sales: 0 },
+    { id: 3, name: 'Emma Davis', hours: 145.5, sales: 0 },
+    { id: 4, name: 'Alex Rodriguez', hours: 112.0, sales: 0 }
   ]
 };
 
@@ -194,3 +194,6 @@ export const scheduledHoursData = {
   ]
 };
 
+export const notificationData = {
+  totalMessages: 7
+};

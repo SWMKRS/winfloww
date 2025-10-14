@@ -1,7 +1,7 @@
 version: '3'
 
 vars:
-  APP_NAME: WinFlowW Dashboard
+  APP_NAME: Infloww
 
 tasks:
   install:
@@ -34,6 +34,12 @@ tasks:
     deps: [build]
     cmds:
       - npm run electron-pack
+
+  build:mac:
+    desc: 'Build Mac installer (.dmg and .zip) with Infloww branding'
+    deps: [build]
+    cmds:
+      - electron-builder --mac --config.productName="Infloww" --config.mac.icon="infloww-assets/app-logo/logo.icns"
 
   clean:
     desc: 'Clean build artifacts and node_modules'

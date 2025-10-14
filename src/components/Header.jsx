@@ -1,16 +1,17 @@
-import { Layout, Badge, Button, Dropdown, Space } from 'antd';
-import {
-  BellOutlined,
-  GlobalOutlined,
-  TeamOutlined,
-  TrophyOutlined,
-  DownOutlined,
-} from '@ant-design/icons';
+import { Layout, Button, Dropdown } from 'antd';
+import { InfoCircleOutlined } from '@ant-design/icons';
+
+import notificationsIcon from '../assets/header/notifications.png';
+import sidebarActiveIcon from '../assets/header/sidebar_active.png';
+import sidebarInactiveIcon from '../assets/header/sidebar_inactive.png';
+import referralsIcon from '../assets/header/referrals.png';
+import leaderboardIcon from '../assets/header/leaderboards.png';
+import utcIcon from '../assets/header/utc.png';
 import './Header.css';
 
 const { Header: AntHeader } = Layout;
 
-function Header() {
+function Header({ sidebarCollapsed, onToggleSidebar }) {
   const userMenuItems = [
     {
       key: 'profile',
@@ -32,13 +33,12 @@ function Header() {
   return (
     <AntHeader className="app-header">
       <div className="header-left">
-        {/* Trial Banner */}
-        <div className="trial-banner">
-          <div className="trial-icon">⚡</div>
-          <div className="trial-text">
-            <div>You're on a free trial</div>
-            <div className="trial-days">14 days left</div>
-          </div>
+        <div className="sidebar-logo-header" onClick={onToggleSidebar}>
+          <img
+            src={sidebarCollapsed ? sidebarInactiveIcon : sidebarActiveIcon}
+            alt="Toggle sidebar"
+            className="sidebar-toggle-icon"
+          />
         </div>
       </div>
 
@@ -50,41 +50,43 @@ function Header() {
         </div>
 
         {/* Timezone */}
-        <Button type="text" className="header-button">
-          <GlobalOutlined />
+        <div className="header-timezone-badge">
+          <img src={utcIcon} alt="UTC" className="header-badge-icon" />
           <span>UTC-07:00</span>
-          <Badge count={0} />
-        </Button>
+          <InfoCircleOutlined style={{ fontSize: 18 }} />
+        </div>
 
         {/* Referrals */}
-        <Button type="text" className="header-button">
-          <TeamOutlined />
+        <div className="header-timezone-badge">
+          <img src={referralsIcon} alt="Referrals" className="header-badge-icon" />
           <span>Referrals</span>
-        </Button>
+        </div>
 
         {/* Leaderboard */}
-        <Button type="text" className="header-button">
-          <TrophyOutlined />
+        <div className="header-timezone-badge">
+          <img src={leaderboardIcon} alt="Leaderboard" className="header-badge-icon" />
           <span>Leaderboard</span>
-        </Button>
+        </div>
 
-        {/* SFW Badge */}
-        <div className="sfw-badge">
-          SFW
+        {/* SFW Toggle */}
+        <div className="sfw-toggle">
+          <div className="sfw-label">SFW</div>
+          <div className="sfw-switch">
+            <div className="sfw-switch-handle"></div>
+          </div>
         </div>
 
         {/* Notifications */}
-        <Button type="text" className="header-icon-button">
-          <Badge count={0}>
-            <BellOutlined style={{ fontSize: 18 }} />
-          </Badge>
-        </Button>
+        <img
+          src={notificationsIcon}
+          alt="Notifications"
+          className="notification-icon"
+        />
 
         {/* User Menu */}
         <Dropdown menu={{ items: userMenuItems }} placement="bottomRight">
           <Button type="text" className="user-button">
             <div className="user-avatar">FD</div>
-            <DownOutlined style={{ fontSize: 10 }} />
           </Button>
         </Dropdown>
       </div>
@@ -93,4 +95,5 @@ function Header() {
 }
 
 export default Header;
+
 

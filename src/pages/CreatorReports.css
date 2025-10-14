@@ -1,19 +1,337 @@
 .creator-reports {
-  padding-bottom: 24px;
+  background: #fff;
+  min-height: 100vh;
+}
+
+/* Page Header */
+.page-header {
+  background: #fff;
+}
+
+.page-header-top {
+  /* margin-bottom: 16px; */
+  padding: 12px 24px 12px 24px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.page-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.creator-reports-container {
+  padding: 24px;
+}
+
+.creator-reports-container .ant-card-head-title {
+  padding: 0 !important;
+}
+
+.timezone-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  /* background: #f5f5f5; */
+  /* padding: 4px 12px; */
+  padding-left: 4px;
+  border-radius: 4px;
+}
+
+.page-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+    margin-left: 24px;
+    margin-top: 8px;
+    margin-right: 24px;
+    margin-bottom: 16px;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.page-tabs .ant-tabs-nav {
+  margin-bottom: 0;
+}
+
+.page-tabs .ant-tabs-tab {
+  padding: 12px 0;
+  margin-right: 32px;
+  font-size: 14px;
+}
+
+.page-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #3467ff;
+  font-weight: 500;
+}
+
+.page-tabs .ant-tabs-ink-bar {
+  background: #3467ff;
+}
+
+.page-filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.date-range-picker {
+  min-width: 280px;
+}
+
+/* custom date range picker panel */
+.custom-range-picker-panel {
+  display: flex;
+  gap: 0;
+}
+
+.date-range-picker .ant-picker-panels {
+  display: flex;
+  gap: 0;
+}
+
+.date-range-picker .ant-picker-panel-container {
+  padding: 16px;
+}
+
+.ant-picker-dropdown .ant-picker-presets {
+  padding: 16px !important;
+  min-width: 280px !important;
+  border-right: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.ant-picker-dropdown .ant-picker-presets ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+}
+
+.ant-picker-dropdown .ant-picker-presets li {
+  margin: 0 !important;
+}
+
+.ant-picker-dropdown .ant-picker-presets li:first-child .ant-btn {
+  background: #3467ff !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 500 !important;
+}
+
+.ant-picker-dropdown .ant-picker-presets li:first-child .ant-btn:hover {
+  background: #2555dd !important;
+}
+
+.ant-picker-dropdown .ant-picker-presets .ant-btn {
+  width: 100% !important;
+  text-align: center !important;
+  border: 1px solid #3467ff !important;
+  box-shadow: none !important;
+  /* background: transparent !important; */
+  color: #3467ff !important;
+  font-size: 14px !important;
+  height: 36px !important;
+  border-radius: 6px !important;
+  padding: 0 8px !important;
+
+  background-color: black !important;
+}
+
+.ant-picker-dropdown .ant-picker-presets .ant-btn:hover {
+  background: #e6f0ff !important;
+  color: #3467ff !important;
+  border: 1px solid #3467ff !important;
+}
+
+.ant-picker-dropdown .ant-picker-presets .ant-btn-primary {
+  background: #3467ff !important;
+  color: white !important;
+}
+
+.ant-picker-dropdown .ant-picker-presets .ant-btn-primary:hover {
+  background: #2555dd !important;
+  color: white !important;
+}
+
+.date-range-picker .ant-picker-header {
+  padding: 8px 12px;
+  border-bottom: none;
+}
+
+.date-range-picker .ant-picker-header-view {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.date-range-picker .ant-picker-header-super-prev-btn,
+.date-range-picker .ant-picker-header-super-next-btn {
+  display: inline-flex;
+}
+
+.date-range-picker .ant-picker-body {
+  padding: 8px 12px;
+}
+
+.date-range-picker .ant-picker-cell {
+  padding: 6px 0;
+}
+
+.date-range-picker .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+  background: #3467ff;
+  border-radius: 4px;
+}
+
+.date-range-picker .ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+.date-range-picker .ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner {
+  background: #3467ff;
+}
+
+.date-range-picker .ant-picker-cell-in-view.ant-picker-cell-in-range::before {
+  background: #e6f0ff;
+}
+
+.date-range-picker .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+  border-color: #3467ff;
+}
+
+.date-range-picker .ant-picker-cell-in-view.ant-picker-cell-range-hover::before {
+  background: #f0f7ff;
+}
+
+.date-range-picker .ant-picker-dropdown {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+}
+
+.date-range-picker .ant-picker-panel {
+  border: none;
+}
+
+.date-range-picker .ant-picker-footer {
+  border-top: none;
+  padding: 12px 16px;
+}
+
+.date-range-picker .ant-picker-ok {
+  background: #3467ff;
+  border-color: #3467ff;
+}
+
+.date-range-picker .ant-picker-ok:hover {
+  background: #2555dd;
+  border-color: #2555dd;
+}
+
+.filter-select {
+  min-width: 150px;
+}
+
+.filters-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Earnings Summary Section */
+.earnings-summary-section {
+  background: #fff;
+}
+
+.section-title {
+  font-size: 17px;
+  font-weight: 500;
+  color: #000;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.summary-card {
+  background: #fff;
+  border: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-card.total-card {
+  justify-content: center;
+  gap: 12px;
+}
+
+.summary-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.summary-label {
+  font-size: 13px;
+  color: #3467ff;
+  margin-bottom: 8px;
+}
+
+.summary-value {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.summary-amount {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.summary-category {
+  font-size: 13px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.summary-icon-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
 }
 
 .creator-reports-card {
-  border-radius: 12px;
-  /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03); */
+  border-radius: 0;
   border: none;
 }
 
 .creator-reports-card .ant-card-head {
   border-bottom: none;
+  padding: 0;
 }
 
-.earnings-overview-card .ant-card-body {
-  padding-top: 0 !important;
+.creator-reports-card .ant-card-body {
+  padding: 0;
 }
 
 .creator-reports-card .ant-card-head-title {
@@ -21,287 +339,73 @@
   font-weight: 500;
 }
 
-.card-title-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
+
+/* Earnings Trends Section */
+.earnings-trends-section {
+  background: #fff;
 }
 
-.timezone-label {
-  font-size: 15px;
-  font-weight: 500;
-  color: #666;
-  display: flex;
-  align-items: center;
-}
-
-/* Total Earnings Circle */
-.total-earnings-circle {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 24px;
-  background: #ffffff;
-  border: none;
-  border-radius: 12px;
-  min-height: 180px;
-}
-
-.earnings-icon-wrapper {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #e6f0ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-
-.earnings-icon {
-  width: 32px;
-  height: 32px;
-  font-size: 28px;
-  color: #3467ff;
-}
-
-.earnings-logo {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 12px;
-  object-fit: contain;
-}
-
-.earnings-label {
-  font-size: 13px;
-  color: #3467ff;
-  margin-bottom: 8px;
-}
-
-.earnings-amount {
-  font-size: 32px;
-  font-weight: 700;
-  color: #3467ff;
-}
-
-/* Earnings Cards */
-.earnings-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
-  background: white;
-  border: none;
-  border-radius: 12px;
-  min-height: 100px;
-}
-
-.earnings-cards-wrapper {
-  position: relative;
-  border-left: 1px solid #e5e5e5;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.earnings-cards-wrapper::before,
-.earnings-cards-wrapper::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: #e5e5e5;
-}
-
-.earnings-cards-wrapper::before {
-  left: 33.33%;
-}
-
-.earnings-cards-wrapper::after {
-  left: 66.66%;
-}
-
-.earnings-card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1;
-}
-
-.earnings-card-amount {
-  font-size: 22px;
-  font-weight: 700;
-  color: #000;
-  line-height: 1;
-}
-
-.earnings-card-title {
-  font-size: 13px;
-  color: #777;
-  font-weight: 400;
-}
-
-.earnings-card-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-/* Shifts Card */
-.shifts-card {
-  height: 100%;
-}
-
-.shifts-card .ant-card-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 250px;
-}
-
-/* Employees Card */
-.employees-card .ant-card-head-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.employee-count {
-  margin-left: 4px;
-  font-size: 17px;
-  color: #666;
-  font-weight: 500;
-}
-
-.empty-employees {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* padding: 60px 20px; */
-}
-
-.empty-icon {
-  margin-bottom: 16px;
-}
-
-.empty-text {
-  color: #999;
-  font-size: 14px;
-  margin: 0;
-}
-
-/* Sales Chart */
-.sales-chart-card .ant-card-body {
-  padding: 24px;
-}
-
-/* Earnings Type Select Styling */
-.earnings-type-select .ant-select-selector {
-  color: #333 !important;
-}
-
-.earnings-type-select .ant-select-selection-item {
-  color: #333 !important;
-}
-
-/* Segmented Control Styling */
-.time-filter-segmented {
-  background: transparent !important;
-  border: 1px solid #d9d9d9;
-  border-radius: 2px;
-  padding: 4px;
-  font-size: 12px;
-  font-weight: 500;
-  gap: 4px;
-}
-
-
-.time-filter-segmented .ant-segmented-item {
-  border-radius: 2px;
-  transition: all 0.2s ease;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin-top: 1px !important;
-  margin-bottom: 1px !important;
-  padding-left: 12px !important;
-  padding-right: 12px !important;
-  line-height: 20px !important;
-  min-height: 28px !important;
-}
-
-.time-filter-segmented .ant-segmented-item:hover {
-  background: #e6f0ff !important;
-  color: #3467ff !important;
-}
-
-.time-filter-segmented .ant-segmented-item-selected {
-  background: #e6f0ff !important;
-  color: #3467ff !important;
-}
-
-.time-filter-segmented .ant-segmented-thumb {
-  background: #e6f0ff !important;
-  border-radius: 2px;
-}
-
-.time-filter-segmented .ant-segmented-item-label {
-  color: inherit;
-  font-weight: inherit;
+.earnings-trends-chart {
+    margin-top: 12px;
+    margin-bottom: 24px;
+  background: #fff;
 }
 
 /* Earnings Legend */
 .earnings-legend {
-  min-width: 250px;
+
+    margin-top: -25px;
+
+  min-width: 325px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding-left: 24px;
-  border-left: 1px solid #e5e5e5;
+  border-left: none;
+  justify-content: space-between;
 }
 
 .legend-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .legend-dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   flex-shrink: 0;
 }
 
 .legend-label {
-  flex: 1;
+  width: 100px;
   color: #333;
+  font-weight: 500;
+  text-align: left;
 }
 
 .legend-percentage {
-  color: #999;
-  min-width: 35px;
+  width: 45px;
+  color: #333;
   text-align: right;
+  font-weight: 400;
 }
 
 .legend-amount {
+  width: 55px;
   color: #333;
-  font-weight: 500;
-  min-width: 40px;
+  font-weight: 400;
   text-align: right;
 }
 
 /* Creator Statistics */
 .creator-statistics-card .ant-card-head-title {
   padding: 0 !important;
+  padding-bottom: 20px !important;
 }
 
 .stat-card {
@@ -326,6 +430,12 @@
   color: #777;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.earnings-channel-card {
+    padding-bottom: 24px;
 }
 
 /* Creator Table */
@@ -337,13 +447,13 @@
   background: #fafafa;
   font-weight: 500;
   color: #666;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: none;
   padding: 12px 16px;
 }
 
 .creator-table .ant-table-tbody > tr > td {
   padding: 16px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: none;
 }
 
 .creator-table .ant-table-tbody > tr:hover > td {
@@ -354,26 +464,57 @@
   padding: 60px 0;
 }
 
+/* Fixed column styling */
+.creator-table .ant-table-cell-fix-left {
+  background: #fff;
+}
+
+.creator-table .ant-table-thead .ant-table-cell-fix-left {
+  background: #fafafa;
+}
+
+.creator-table .ant-table-tbody > tr:hover .ant-table-cell-fix-left {
+  background: #fafafa;
+}
+
+/* Horizontal scroll shadow for fixed column */
+.creator-table .ant-table-ping-left .ant-table-cell-fix-left {
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.08);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-  .total-earnings-circle {
-    min-height: 150px;
+  .page-header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
 
-  .earnings-amount {
-    font-size: 28px;
+  .page-filters {
+    flex-wrap: wrap;
+    width: 100%;
   }
 
-  .earnings-card-amount {
-    font-size: 20px;
+  .date-range-picker,
+  .filter-select {
+    min-width: auto;
+    flex: 1;
   }
 
   .earnings-legend {
     border-left: none;
-    border-top: 1px solid #e5e5e5;
+    border-top: none;
     padding-left: 0;
     padding-top: 24px;
     margin-top: 24px;
+  }
+
+  .summary-value {
+    font-size: 24px;
+  }
+
+  .summary-amount {
+    font-size: 20px;
   }
 
   .stat-value {

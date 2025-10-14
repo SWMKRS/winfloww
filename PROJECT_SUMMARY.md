@@ -355,3 +355,4 @@ npm run electron:dev # Test in Electron
 
 Open http://localhost:5173 and see your dashboard! 🎨
 
+

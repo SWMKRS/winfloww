@@ -4,9 +4,35 @@
 
 .ant-layout-content {
   background: #f5f5f5;
-  padding: 16px;
   margin: 0;
   border-top-left-radius: 10px;
   border: 1px solid #e0e0e0;
+}
+
+.fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 1000;
+}
+
+.fab:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.fab-icon {
+  width: 35px;
+  height: 35px;
 }
 
