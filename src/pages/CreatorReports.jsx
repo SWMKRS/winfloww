@@ -5,13 +5,14 @@ import {
   PieChartOutlined,
   DownloadOutlined,
   SettingOutlined,
-  FilterOutlined,
-  CalendarOutlined
+  FilterOutlined
 } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
+
 import { earningsData as mockEarningsData } from '../data/mockData';
 import EarningsOverview from '../components/EarningsOverview';
+import calendarIcon from '../assets/creator_reports/calendar_icon.png';
 import './CreatorReports.css';
 
 const CustomTooltip = ({ active, payload }) => {
@@ -48,13 +49,13 @@ const earningsTrendsData = [
 ];
 
 const salesChartData = [
-  { date: 'Oct 5', subscriptions: 850, tips: 120, posts: 450, messages: 320, referrals: 80, streams: 45 },
-  { date: 'Oct 6', subscriptions: 920, tips: 180, posts: 520, messages: 410, referrals: 95, streams: 60 },
-  { date: 'Oct 7', subscriptions: 780, tips: 145, posts: 390, messages: 350, referrals: 70, streams: 40 },
-  { date: 'Oct 8', subscriptions: 890, tips: 165, posts: 480, messages: 380, referrals: 88, streams: 52 },
-  { date: 'Oct 9', subscriptions: 740, tips: 135, posts: 360, messages: 310, referrals: 65, streams: 38 },
-  { date: 'Oct 10', subscriptions: 860, tips: 155, posts: 440, messages: 365, referrals: 82, streams: 48 },
-  { date: 'Oct 11', subscriptions: 720, tips: 125, posts: 340, messages: 295, referrals: 60, streams: 35 },
+  { date: 'Oct 5', subscriptions: 850, tips: 120, posts: 450, messages: 320, referrals: 0, streams: 0 },
+  { date: 'Oct 6', subscriptions: 920, tips: 180, posts: 520, messages: 410, referrals: 0, streams: 0 },
+  { date: 'Oct 7', subscriptions: 780, tips: 145, posts: 390, messages: 350, referrals: 0, streams: 0 },
+  { date: 'Oct 8', subscriptions: 890, tips: 165, posts: 480, messages: 380, referrals: 0, streams: 0 },
+  { date: 'Oct 9', subscriptions: 740, tips: 135, posts: 360, messages: 310, referrals: 0, streams: 0 },
+  { date: 'Oct 10', subscriptions: 860, tips: 155, posts: 440, messages: 365, referrals: 0, streams: 0 },
+  { date: 'Oct 11', subscriptions: 720, tips: 125, posts: 340, messages: 295, referrals: 0, streams: 0 },
 ];
 
 const creatorStatistics = {
@@ -326,8 +327,8 @@ function CreatorReports() {
         tips: 100 + Math.floor(Math.random() * 100),
         posts: 300 + Math.floor(Math.random() * 250),
         messages: 250 + Math.floor(Math.random() * 200),
-        referrals: 60 + Math.floor(Math.random() * 40),
-        streams: 30 + Math.floor(Math.random() * 30)
+        referrals: 0,
+        streams: 0
       });
     }
 
@@ -368,7 +369,7 @@ function CreatorReports() {
               value={dateRange}
               onChange={setDateRange}
               format="MMM. DD, YYYY"
-              suffixIcon={<CalendarOutlined />}
+              suffixIcon={<img src={calendarIcon} alt="calendar" style={{ width: 17, height: 17 }} />}
               className="date-range-picker"
               dropdownClassName="custom-date-picker-dropdown"
               disabledDate={(current) => current && current > dayjs().endOf('day')}
@@ -391,19 +392,23 @@ function CreatorReports() {
                 </div>
               )}
             />
-            <Select
-              value={shownBy}
-              onChange={setShownBy}
-              className="filter-select"
-              popupClassName="custom-filter-dropdown"
-              suffixIcon={<InfoCircleOutlined style={{ color: '#999' }} />}
-              options={[
-                { value: 'hour', label: 'Shown by hour', disabled: true },
-                { value: 'day', label: 'Shown by day' },
-                { value: 'week', label: 'Shown by week' },
-                { value: 'month', label: 'Shown by month' }
-              ]}
-            />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Select
+                value={shownBy}
+                onChange={setShownBy}
+                className="filter-select"
+                popupClassName="custom-filter-dropdown"
+                options={[
+                  { value: 'hour', label: 'Shown by hour', disabled: true },
+                  { value: 'day', label: 'Shown by day' },
+                  { value: 'week', label: 'Shown by week' },
+                  { value: 'month', label: 'Shown by month' }
+                ]}
+              />
+              <Tooltip title="Select time grouping">
+                <InfoCircleOutlined style={{ color: '#aaa', fontSize: 13 }} />
+              </Tooltip>
+            </div>
             <Select
               value={earningsType}
               onChange={setEarningsType}

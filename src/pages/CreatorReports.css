@@ -85,6 +85,9 @@
 
 .date-range-picker {
   min-width: 280px;
+  padding: 0px 12px !important;
+  border-radius: 4px !important;
+  /* font-size: 10px !important; */
 }
 
 /* custom date range picker panel */
@@ -142,6 +145,10 @@
 .preset-button.selected:hover {
   background: #2555dd;
   border-color: #2555dd;
+}
+
+.date-range-picker > .ant-picker > .ant-picker-input > input {
+    font-size: 12px !important;
 }
 
 .date-range-picker .ant-picker-header {
@@ -215,22 +222,46 @@
 
 .filter-select {
   min-width: 150px;
+  /* padding: 0px 12px !important; */
+  height: 24px !important;
+  color: #333 !important;
 }
 
-.custom-filter-dropdown {
-  border-radius: 0 !important;
+.filter-select > .ant-select-selector {
+  /* height: 24px !important; */
+  border-radius: 4px !important;
+  padding-right: 12px !important;
+  font-size: 13px !important;
+  color: #333 !important;
 }
+
 
 .custom-filter-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
   background-color: transparent !important;
   color: #3467ff !important;
   font-weight: 500 !important;
+  border-radius: 4px !important;
 }
 
 .filters-button {
   display: flex;
   align-items: center;
   gap: 8px;
+  color: #3467ff !important;
+  border-color: #3467ff !important;
+  height: 24px !important;
+  border-radius: 4px !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+.filters-button:hover {
+  color: #3467ff !important;
+  border-color: #3467ff !important;
+}
+
+.filters-button .anticon {
+  color: #3467ff !important;
 }
 
 /* Earnings Summary Section */

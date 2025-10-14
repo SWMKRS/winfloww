@@ -3,82 +3,82 @@
 export const earningsData = {
   'Yesterday': {
     'Gross earnings': {
-      total: 1245.50,
+      total: 1145.50,
       subscriptions: 450.00,
       posts: 320.50,
       messages: 180.00,
       tips: 195.00,
-      referrals: 50.00,
-      streams: 50.00
+      referrals: 0,
+      streams: 0
     },
     'Net earnings': {
-      total: 996.40,
+      total: 916.40,
       subscriptions: 360.00,
       posts: 256.40,
       messages: 144.00,
       tips: 156.00,
-      referrals: 40.00,
-      streams: 40.00
+      referrals: 0,
+      streams: 0
     }
   },
   'Today': {
     'Gross earnings': {
-      total: 892.30,
+      total: 842.30,
       subscriptions: 320.00,
       posts: 245.30,
       messages: 135.00,
       tips: 142.00,
-      referrals: 30.00,
-      streams: 20.00
+      referrals: 0,
+      streams: 0
     },
     'Net earnings': {
-      total: 713.84,
+      total: 673.84,
       subscriptions: 256.00,
       posts: 196.24,
       messages: 108.00,
       tips: 113.60,
-      referrals: 24.00,
-      streams: 16.00
+      referrals: 0,
+      streams: 0
     }
   },
   'This week': {
     'Gross earnings': {
-      total: 7856.75,
+      total: 7356.75,
       subscriptions: 2800.00,
       posts: 1950.50,
       messages: 1350.25,
       tips: 1256.00,
-      referrals: 300.00,
-      streams: 200.00
+      referrals: 0,
+      streams: 0
     },
     'Net earnings': {
-      total: 6285.40,
+      total: 5885.40,
       subscriptions: 2240.00,
       posts: 1560.40,
       messages: 1080.20,
       tips: 1004.80,
-      referrals: 240.00,
-      streams: 160.00
+      referrals: 0,
+      streams: 0
     }
   },
   'This month': {
     'Gross earnings': {
-      total: 28456.50,
+      total: 26806.50,
       subscriptions: 10500.00,
       posts: 7250.50,
       messages: 4850.00,
       tips: 4206.00,
-      referrals: 1050.00,
-      streams: 600.00
+      referrals: 0,
+      streams: 0
     },
     'Net earnings': {
-      total: 22765.20,
+      total: 21445.20,
       subscriptions: 8400.00,
       posts: 5800.40,
       messages: 3880.00,
       tips: 3364.80,
-      referrals: 840.00,
-      streams: 480.00
+      referrals: 0,
+      streams: 0
     }
   }
 };
