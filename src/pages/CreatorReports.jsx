@@ -13,6 +13,8 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as
 import { earningsData as mockEarningsData } from '../data/mockData';
 import EarningsOverview from '../components/EarningsOverview';
 import calendarIcon from '../assets/creator_reports/calendar_icon.png';
+import noDataImage from '../assets/no_data.png';
+
 import './CreatorReports.css';
 
 const CustomTooltip = ({ active, payload }) => {
@@ -952,7 +954,7 @@ function CreatorReports() {
                 locale={{
                     emptyText: (
                     <Empty
-                        image="/src/assets/no_data.png"
+                        image={noDataImage}
                         description="No data"
                         styles={{ image: { height: 80 } }}
                     />

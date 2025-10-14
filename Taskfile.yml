@@ -36,10 +36,40 @@ tasks:
       - npm run electron-pack
 
   build:mac:
-    desc: 'Build Mac installer (.dmg and .zip) with Infloww branding'
+    desc: 'Build Mac installer (.dmg and .zip) with Infloww branding - ARM64 only'
     deps: [build]
     cmds:
-      - npx electron-builder --mac --config.productName="Infloww" --config.mac.icon="infloww-assets/app-logo/logo.icns"
+      - npx electron-builder --mac --arm64 --config.productName="Infloww" --config.mac.icon="src/assets/app-logo/logo.icns"
+
+  build:mac:x64:
+    desc: 'Build Mac installer (.dmg and .zip) with Infloww branding - Intel x64 only'
+    deps: [build]
+    cmds:
+      - npx electron-builder --mac --x64 --config.productName="Infloww" --config.mac.icon="src/assets/app-logo/logo.icns"
+
+  build:mac:all:
+    desc: 'Build Mac installer (.dmg and .zip) with Infloww branding - Both ARM64 and x64'
+    deps: [build]
+    cmds:
+      - npx electron-builder --mac --arm64 --x64 --config.productName="Infloww" --config.mac.icon="src/assets/app-logo/logo.icns"
+
+  build:windows:
+    desc: 'Build Windows installer (.exe) with Infloww branding'
+    deps: [build]
+    cmds:
+      - npx electron-builder --win --config.productName="Infloww" --config.win.icon="src/assets/app-logo/logo.png"
+
+  build:linux:
+    desc: 'Build Linux installer (.AppImage, .deb) with Infloww branding'
+    deps: [build]
+    cmds:
+      - npx electron-builder --linux --config.productName="Infloww"
+
+  build:all:
+    desc: 'Build installers for all platforms (Mac, Windows, Linux)'
+    deps: [build]
+    cmds:
+      - npx electron-builder -mwl --config.productName="Infloww" --config.mac.icon="src/assets/app-logo/logo.icns" --config.win.icon="src/assets/app-logo/logo.png"
 
   clean:
     desc: 'Clean build artifacts and node_modules'
@@ -72,6 +102,11 @@ tasks:
     desc: 'Format code (if prettier is added)'
     cmds:
       - echo "Add prettier to package.json for formatting"
+
+  zip:
+    desc: 'Create zip archive of codebase (excludes git, node_modules, build artifacts)'
+    cmds:
+      - zip -r infloww-source.zip . -x "*.git*" "node_modules/*" "dist/*" "dist-electron/*" "build/*" "*.DS_Store" "*.zip" "*.dmg" "*.blockmap" "*.yml.bak"
 
   help:
     desc: 'Show available tasks'

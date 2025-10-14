@@ -1,12 +1,13 @@
 import { useMemo } from 'react';
 import { Row, Col } from 'antd';
 
-import overviewSubscriptions from '/src/assets/overview_subscriptions.png';
-import overviewPosts from '/src/assets/overview_posts.png';
-import overviewMessages from '/src/assets/overview_messages.png';
-import overviewTips from '/src/assets/overview_tips.png';
-import overviewReferrals from '/src/assets/overview_referrals.png';
-import overviewStreams from '/src/assets/overview_streams.png';
+import ofLogo from '../assets/of_logo.webp';
+import overviewSubscriptions from '../assets/overview_subscriptions.png';
+import overviewPosts from '../assets/overview_posts.png';
+import overviewMessages from '../assets/overview_messages.png';
+import overviewTips from '../assets/overview_tips.png';
+import overviewReferrals from '../assets/overview_referrals.png';
+import overviewStreams from '../assets/overview_streams.png';
 
 import './EarningsOverview.css';
 
@@ -71,7 +72,7 @@ function EarningsOverview({ currentEarnings, padding = '0' }) {
       <Row gutter={[16, 16]}>
         <Col xs={24} lg={6}>
           <div className="total-earnings-circle">
-            <img src="/of_logo.png" alt="OnlyFans" className="earnings-logo" />
+            <img src={ofLogo} alt="OnlyFans" className="earnings-logo" />
             <div className="earnings-label">Total earnings</div>
             <div className="earnings-amount">${currentEarnings.total.toFixed(2)}</div>
           </div>

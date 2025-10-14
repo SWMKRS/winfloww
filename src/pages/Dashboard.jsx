@@ -6,8 +6,11 @@ import {
   PieChartOutlined
 } from '@ant-design/icons';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
+
 import { earningsData as mockEarningsData, salesChartData as mockSalesData, employeesData, shiftsData, scheduledHoursData } from '../data/mockData';
 import EarningsOverview from '../components/EarningsOverview';
+import noDataImage from '../assets/no_data.png';
+
 import './Dashboard.css';
 
 const CustomTooltip = ({ active, payload }) => {
@@ -126,7 +129,7 @@ function Dashboard() {
             }
           >
             <Empty
-              image="/src/assets/no_data.png"
+              image={noDataImage}
               description="No data"
               styles={{ image: { height: 80 } }}
             />
@@ -152,7 +155,7 @@ function Dashboard() {
               >
                 <div className="empty-employees">
                     <Empty
-                    image="/src/assets/no_data.png"
+                    image={noDataImage}
                     description="No employees have clocked in."
                     styles={{ image: { height: 80 } }}
                     />
@@ -224,7 +227,7 @@ function Dashboard() {
               >
                 <div className="empty-employees">
                   <Empty
-                    image="/src/assets/no_data.png"
+                    image={noDataImage}
                     description="No data"
                     styles={{ image: { height: 80 } }}
                   />

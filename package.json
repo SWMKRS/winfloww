@@ -47,12 +47,12 @@
     ],
     "mac": {
       "target": ["dmg", "zip"],
-      "icon": "infloww-assets/app-logo/logo.icns",
+      "icon": "src/assets/app-logo/logo.icns",
       "category": "public.app-category.productivity"
     },
     "win": {
       "target": ["nsis", "portable"],
-      "icon": "infloww-assets/app-logo/favicon.ico"
+      "icon": "src/assets/app-logo/logo.png"
     }
   }
 }

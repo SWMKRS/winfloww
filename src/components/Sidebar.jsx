@@ -4,6 +4,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 import { notificationData } from '../data/mockData';
 import chevronIcon from '../assets/icons/chevron.png';
+import ofLogo from '../assets/of_logo.webp';
+import fanslyLogo from '../assets/fansly_logo.svg';
 
 import dashboardActive from '../assets/sidebar/dashboard_active.png';
 import dashboardInactive from '../assets/sidebar/dashboard_inactive.png';
@@ -484,7 +486,7 @@ function Sidebar({ collapsed }) {
           <Option value="onlyfans">
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <img src="/src/assets/of_logo.webp" alt="OF" style={{ width: 24, height: 24 }} />
+                <img src={ofLogo} alt="OF" style={{ width: 24, height: 24 }} />
                 <span className={collapsed ? 'platform-label' : ''}>OnlyFans</span>
               </span>
               {!collapsed && (
@@ -506,7 +508,7 @@ function Sidebar({ collapsed }) {
           <Option value="fansly">
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <img src="/src/assets/fansly_logo.svg" alt="Fansly" style={{ width: 16, height: 16 }} />
+                <img src={fanslyLogo} alt="Fansly" style={{ width: 16, height: 16 }} />
                 <span className={collapsed ? 'platform-label' : ''}>Fansly</span>
               </span>
               {!collapsed && (

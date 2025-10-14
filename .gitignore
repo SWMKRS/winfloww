@@ -32,4 +32,4 @@ yarn-error.log*
 # Electron
 *.log
 
-
+*.zip
