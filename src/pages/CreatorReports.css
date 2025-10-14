@@ -102,68 +102,46 @@
   padding: 16px;
 }
 
-.ant-picker-dropdown .ant-picker-presets {
-  padding: 16px !important;
-  min-width: 280px !important;
-  border-right: none !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 8px !important;
+.custom-presets {
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  /* border-right: 1px solid #e5e5e5; */
+  width: 280px;
 }
 
-.ant-picker-dropdown .ant-picker-presets ul {
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 8px !important;
+.preset-button {
+    padding-top: 3px;
+  /* padding: 2px 8px; */
+  text-align: center;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background: white;
+  color: #333;
+  font-size: 14px;
+  height: 30px;
+  /* line-height: 1.4; */
+  width: calc(50% - 8px);
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.ant-picker-dropdown .ant-picker-presets li {
-  margin: 0 !important;
+.preset-button:hover {
+  background: #e6f0ff;
+  color: #3467ff;
+  border-color: #3467ff;
 }
 
-.ant-picker-dropdown .ant-picker-presets li:first-child .ant-btn {
-  background: #3467ff !important;
-  color: white !important;
-  border: none !important;
-  font-weight: 500 !important;
+.preset-button.selected {
+  background: #3467ff;
+  color: white;
+  border-color: #3467ff;
 }
 
-.ant-picker-dropdown .ant-picker-presets li:first-child .ant-btn:hover {
-  background: #2555dd !important;
-}
-
-.ant-picker-dropdown .ant-picker-presets .ant-btn {
-  width: 100% !important;
-  text-align: center !important;
-  border: 1px solid #3467ff !important;
-  box-shadow: none !important;
-  /* background: transparent !important; */
-  color: #3467ff !important;
-  font-size: 14px !important;
-  height: 36px !important;
-  border-radius: 6px !important;
-  padding: 0 8px !important;
-
-  background-color: black !important;
-}
-
-.ant-picker-dropdown .ant-picker-presets .ant-btn:hover {
-  background: #e6f0ff !important;
-  color: #3467ff !important;
-  border: 1px solid #3467ff !important;
-}
-
-.ant-picker-dropdown .ant-picker-presets .ant-btn-primary {
-  background: #3467ff !important;
-  color: white !important;
-}
-
-.ant-picker-dropdown .ant-picker-presets .ant-btn-primary:hover {
-  background: #2555dd !important;
-  color: white !important;
+.preset-button.selected:hover {
+  background: #2555dd;
+  border-color: #2555dd;
 }
 
 .date-range-picker .ant-picker-header {
@@ -237,6 +215,16 @@
 
 .filter-select {
   min-width: 150px;
+}
+
+.custom-filter-dropdown {
+  border-radius: 0 !important;
+}
+
+.custom-filter-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: transparent !important;
+  color: #3467ff !important;
+  font-weight: 500 !important;
 }
 
 .filters-button {

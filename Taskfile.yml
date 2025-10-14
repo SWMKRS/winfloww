@@ -39,7 +39,7 @@ tasks:
     desc: 'Build Mac installer (.dmg and .zip) with Infloww branding'
     deps: [build]
     cmds:
-      - electron-builder --mac --config.productName="Infloww" --config.mac.icon="infloww-assets/app-logo/logo.icns"
+      - npx electron-builder --mac --config.productName="Infloww" --config.mac.icon="infloww-assets/app-logo/logo.icns"
 
   clean:
     desc: 'Clean build artifacts and node_modules'

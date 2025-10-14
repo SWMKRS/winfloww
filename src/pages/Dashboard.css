@@ -197,6 +197,10 @@
   padding: 24px;
 }
 
+.earnings-type-select {
+    height: 40px;
+}
+
 /* Earnings Type Select Styling */
 .earnings-type-select .ant-select-selector {
   color: #333 !important;
@@ -210,7 +214,7 @@
 .time-filter-segmented {
   background: transparent !important;
   border: 1px solid #d9d9d9;
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 4px;
   font-size: 12px;
   font-weight: 500;

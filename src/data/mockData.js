@@ -85,37 +85,16 @@ export const earningsData = {
 
 export const salesChartData = {
   'Yesterday': [
-    { date: '12 AM', value: 45.50, earnings: 45.50 },
-    { date: '3 AM', value: 23.20, earnings: 68.70 },
-    { date: '6 AM', value: 12.30, earnings: 81.00 },
-    { date: '9 AM', value: 89.40, earnings: 170.40 },
-    { date: '12 PM', value: 234.60, earnings: 405.00 },
-    { date: '3 PM', value: 456.20, earnings: 861.20 },
-    { date: '6 PM', value: 384.30, earnings: 1245.50 }
+    { date: 'Yesterday', value: 0, earnings: 0 }
   ],
   'Today': [
-    { date: '12 AM', value: 32.10, earnings: 32.10 },
-    { date: '3 AM', value: 18.50, earnings: 50.60 },
-    { date: '6 AM', value: 24.30, earnings: 74.90 },
-    { date: '9 AM', value: 156.40, earnings: 231.30 },
-    { date: '12 PM', value: 298.50, earnings: 529.80 },
-    { date: '3 PM', value: 362.50, earnings: 892.30 },
-    { date: 'Now', value: 0, earnings: 892.30 }
+    { date: 'Today', value: 0, earnings: 0 }
   ],
   'This week': [
-    { date: 'Oct 5', value: 856.20, earnings: 856.20 },
-    { date: 'Oct 6', value: 1024.50, earnings: 1880.70 },
-    { date: 'Oct 7', value: 1245.50, earnings: 3126.20 },
-    { date: 'Oct 8', value: 1156.30, earnings: 4282.50 },
-    { date: 'Oct 9', value: 982.45, earnings: 5264.95 },
-    { date: 'Oct 10', value: 1299.50, earnings: 6564.45 },
-    { date: 'Oct 11', value: 1292.30, earnings: 7856.75 }
+    { date: 'This week', value: 0, earnings: 0 }
   ],
   'This month': [
-    { date: 'Week 1', value: 6245.50, earnings: 6245.50 },
-    { date: 'Week 2', value: 7856.75, earnings: 14102.25 },
-    { date: 'Week 3', value: 8234.25, earnings: 22336.50 },
-    { date: 'Week 4', value: 6120.00, earnings: 28456.50 }
+    { date: 'This month', value: 0, earnings: 0 }
   ]
 };
 

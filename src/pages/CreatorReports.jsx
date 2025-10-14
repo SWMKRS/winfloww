@@ -223,6 +223,15 @@ function CreatorReports() {
   const [activeTab, setActiveTab] = useState('overview');
   const [dateRange, setDateRange] = useState([dayjs().subtract(6, 'days'), dayjs()]);
   const [shownBy, setShownBy] = useState('day');
+  const [selectedPreset, setSelectedPreset] = useState('Last 7 days');
+  const [pickerOpen, setPickerOpen] = useState(false);
+
+  // handle preset selection
+  const handlePresetClick = (label, range) => {
+    setSelectedPreset(label);
+    setDateRange(range);
+    setPickerOpen(false);
+  };
 
   // helper function to render percentage change
   const renderPercentageChange = (change) => {
@@ -362,16 +371,22 @@ function CreatorReports() {
               suffixIcon={<CalendarOutlined />}
               className="date-range-picker"
               dropdownClassName="custom-date-picker-dropdown"
-              presets={[
-                { label: 'Custom', value: dateRange },
-                { label: 'Last 7 days', value: [dayjs().subtract(6, 'days'), dayjs()] },
-                { label: 'Last 30 days', value: [dayjs().subtract(29, 'days'), dayjs()] },
-                { label: 'Last 90 days', value: [dayjs().subtract(89, 'days'), dayjs()] },
-                { label: 'Last 365 days', value: [dayjs().subtract(364, 'days'), dayjs()] },
-                ...monthPresets
-              ]}
+              disabledDate={(current) => current && current > dayjs().endOf('day')}
+              open={pickerOpen}
+              onOpenChange={setPickerOpen}
               panelRender={(panelNode) => (
                 <div className="custom-range-picker-panel">
+                  <div className="custom-presets">
+                    <div className={`preset-button ${selectedPreset === 'Custom' ? 'selected' : ''}`} onClick={() => handlePresetClick('Custom', dateRange)}>Custom</div>
+                    <div className={`preset-button ${selectedPreset === 'Last 7 days' ? 'selected' : ''}`} onClick={() => handlePresetClick('Last 7 days', [dayjs().subtract(6, 'days'), dayjs()])}>Last 7 days</div>
+                    <div className={`preset-button ${selectedPreset === 'Last 30 days' ? 'selected' : ''}`} onClick={() => handlePresetClick('Last 30 days', [dayjs().subtract(29, 'days'), dayjs()])}>Last 30 days</div>
+                    <div className={`preset-button ${selectedPreset === 'Last 90 days' ? 'selected' : ''}`} onClick={() => handlePresetClick('Last 90 days', [dayjs().subtract(89, 'days'), dayjs()])}>Last 90 days</div>
+                    <div className={`preset-button ${selectedPreset === 'Last 365 days' ? 'selected' : ''}`} onClick={() => handlePresetClick('Last 365 days', [dayjs().subtract(364, 'days'), dayjs()])}>Last 365 days</div>
+                    <div className={`preset-button ${selectedPreset === '2025' ? 'selected' : ''}`} onClick={() => handlePresetClick('2025', [dayjs(`${dayjs().year()}-01-01`), dayjs(`${dayjs().year()}-12-31`)])}>2025</div>
+                    {monthPresets.slice(1).map((preset) => (
+                      <div key={preset.label} className={`preset-button ${selectedPreset === preset.label ? 'selected' : ''}`} onClick={() => handlePresetClick(preset.label, preset.value)}>{preset.label}</div>
+                    ))}
+                  </div>
                   {panelNode}
                 </div>
               )}
@@ -380,8 +395,10 @@ function CreatorReports() {
               value={shownBy}
               onChange={setShownBy}
               className="filter-select"
+              popupClassName="custom-filter-dropdown"
               suffixIcon={<InfoCircleOutlined style={{ color: '#999' }} />}
               options={[
+                { value: 'hour', label: 'Shown by hour', disabled: true },
                 { value: 'day', label: 'Shown by day' },
                 { value: 'week', label: 'Shown by week' },
                 { value: 'month', label: 'Shown by month' }
@@ -391,6 +408,7 @@ function CreatorReports() {
               value={earningsType}
               onChange={setEarningsType}
               className="filter-select"
+              popupClassName="custom-filter-dropdown"
               options={[
                 { value: 'Gross earnings', label: 'Gross earnings' },
                 { value: 'Net earnings', label: 'Net earnings' }

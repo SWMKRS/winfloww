@@ -92,7 +92,7 @@ function Dashboard() {
               className="earnings-type-select"
               value={earningsType}
               onChange={setEarningsType}
-              style={{ width: 150 }}
+              style={{ width: 130 }}
               options={[
                 { value: 'Gross earnings', label: 'Gross earnings' },
                 { value: 'Net earnings', label: 'Net earnings' }
@@ -107,7 +107,7 @@ function Dashboard() {
           </div>
         }
       >
-        <EarningsOverview currentEarnings={currentEarnings} padding="24px" />
+        <EarningsOverview currentEarnings={currentEarnings} />
       </Card>
 
       {/* Second Row: My Shifts, Clocked-in Employees, Employee Sales */}
