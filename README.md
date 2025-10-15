@@ -1,10 +1,10 @@
-# Infloww
+# Winfloww
 
 OnlyFans Creator Management Dashboard
 
 ## Project Approach
 
-This project was built under a tight time crunch by first installing the real Infloww app and analyzing its source code, frameworks, and assets. We inspected the Electron app bundle to understand the tech stack (React, Ant Design, Recharts) and extracted all UI assets.
+This project was built under a tight time crunch by first installing the real Winfloww app and analyzing its source code, frameworks, and assets. We inspected the Electron app bundle to understand the tech stack (React, Ant Design, Recharts) and extracted all UI assets.
 
 Given the time constraints, we took a conservative approach: building a near-replica by hand rather than attempting to reverse engineer the packaged Electron code. Reverse engineering would be the more elegant solution for future iterations, where time permits.
 

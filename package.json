@@ -1,9 +1,9 @@
 {
-  "name": "infloww",
+  "name": "winfloww",
   "version": "5.6.0",
-  "description": "Infloww for Agencies - OnlyFans Creator Management",
+  "description": "Winfloww for Agencies - OnlyFans Creator Management",
   "main": "electron/main.js",
-  "author": "Infloww",
+  "author": "Winfloww",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -37,7 +37,7 @@
   },
   "build": {
     "appId": "com.infloww.app",
-    "productName": "Infloww",
+    "productName": "Winfloww",
     "directories": {
       "output": "dist-electron"
     },

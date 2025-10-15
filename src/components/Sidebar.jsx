@@ -462,7 +462,7 @@ function Sidebar({ collapsed }) {
   return (
     <Sider
       collapsed={collapsed}
-      width={250}
+      width={260}
       collapsedWidth={60}
       className="app-sidebar"
       style={{
@@ -471,34 +471,29 @@ function Sidebar({ collapsed }) {
     >
       {/* platform selector */}
       <div className={`platform-selector-container ${collapsed ? 'collapsed' : ''}`}>
-        <Select
-          value={selectedPlatform}
-          onChange={setSelectedPlatform}
-          style={{ width: '100%' }}
-          suffixIcon={null}
-          className="platform-selector"
-          popupMatchSelectWidth={false}
-          classNames={{ popup: collapsed ? 'platform-selector-dropdown-collapsed' : '' }}
-          styles={{ popup: collapsed ? { minWidth: '180px' } : {} }}
-          placement={collapsed ? 'rightTop' : 'bottomLeft'}
-          dropdownAlign={collapsed ? { offset: [12, 0] } : undefined}
-        >
+        <div className="platform-selector-wrapper">
+          <Select
+            value={selectedPlatform}
+            onChange={setSelectedPlatform}
+            style={{ width: '100%' }}
+            suffixIcon={null}
+            className="platform-selector"
+            popupMatchSelectWidth={false}
+            classNames={{ popup: collapsed ? 'platform-selector-dropdown-collapsed' : '' }}
+            styles={{ popup: collapsed ? { minWidth: '180px' } : {} }}
+            placement={collapsed ? 'rightTop' : 'bottomLeft'}
+            dropdownAlign={collapsed ? { offset: [12, 0] } : undefined}
+          >
           <Option value="onlyfans">
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <img src={ofLogo} alt="OF" style={{ width: 24, height: 24 }} />
+              <span style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingLeft: '4px' }}>
+                <img src={ofLogo} alt="OF" style={{ width: 20, height: 20 }} />
                 <span className={collapsed ? 'platform-label' : ''}>OnlyFans</span>
               </span>
               {!collapsed && (
-                <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
                   {notificationData.totalMessages > 0 && (
-                    <span style={{
-                      width: '8px',
-                      height: '8px',
-                      borderRadius: '50%',
-                      backgroundColor: '#ff69b4',
-                      flexShrink: 0
-                    }} />
+                    <span className="notification-dot" />
                   )}
                   <img src={chevronIcon} alt='' style={{ width: 12, height: 12, transform: 'rotate(90deg)', opacity: 0.38, marginRight: '4px' }} />
                 </span>
@@ -514,13 +509,7 @@ function Sidebar({ collapsed }) {
               {!collapsed && (
                 <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   {notificationData.totalMessages > 0 && (
-                    <span style={{
-                      width: '8px',
-                      height: '8px',
-                      borderRadius: '50%',
-                      backgroundColor: '#ff69b4',
-                      flexShrink: 0
-                    }} />
+                    <span className="notification-dot" />
                   )}
                   <img src={chevronIcon} alt='' style={{ width: 12, height: 12, transform: 'rotate(90deg)', opacity: 0.38, marginRight: '4px' }} />
                 </span>
@@ -528,6 +517,11 @@ function Sidebar({ collapsed }) {
             </div>
           </Option>
         </Select>
+        {/* notification dot for collapsed state */}
+        {collapsed && notificationData.totalMessages > 0 && (
+          <div className="platform-notification-dot notification-dot"></div>
+        )}
+        </div>
       </div>
 
       {/* main menu */}

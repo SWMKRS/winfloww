@@ -46,12 +46,19 @@
 }
 
 .platform-selector-container {
-  padding: 16px 16px 30px;
+  padding: 16px 10px 30px 12px;
   flex-shrink: 0;
 }
 
 .platform-selector-container.collapsed {
   padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.platform-selector-wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,7 +74,7 @@
 }
 
 .platform-selector .ant-select-selection-item {
-  font-size: 16px !important;
+  font-size: 17px !important;
   font-weight: 600 !important;
   color: #000 !important;
   padding: 0 !important;
@@ -111,6 +118,21 @@
 
 .platform-selector-dropdown-collapsed.ant-select-dropdown {
   margin-left: 12px !important;
+}
+
+.notification-dot {
+  width: 11px;
+  height: 11px;
+  background-color: #ec679d;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.platform-notification-dot {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  z-index: 10;
 }
 
 .sidebar-menu-container {

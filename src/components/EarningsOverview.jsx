@@ -1,15 +1,22 @@
 import { useMemo } from 'react';
 import { Row, Col } from 'antd';
 
-import ofLogo from '../assets/of_logo.webp';
-import overviewSubscriptions from '../assets/overview_subscriptions.png';
-import overviewPosts from '../assets/overview_posts.png';
-import overviewMessages from '../assets/overview_messages.png';
-import overviewTips from '../assets/overview_tips.png';
-import overviewReferrals from '../assets/overview_referrals.png';
-import overviewStreams from '../assets/overview_streams.png';
+import ofLogo from '../assets/of_logo_circle.png';
+import overviewSubscriptions from '../assets/earnings_overview/overview_subscriptions.png';
+import overviewPosts from '../assets/earnings_overview/overview_posts.png';
+import overviewMessages from '../assets/earnings_overview/overview_messages.png';
+import overviewTips from '../assets/earnings_overview/overview_tips.png';
+import overviewReferrals from '../assets/earnings_overview/overview_referrals.png';
+import overviewStreams from '../assets/earnings_overview/overview_streams.png';
 
 import './EarningsOverview.css';
+
+const formatCurrency = (amount) => {
+  return amount.toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+};
 
 const earningsConfig = [
   {
@@ -63,7 +70,7 @@ function EarningsOverview({ currentEarnings, padding = '0' }) {
   const earningsData = useMemo(() => {
     return earningsConfig.map(config => ({
       ...config,
-      amount: `$${currentEarnings[config.key].toFixed(2)}`
+      amount: `$${formatCurrency(currentEarnings[config.key])}`
     }));
   }, [currentEarnings]);
 
@@ -74,7 +81,7 @@ function EarningsOverview({ currentEarnings, padding = '0' }) {
           <div className="total-earnings-circle">
             <img src={ofLogo} alt="OnlyFans" className="earnings-logo" />
             <div className="earnings-label">Total earnings</div>
-            <div className="earnings-amount">${currentEarnings.total.toFixed(2)}</div>
+            <div className="earnings-amount">${formatCurrency(currentEarnings.total)}</div>
           </div>
         </Col>
         <Col xs={24} lg={18}>

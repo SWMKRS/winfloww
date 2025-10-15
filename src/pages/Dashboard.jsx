@@ -73,7 +73,7 @@ function Dashboard() {
         className="dashboard-card earnings-overview-card"
         title={
           <div className="card-title-row">
-            <div style={{ paddingTop: '90px' }}>
+            <div style={{ paddingTop: '80px' }}>
             </div>
             <span>
               Creator earnings overview
@@ -116,7 +116,7 @@ function Dashboard() {
       {/* Second Row: My Shifts, Clocked-in Employees, Employee Sales */}
       <Row gutter={[16, 16]} style={{ marginTop: 16 }}>
         {/* My Shifts */}
-        <Col xs={24} md={4}>
+        <Col xs={12} md={6}>
           <Card
             className="dashboard-card shifts-card"
             title={
@@ -137,7 +137,7 @@ function Dashboard() {
         </Col>
 
         {/* Right Column: Clocked-in Employees and Employee Sales */}
-        <Col xs={24} md={20}>
+        <Col xs={12} md={18}>
           <Row gutter={[0, 16]}>
             {/* Current Clocked-in Employees */}
             <Col xs={24}>
