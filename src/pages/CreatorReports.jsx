@@ -8,30 +8,97 @@ import {
   FilterOutlined
 } from '@ant-design/icons';
 import dayjs from 'dayjs';
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
 
 import { earningsData as mockEarningsData } from '../data/mockData';
 import EarningsOverview from '../components/EarningsOverview';
 import calendarIcon from '../assets/creator_reports/calendar_icon.png';
+import exportIcon from '../assets/creator_reports/export.png';
+import customMetricsIcon from '../assets/creator_reports/custom_metrics.png';
+import filtersIcon from '../assets/creator_reports/filters.png';
 import noDataImage from '../assets/no_data.png';
 
 import './CreatorReports.css';
 
-const CustomTooltip = ({ active, payload }) => {
+const CustomTooltip = ({ active, payload, setHoveredBar }) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
-    const growth = data.earnings > 0 ? ((data.value / data.earnings) * 100).toFixed(2) : 0;
+    // calculate growth (simplified - you might want to implement proper growth calculation)
+    const growth = -49.91; // placeholder value matching the design
+
+    // set the hovered bar for the reference line
+    if (setHoveredBar) {
+      setHoveredBar(data.date);
+    }
+
     return (
       <div style={{
-        backgroundColor: '#4a4a4a',
+        // backgroundColor: '#4a4a4a',
+        backgroundColor: '#000',
+        opacity: 0.8,
         padding: '12px 16px',
-        borderRadius: '8px',
+        borderRadius: '5px',
+        border: '1px solid #333',
         color: 'white',
         fontSize: '14px',
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)'
       }}>
-        <div style={{ fontWeight: 500, marginBottom: '4px' }}>{data.date}</div>
-        <div>Earnings: ${data.value.toFixed(2)} Growth: {growth}%</div>
+        <div style={{ marginBottom: '2px' }}>{data.date}</div>
+        <div style={{ marginBottom: '2px' }}>Earnings: ${data.value.toFixed(2)}</div>
+        <div>Growth: {growth.toFixed(2)}%</div>
+      </div>
+    );
+  } else if (setHoveredBar) {
+    setHoveredBar(null);
+  }
+  return null;
+};
+
+const EarningsChannelTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    // channel colors mapping
+    const channelColors = {
+      subscriptions: '#3b82f6',
+      tips: '#06b6d4',
+      posts: '#ef4444',
+      messages: '#f59e0b',
+      referrals: '#10b981',
+      streams: '#a855f7'
+    };
+
+    return (
+      <div style={{
+        backgroundColor: '#000',
+        opacity: 0.8,
+        padding: '12px 16px',
+        borderRadius: '5px',
+        border: '1px solid #333',
+        color: 'white',
+        fontSize: '14px',
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)'
+      }}>
+        <div style={{ marginBottom: '6px' }}>{label}</div>
+        {payload.map((entry, index) => (
+          <div key={index} style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            minWidth: '180px',
+            marginBottom: '2px'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div style={{
+                width: '8px',
+                height: '8px',
+                borderRadius: '50%',
+                backgroundColor: channelColors[entry.dataKey] || '#999',
+                marginRight: '8px'
+              }} />
+              <span style={{ textTransform: 'capitalize' }}>{entry.dataKey}</span>
+            </div>
+            <span style={{ fontWeight: 'bold' }}>${entry.value.toFixed(1)}</span>
+          </div>
+        ))}
       </div>
     );
   }
@@ -228,6 +295,7 @@ function CreatorReports() {
   const [shownBy, setShownBy] = useState('day');
   const [selectedPreset, setSelectedPreset] = useState('Last 7 days');
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [hoveredBar, setHoveredBar] = useState(null);
 
   // handle preset selection
   const handlePresetClick = (label, range) => {
@@ -421,7 +489,8 @@ function CreatorReports() {
                 { value: 'Net earnings', label: 'Net earnings' }
               ]}
             />
-            <Button icon={<FilterOutlined />} className="filters-button">
+            <Button className="filters-button">
+              <img src={filtersIcon} alt="filters" style={{ width: 12, height: 12 }} />
               Filters
             </Button>
           </div>
@@ -475,22 +544,32 @@ function CreatorReports() {
                     width={40}
                 />
                 <RechartsTooltip
-                    cursor={{ fill: 'rgba(52, 103, 255, 0.1)' }}
-                    contentStyle={{
-                    backgroundColor: '#4a4a4a',
-                    border: 'none',
-                    borderRadius: '8px',
-                    color: 'white',
-                    fontSize: '14px',
-                    padding: '12px 16px'
-                    }}
-                    labelStyle={{ fontWeight: 500, marginBottom: '4px' }}
+                    content={(props) => <CustomTooltip {...props} setHoveredBar={setHoveredBar} />}
+                    cursor={false}
                 />
+                {/* {hoveredBar && (
+                    <ReferenceLine
+                        x={hoveredBar}
+                        stroke="#ccc"
+                        strokeWidth={1}
+                        strokeDasharray="3 3"
+                        zIndex={1000}
+                    />
+                )} */}
               <Bar
                 dataKey="value"
                 fill="#3467ff"
                 maxBarSize={60}
               />
+                {hoveredBar && (
+                    <ReferenceLine
+                        x={hoveredBar}
+                        stroke="#ccc"
+                        strokeWidth={1}
+                        strokeDasharray="3 3"
+                        zIndex={1000}
+                    />
+                )}
                 </BarChart>
             </ResponsiveContainer>
             </div>
@@ -534,7 +613,8 @@ function CreatorReports() {
                         width={40}
                         />
                         <RechartsTooltip
-                        cursor={{ stroke: '#999', strokeWidth: 0.5, strokeDasharray: '3 3' }}
+                        content={<EarningsChannelTooltip />}
+                        cursor={{ stroke: '#999', strokeWidth: 1, strokeDasharray: '5 5' }}
                         />
                         <Line
                         dataKey="subscriptions"
@@ -624,17 +704,23 @@ function CreatorReports() {
             <Card
                 className="creator-reports-card creator-statistics-card"
                 title={
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0px' }}>
-                    <span>Creator statistics</span>
-                    <span style={{ fontSize: '14px', fontWeight: 500, color: '#999' }}>
-                    Percentage change is calculated based on the change in value in the selected time frame against the same time frame immediately before it.
-                    </span>
-                </div>
-                }
-                extra={
-                <div style={{ display: 'flex', gap: '12px' }}>
-                    <Button icon={<SettingOutlined />}>Custom metrics</Button>
-                    <Button icon={<DownloadOutlined />}>Export</Button>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0px', flex: '1', minWidth: '300px' }}>
+                        <span>Creator statistics</span>
+                        <span style={{ fontSize: '14px', fontWeight: 400, color: '#999' }}>
+                        Percentage change is calculated based on the change in value in the selected time frame against the same time frame immediately before it.
+                        </span>
+                    </div>
+                    <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexShrink: 0 }}>
+                        <Button style={{ border: 'none', boxShadow: 'none', fontSize: '12px', background: 'transparent', paddingLeft: 0, paddingRight: 0 }}>
+                            <img src={customMetricsIcon} alt="custom metrics" style={{ width: 16, height: 16, marginRight: 0 }} />
+                            Custom metrics
+                        </Button>
+                        <Button className="filters-button">
+                            <img src={exportIcon} alt="export" style={{ width: 12, height: 12 }} />
+                            Export
+                        </Button>
+                    </div>
                 </div>
                 }
             >

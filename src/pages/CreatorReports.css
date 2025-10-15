@@ -15,7 +15,7 @@
 }
 
 .page-title {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   color: #000;
   margin: 0;
@@ -33,10 +33,13 @@
 }
 
 .timezone-badge {
+
+    font-family: BlinkMacSystemFont, 'Roboto', sans-serif;
+
   display: inline-flex;
   align-items: center;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   color: #666;
   /* background: #f5f5f5; */
   /* padding: 4px 12px; */
@@ -59,6 +62,7 @@
 
 .page-tabs .ant-tabs-nav {
   margin-bottom: 0;
+  gap: 14px;
 }
 
 .page-tabs .ant-tabs-tab {
@@ -221,18 +225,18 @@
 }
 
 .filter-select {
-  min-width: 150px;
-  /* padding: 0px 12px !important; */
+  min-width: 130px;
   height: 24px !important;
-  color: #333 !important;
+  font-weight: 600 !important;
 }
 
 .filter-select > .ant-select-selector {
   /* height: 24px !important; */
   border-radius: 4px !important;
   padding-right: 12px !important;
-  font-size: 13px !important;
-  color: #333 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #666 !important;
 }
 
 
@@ -253,6 +257,7 @@
   border-radius: 4px !important;
   padding-left: 8px !important;
   padding-right: 8px !important;
+  font-size: 12px !important;
 }
 
 .filters-button:hover {
