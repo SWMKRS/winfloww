@@ -75,7 +75,7 @@ function Dashboard() {
           <div className="card-title-row">
             <div style={{ paddingTop: '80px' }}>
             </div>
-            <span>
+            <span style={{ marginRight: '12px' }}>
               Creator earnings overview
               <Tooltip title="View your earnings breakdown">
                 <InfoCircleOutlined style={{ marginLeft: 8, color: '#999' }} />
@@ -95,7 +95,7 @@ function Dashboard() {
               className="earnings-type-select"
               value={earningsType}
               onChange={setEarningsType}
-              style={{ width: 130 }}
+              style={{ width: 140 }}
               options={[
                 { value: 'Gross earnings', label: 'Gross earnings' },
                 { value: 'Net earnings', label: 'Net earnings' }
@@ -131,7 +131,7 @@ function Dashboard() {
             <Empty
               image={noDataImage}
               description="No data"
-              styles={{ image: { height: 80 } }}
+              styles={{ image: { height: 100 } }}
             />
           </Card>
         </Col>
@@ -157,7 +157,7 @@ function Dashboard() {
                     <Empty
                     image={noDataImage}
                     description="No employees have clocked in."
-                    styles={{ image: { height: 80 } }}
+                    styles={{ image: { height: 100 } }}
                     />
                   {/* <p className="empty-text">No employees have clocked in.</p> */}
                 </div>
@@ -226,11 +226,11 @@ function Dashboard() {
                 }
               >
                 <div className="empty-employees">
-                  <Empty
-                    image={noDataImage}
-                    description="No data"
-                    styles={{ image: { height: 80 } }}
-                  />
+            <Empty
+              image={noDataImage}
+              description="No data"
+              styles={{ image: { height: 100 } }}
+            />
                 </div>
               </Card>
             </Col>

@@ -81,7 +81,10 @@ function EarningsOverview({ currentEarnings, padding = '0' }) {
           <div className="total-earnings-circle">
             <img src={ofLogo} alt="OnlyFans" className="earnings-logo" />
             <div className="earnings-label">Total earnings</div>
-            <div className="earnings-amount">${formatCurrency(currentEarnings.total)}</div>
+            <div className="earnings-amount">
+              <span className="earnings-dollar">$</span>
+              <span className="earnings-number">{formatCurrency(currentEarnings.total)}</span>
+            </div>
           </div>
         </Col>
         <Col xs={24} lg={18}>

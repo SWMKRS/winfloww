@@ -14,6 +14,7 @@
 
 .earnings-overview-card .ant-card-body {
   padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .dashboard-card .ant-card-head-title {
@@ -89,6 +90,11 @@
   align-items: center;
   justify-content: center;
   min-height: 250px;
+  height: 400px;
+}
+
+.shifts-card .ant-empty {
+  margin: 0 !important;
 }
 
 /* Employees Card */
@@ -129,7 +135,7 @@
 }
 
 .earnings-type-select {
-    height: 40px;
+    height: 35px;
 }
 
 /* Earnings Type Select Styling */
@@ -138,7 +144,12 @@
 }
 
 .earnings-type-select .ant-select-selection-item {
-  color: #333 !important;
+  color: #666 !important;
+  font-weight: 400 !important;
+}
+
+.ant-select-selection-item {
+    padding-inline-end: 3px !important;
 }
 
 /* Segmented Control Styling */
@@ -146,7 +157,7 @@
   background: transparent !important;
   border: 1px solid #d9d9d9;
   border-radius: 5px;
-  padding: 4px;
+  /* padding: 4px; */
   font-size: 12px;
   font-weight: 500;
   gap: 4px;
@@ -156,15 +167,26 @@
 .time-filter-segmented .ant-segmented-item {
   border-radius: 2px;
   transition: all 0.2s ease;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin-top: 1px !important;
-  margin-bottom: 1px !important;
-  padding-left: 12px !important;
-  padding-right: 12px !important;
-  line-height: 20px !important;
-  min-height: 28px !important;
+
+    /* padding-bottom: 4px !important; */
+
+  padding-left: 11px !important;
+  padding-right: 11px !important;
+  /* line-height: 12px !important; */
+  height: 22px !important;
+
+  margin: 4px !important;
 }
+
+.ant-segmented-item-label {
+    line-height: 22px !important;
+    /* padding-top: 3px !important; */
+
+
+    /* line-height: 18px !important; */
+  /* height: 22px !important; */
+}
+
 
 .time-filter-segmented .ant-segmented-item:hover {
   background: #e6f0ff !important;

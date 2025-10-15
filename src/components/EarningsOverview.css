@@ -32,8 +32,19 @@
 
 .earnings-amount {
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 800;
   color: #3467ff;
+  font-family: BlinkMacSystemFont, 'Roboto', sans-serif;
+}
+
+.earnings-dollar {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.earnings-number {
+  font-size: 32px;
+  font-weight: 800;
 }
 
 /* earnings cards */
@@ -41,11 +52,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 24px 0 20px;
   background: white;
   border: none;
   border-radius: 12px;
-  min-height: 90px;
+  min-height: 80px;
 }
 
 .earnings-cards-wrapper {
@@ -85,6 +96,7 @@
   font-weight: 700;
   color: #000;
   line-height: 1;
+  font-family: BlinkMacSystemFont, 'Roboto', sans-serif;
 }
 
 .earnings-card-title {
