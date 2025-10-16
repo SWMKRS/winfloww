@@ -2,14 +2,14 @@ import { useState, useMemo } from 'react';
 import { Card, Row, Col, Segmented, Tooltip, Empty, Select } from 'antd';
 import {
   InfoCircleOutlined,
-  TeamOutlined,
   PieChartOutlined
 } from '@ant-design/icons';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
 
-import { earningsData as mockEarningsData, salesChartData as mockSalesData, employeesData, shiftsData, scheduledHoursData } from '../data/mockData';
+import { earningsData as mockEarningsData, salesChartData as mockSalesData } from '../data/mockData';
 import EarningsOverview from '../components/EarningsOverview';
 import noDataImage from '../assets/no_data.png';
+import clockedInEmployeesLogo from '../assets/dashboard/clocked_in_employees_logo.png';
 
 import './Dashboard.css';
 
@@ -27,7 +27,7 @@ const CustomTooltip = ({ active, payload }) => {
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)'
       }}>
         <div style={{ fontWeight: 500, marginBottom: '4px' }}>{data.date}</div>
-        <div>Earnings: ${data.value.toFixed(2)} Growth: {growth}%</div>
+        <div>Earnings: ${(data.value / 1000).toFixed(1)}K Growth: {growth}%</div>
       </div>
     );
   }
@@ -48,21 +48,18 @@ function Dashboard() {
   }, [timeFilter]);
 
   const currentEmployees = useMemo(() => {
-    return employeesData[timeFilter] || [];
+    return [];
   }, [timeFilter]);
 
   const currentShifts = useMemo(() => {
-    return shiftsData[timeFilter] || [];
+    return [];
   }, [timeFilter]);
 
   const currentScheduledHours = useMemo(() => {
-    return scheduledHoursData[timeFilter] || [];
+    return [];
   }, [timeFilter]);
 
   const clockedInCount = useMemo(() => {
-    if (timeFilter === 'Today') {
-      return currentEmployees.filter(e => e.status === 'clocked-in').length;
-    }
     return 0;
   }, [timeFilter, currentEmployees]);
 
@@ -114,30 +111,28 @@ function Dashboard() {
       </Card>
 
       {/* Second Row: My Shifts, Clocked-in Employees, Employee Sales */}
-      <Row gutter={[16, 16]} style={{ marginTop: 16 }}>
+      <div style={{ display: 'flex', gap: '16px', marginTop: 16, alignItems: 'stretch' }}>
         {/* My Shifts */}
-        <Col xs={12} md={6}>
-          <Card
-            className="dashboard-card shifts-card"
-            title={
-              <span>
-                My shifts
-                <Tooltip title="View your shift schedule">
-                  <InfoCircleOutlined style={{ marginLeft: 8, color: '#999' }} />
-                </Tooltip>
-              </span>
-            }
-          >
-            <Empty
-              image={noDataImage}
-              description="No data"
-              styles={{ image: { height: 100 } }}
-            />
-          </Card>
-        </Col>
+        <Card
+          className="dashboard-card shifts-card"
+          title={
+            <span>
+              My shifts
+              <Tooltip title="View your shift schedule">
+                <InfoCircleOutlined style={{ marginLeft: 8, color: '#999' }} />
+              </Tooltip>
+            </span>
+          }
+        >
+          <Empty
+            image={noDataImage}
+            description="No data"
+            styles={{ image: { height: 100 } }}
+          />
+        </Card>
 
         {/* Right Column: Clocked-in Employees and Employee Sales */}
-        <Col xs={12} md={18}>
+        <div style={{ flex: 1 }}>
           <Row gutter={[0, 16]}>
             {/* Current Clocked-in Employees */}
             <Col xs={24}>
@@ -147,7 +142,11 @@ function Dashboard() {
                   <span>
                     Current clocked-in employees
                     <Tooltip title="See who is currently working">
-                      <TeamOutlined style={{ marginLeft: 8, color: '#999' }} />
+                      <img
+                        src={clockedInEmployeesLogo}
+                        alt="Clocked-in employees"
+                        style={{ marginLeft: 6, marginTop: -1, width: 18, height: 18, verticalAlign: 'middle' }}
+                      />
                     </Tooltip>
                     <span className="employee-count">{clockedInCount}</span>
                   </span>
@@ -190,10 +189,10 @@ function Dashboard() {
                 <YAxis
                   stroke="#999"
                   style={{ fontSize: 12 }}
-                  ticks={[0, 0.2, 0.4, 0.6, 0.8, 1]}
                   axisLine={false}
                   tickLine={false}
-                  width={30}
+                  width={60}
+                  tickFormatter={(value) => `$${(value / 1000).toFixed(0)}K`}
                 />
                     <RechartsTooltip
                       content={<CustomTooltip />}
@@ -235,8 +234,8 @@ function Dashboard() {
               </Card>
             </Col>
           </Row>
-        </Col>
-      </Row>
+        </div>
+      </div>
     </div>
   );
 }

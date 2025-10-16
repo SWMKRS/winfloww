@@ -36,61 +36,20 @@
   align-items: center;
 }
 
-/* Total Earnings Circle */
-.total-earnings-circle {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 24px;
-  background: #ffffff;
-  border: none;
-  border-radius: 12px;
-  min-height: 180px;
-}
-
-.earnings-icon-wrapper {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #e6f0ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-
-.earnings-icon {
-  width: 32px;
-  height: 32px;
-  font-size: 28px;
-  color: #3467ff;
-}
-
-.earnings-logo {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 12px;
-  object-fit: contain;
-}
-
-.earnings-amount {
-  font-size: 32px;
-  font-weight: 700;
-  color: #3467ff;
-}
-
 /* Shifts Card */
 .shifts-card {
-  height: 100%;
+  width: 240px !important;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
 }
 
 .shifts-card .ant-card-body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 250px;
-  height: 400px;
+  flex: 1;
 }
 
 .shifts-card .ant-empty {

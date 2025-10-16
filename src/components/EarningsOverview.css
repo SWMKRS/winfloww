@@ -17,8 +17,8 @@
 }
 
 .earnings-logo {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   margin-bottom: 12px;
   object-fit: contain;
 }
@@ -52,7 +52,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px 0 20px;
+  /* padding: 0 24px 0 20px; */
+  margin: 0 24px 0 20px;
   background: white;
   border: none;
   border-radius: 12px;
@@ -62,7 +63,7 @@
 .earnings-cards-wrapper {
   position: relative;
   border-left: 1px solid #e5e5e5;
-  padding-left: 16px;
+  /* padding-left: 16px; */
   padding-right: 16px;
 }
 
