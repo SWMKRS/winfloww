@@ -559,7 +559,7 @@ function Sidebar({ collapsed }) {
                 cursor: 'pointer',
                 borderRadius: '8px',
                 background: '#e8e8e8',
-                padding: '14px 10px'
+                padding: '14px 19px 14px 10px'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingLeft: '4px' }}>
@@ -572,7 +572,7 @@ function Sidebar({ collapsed }) {
                 {notificationData.totalMessages > 0 && (
                   <span className="notification-dot" />
                 )}
-                <img src={chevronIcon} alt='' style={{ width: 12, height: 12, transform: 'rotate(90deg)', opacity: 0.38 }} />
+                <img src={chevronIcon} alt='' style={{ width: 12, height: 12, transform: 'rotate(90deg)', opacity: 0.6 }} />
               </div>
             </div>
           )}

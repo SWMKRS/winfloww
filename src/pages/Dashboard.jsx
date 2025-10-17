@@ -88,7 +88,7 @@ function Dashboard() {
           </div>
         }
         extra={
-          <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
             <Select
               className="earnings-type-select"
               value={earningsType}

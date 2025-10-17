@@ -63,7 +63,7 @@ const earningsConfig = [
   },
 ];
 
-function EarningsOverview({ currentEarnings, padding = '0' }) {
+function EarningsOverview({ currentEarnings, padding = '0', totalEarningsGapHack = '0px' }) {
   /**
    * Displays an overview of earnings with a total earnings circle and individual category cards.
    */
@@ -81,11 +81,11 @@ function EarningsOverview({ currentEarnings, padding = '0' }) {
           <div className="total-earnings-circle">
             <img src={ofLogo} alt="OnlyFans" className="earnings-logo" />
             <div className="earnings-label">Total earnings</div>
+            <div style={{ height: totalEarningsGapHack }}></div>
             <div className="earnings-amount">
               <span className="earnings-dollar">$</span>
               <span className="earnings-number">
-                {/* {formatCurrency(currentEarnings.total)} */}
-                4,067.28
+                {formatCurrency(currentEarnings.total)}
             </span>
             </div>
           </div>

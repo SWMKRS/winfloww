@@ -13,6 +13,7 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as
 import { useData } from '../data/DataContext';
 import EarningsOverview from '../components/EarningsOverview';
 import calendarIcon from '../assets/creator_reports/calendar_icon.png';
+import chevronIcon from '../assets/icons/chevron.png';
 import exportIcon from '../assets/creator_reports/export.png';
 import customMetricsIcon from '../assets/creator_reports/custom_metrics.png';
 import filtersIcon from '../assets/creator_reports/filters.png';
@@ -275,6 +276,7 @@ function CreatorReports() {
                 onChange={setShownBy}
                 className="filter-select"
                 popupClassName="custom-filter-dropdown"
+                suffixIcon={<img src={chevronIcon} alt='' style={{ width: 10, height: 10, transform: 'rotate(90deg)', opacity: 0.6 }} />}
                 options={[
                   { value: 'hour', label: 'Shown by hour', disabled: true },
                   { value: 'day', label: 'Shown by day' },
@@ -291,6 +293,7 @@ function CreatorReports() {
               onChange={setEarningsType}
               className="filter-select"
               popupClassName="custom-filter-dropdown"
+              suffixIcon={<img src={chevronIcon} alt='' style={{ width: 10, height: 10, transform: 'rotate(90deg)', opacity: 0.6 }} />}
               options={[
                 { value: 'Gross earnings', label: 'Gross earnings' },
                 { value: 'Net earnings', label: 'Net earnings' }
@@ -314,7 +317,7 @@ function CreatorReports() {
                 <InfoCircleOutlined style={{ marginLeft: 8, color: '#999', fontSize: 16 }} />
             </Tooltip>
             </h2>
-            <EarningsOverview currentEarnings={currentEarnings} />
+            <EarningsOverview currentEarnings={currentEarnings} totalEarningsGapHack="10px" />
         </div>
 
         {/* Earnings Trends Section */}
@@ -514,7 +517,7 @@ function CreatorReports() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0px', flex: '1', minWidth: '300px' }}>
                         <span>Creator statistics</span>
-                        <span style={{ fontSize: '14px', fontWeight: 400, color: '#999' }}>
+                        <span style={{ fontSize: '14px', fontWeight: 500, color: '#999' }}>
                         Percentage change is calculated based on the change in value in the selected time frame against the same time frame immediately before it.
                         </span>
                     </div>
@@ -539,7 +542,7 @@ function CreatorReports() {
                     <div className="stat-label">
                         <span>Creators</span>
                         <Tooltip title="Total number of creators">
-                        <InfoCircleOutlined style={{ fontSize: 12 }} />
+                        <InfoCircleOutlined style={{ fontSize: 14 }} />
                         </Tooltip>
                     </div>
                     </div>
@@ -550,7 +553,7 @@ function CreatorReports() {
                     <div className="stat-label">
                         <span>Message earnings</span>
                         <Tooltip title="Total earnings from messages">
-                        <InfoCircleOutlined style={{ fontSize: 12 }} />
+                        <InfoCircleOutlined style={{ fontSize: 14 }} />
                         </Tooltip>
                     </div>
                     </div>
@@ -561,7 +564,7 @@ function CreatorReports() {
                     <div className="stat-label">
                         <span>Total earnings</span>
                         <Tooltip title="Total earnings across all channels">
-                        <InfoCircleOutlined style={{ fontSize: 12 }} />
+                        <InfoCircleOutlined style={{ fontSize: 14 }} />
                         </Tooltip>
                     </div>
                     </div>
@@ -572,7 +575,7 @@ function CreatorReports() {
                     <div className="stat-label">
                         <span>Refunded</span>
                         <Tooltip title="Total amount refunded">
-                        <InfoCircleOutlined style={{ fontSize: 12 }} />
+                        <InfoCircleOutlined style={{ fontSize: 14 }} />
                         </Tooltip>
                     </div>
                     </div>

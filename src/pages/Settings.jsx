@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, Upload, Button, message, Table, Space, Tag } from 'antd';
 import { UploadOutlined, DownloadOutlined, DeleteOutlined, CheckOutlined } from '@ant-design/icons';
 
@@ -6,17 +6,40 @@ import { useData } from '../data/DataContext';
 import './Settings.css';
 
 function Settings() {
-  const { transactionData, processedData, isLoading, loadCustomData, loadSampleData } = useData();
+  const { transactionData, processedData, isLoading, loadCustomData, switchDataFile, currentDataFile, listSavedFiles, getFileTimestamp, deleteFile } = useData();
   const [uploading, setUploading] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState([
     {
       id: 'default',
-      name: 'Sample Data',
+      name: 'default.json',
       timestamp: new Date('2025-10-15T22:09:53Z'),
       isDefault: true,
-      isActive: !!transactionData
+      isActive: false
     }
   ]);
+
+  // load saved files on mount and update active state
+  useEffect(() => {
+    const loadSavedFiles = async () => {
+      try {
+        const savedFiles = await listSavedFiles();
+        const fileList = await Promise.all(savedFiles.map(async filename => ({
+          id: filename === 'default.json' ? 'default' : filename,
+          name: filename,
+          timestamp: filename === 'default.json'
+            ? new Date('2025-10-15T22:09:53Z')
+            : await getFileTimestamp(filename),
+          isDefault: filename === 'default.json',
+          isActive: filename === currentDataFile
+        })));
+        setUploadedFiles(fileList);
+      } catch (error) {
+        console.error('Failed to load saved files:', error);
+      }
+    };
+
+    loadSavedFiles();
+  }, [listSavedFiles, currentDataFile]);
 
   const validateSchema = (jsonData) => {
     const requiredFields = ['metadata', 'transactions'];
@@ -81,13 +104,10 @@ function Settings() {
         name: file.name,
         timestamp: new Date(),
         isDefault: false,
-        isActive: true
+        isActive: false // will be set by useEffect
       };
 
-      setUploadedFiles(prev => [
-        ...prev.map(f => ({ ...f, isActive: false })), // deactivate others
-        newFile
-      ]);
+      setUploadedFiles(prev => [...prev, newFile]);
 
       message.success('Data loaded successfully!');
     } catch (err) {
@@ -99,15 +119,12 @@ function Settings() {
 
   const handleUseFile = async (file) => {
     if (file.isDefault) {
-      await loadSampleData();
+      await switchDataFile('default.json');
     } else {
-      // would need to reload from stored file
-      message.info('File reload functionality not implemented yet');
+      // switch to the uploaded file
+      await switchDataFile(file.name);
     }
-
-    setUploadedFiles(prev =>
-      prev.map(f => ({ ...f, isActive: f.id === file.id }))
-    );
+    // active state will be updated automatically by useEffect
   };
 
   const handleDownloadFile = (file) => {
@@ -132,9 +149,33 @@ function Settings() {
     }
   };
 
-  const handleDeleteFile = (fileId) => {
-    setUploadedFiles(prev => prev.filter(f => f.id !== fileId));
-    message.success('File deleted');
+  const handleDeleteFile = async (fileId) => {
+    try {
+      // find the file to get its name
+      const file = uploadedFiles.find(f => f.id === fileId);
+      if (!file) {
+        message.error('File not found');
+        return;
+      }
+
+      // delete from storage
+      const result = await deleteFile(file.name);
+      if (result.success) {
+        // remove from local state
+        setUploadedFiles(prev => prev.filter(f => f.id !== fileId));
+
+        // if this was the active file, switch to default
+        if (file.isActive) {
+          await switchDataFile('default.json');
+        }
+
+        message.success('File deleted successfully');
+      } else {
+        message.error(`Failed to delete file: ${result.error}`);
+      }
+    } catch (error) {
+      message.error(`Delete failed: ${error.message}`);
+    }
   };
 
   const columns = [
@@ -157,7 +198,9 @@ function Settings() {
       dataIndex: 'timestamp',
       key: 'timestamp',
       render: (timestamp) => timestamp.toLocaleString(),
-      width: 200
+      width: 200,
+      sorter: (a, b) => new Date(b.timestamp) - new Date(a.timestamp),
+      defaultSortOrder: 'descend'
     },
     {
       title: 'Actions',

@@ -8,6 +8,8 @@ class TransactionDataProcessor {
     this.metadata = transactionData.metadata;
     this.transactions = transactionData.transactions;
     this.platformFeeRate = this.metadata.platformFee || 0.2; // default 20% if not specified
+    this.cache = new Map(); // cache for expensive calculations
+    console.log('TransactionDataProcessor created with', this.transactions.length, 'transactions');
   }
 
   /**
@@ -19,8 +21,8 @@ class TransactionDataProcessor {
     }
 
     const timestamps = this.transactions.map(tx => dayjs(tx.timestamp));
-    const startDate = dayjs.min(timestamps);
-    const endDate = dayjs.max(timestamps);
+    const startDate = timestamps.reduce((min, current) => current.isBefore(min) ? current : min);
+    const endDate = timestamps.reduce((max, current) => current.isAfter(max) ? current : max);
 
     return {
       startDate: startDate.toISOString(),
@@ -29,27 +31,19 @@ class TransactionDataProcessor {
   }
 
   /**
-   * Calculates net and gross amounts for a transaction based on platform fee rate
+   * Normalizes transaction data to ensure consistent structure
    */
-  calculateAmounts(transaction) {
-    // if transaction already has calculated amounts, use them
-    if (transaction.grossAmount !== undefined && transaction.netAmount !== undefined) {
-      return {
-        gross: transaction.grossAmount,
-        net: transaction.netAmount,
-        platformFee: transaction.platformFee || (transaction.grossAmount * this.platformFeeRate)
-      };
-    }
-
-    // calculate from base amount (assuming transaction has 'amount' field)
-    const baseAmount = transaction.amount || transaction.grossAmount || 0;
-    const platformFee = baseAmount * this.platformFeeRate;
-    const netAmount = baseAmount - platformFee;
+  normalizeTransaction(transaction) {
+    // calculate all amounts from base amount
+    const grossAmount = transaction.amount || 0;
+    const platformFee = grossAmount * this.platformFeeRate;
+    const netAmount = grossAmount - platformFee;
 
     return {
-      gross: baseAmount,
-      net: netAmount,
-      platformFee: platformFee
+      ...transaction,
+      grossAmount,
+      netAmount,
+      platformFee
     };
   }
 
@@ -57,6 +51,16 @@ class TransactionDataProcessor {
    * Calculates earnings for a specific time period and channel
    */
   calculateEarningsForPeriod(startDate, endDate, channel = null, earningsType = 'gross') {
+    const cacheKey = `${startDate.format('YYYY-MM-DD')}-${endDate.format('YYYY-MM-DD')}-${channel || 'all'}`;
+
+    if (this.cache.has(cacheKey)) {
+      console.log('Using cached result for:', cacheKey);
+      return this.cache.get(cacheKey);
+    }
+
+    console.log(`Calculating earnings for ${startDate.format('YYYY-MM-DD')} to ${endDate.format('YYYY-MM-DD')}, channel: ${channel || 'all'}`);
+    console.log(`Total transactions available: ${this.transactions.length}`);
+
     const filtered = this.transactions.filter(tx => {
       const txDate = dayjs(tx.timestamp);
       const isInPeriod = txDate.isAfter(startDate.subtract(1, 'day')) &&
@@ -64,18 +68,30 @@ class TransactionDataProcessor {
       const isChannelMatch = channel === null || tx.channel === channel;
       const isNotRefunded = !tx.isRefunded;
 
-      return isInPeriod && isChannelMatch && isNotRefunded;
+      const passes = isInPeriod && isChannelMatch && isNotRefunded;
+      if (passes) {
+        console.log(`Transaction ${tx.id} passes filter: ${txDate.format('YYYY-MM-DD')} - ${tx.channel} - $${tx.amount}`);
+      }
+
+      return passes;
     });
 
-    // calculate amounts dynamically for each transaction
-    const amounts = filtered.map(tx => this.calculateAmounts(tx));
+    console.log(`Filtered transactions: ${filtered.length}`);
 
-    return {
-      gross: amounts.reduce((sum, amounts) => sum + amounts.gross, 0),
-      net: amounts.reduce((sum, amounts) => sum + amounts.net, 0),
-      platformFees: amounts.reduce((sum, amounts) => sum + amounts.platformFee, 0),
+    // normalize and sum amounts
+    const normalized = filtered.map(tx => this.normalizeTransaction(tx));
+
+    const result = {
+      gross: normalized.reduce((sum, tx) => sum + tx.grossAmount, 0),
+      net: normalized.reduce((sum, tx) => sum + tx.netAmount, 0),
+      platformFees: normalized.reduce((sum, tx) => sum + tx.platformFee, 0),
       transactionCount: filtered.length
     };
+
+    console.log(`Result: gross=$${result.gross}, net=$${result.net}, count=${result.transactionCount}`);
+
+    this.cache.set(cacheKey, result);
+    return result;
   }
 
   /**
@@ -88,51 +104,18 @@ class TransactionDataProcessor {
       dayjs(tx.refundTimestamp).isBefore(endDate.add(1, 'day'))
     );
 
-    // calculate refund amounts dynamically
-    const refundAmounts = refunded.map(tx => {
-      const amounts = this.calculateAmounts(tx);
-      return tx.refundAmount || amounts.gross; // use refundAmount if specified, otherwise use gross
-    });
-
-    return refundAmounts.reduce((sum, amount) => sum + amount, 0);
+    // normalize and sum refund amounts
+    const normalized = refunded.map(tx => this.normalizeTransaction(tx));
+    return normalized.reduce((sum, tx) => sum + (tx.refundAmount || tx.grossAmount), 0);
   }
 
   /**
    * Generates earnings data for different time filters
    */
   generateEarningsData() {
+    console.log('=== generateEarningsData called ===');
     const timeFilters = ['Yesterday', 'Today', 'This week', 'This month'];
     const earningsData = {};
-
-    console.log('Processing earnings data with', this.transactions.length, 'transactions');
-
-    // temporary test - if no transactions, use test data
-    if (this.transactions.length === 0) {
-      console.log('No transactions found, using test data');
-      timeFilters.forEach(filter => {
-        earningsData[filter] = {
-          'Gross earnings': {
-            total: 1000,
-            subscriptions: 400,
-            tips: 300,
-            posts: 200,
-            messages: 100,
-            referrals: 0,
-            streams: 0
-          },
-          'Net earnings': {
-            total: 800,
-            subscriptions: 320,
-            tips: 240,
-            posts: 160,
-            messages: 80,
-            referrals: 0,
-            streams: 0
-          }
-        };
-      });
-      return earningsData;
-    }
 
     timeFilters.forEach(filter => {
       let startDate, endDate;
@@ -156,9 +139,10 @@ class TransactionDataProcessor {
           break;
       }
 
+      console.log(`${filter}: ${startDate.format('YYYY-MM-DD HH:mm:ss')} to ${endDate.format('YYYY-MM-DD HH:mm:ss')}`);
+
       // calculate gross earnings
       const grossEarnings = this.calculateEarningsForPeriod(startDate, endDate);
-      const refunded = this.calculateRefundsForPeriod(startDate, endDate);
 
       // calculate by channel
       const channels = ['subscriptions', 'tips', 'posts', 'messages', 'referrals', 'streams'];
@@ -189,6 +173,8 @@ class TransactionDataProcessor {
       };
     });
 
+    console.log('=== generateEarningsData complete ===');
+    console.log('Final earnings data:', earningsData);
     return earningsData;
   }
 
@@ -338,10 +324,21 @@ class TransactionDataProcessor {
  */
 export const loadTransactionData = async (jsonData) => {
   try {
-    const processor = new TransactionDataProcessor(jsonData);
-    const calculatedDataRange = processor.calculateDataRange();
+    console.log('Loading transaction data...');
+    console.log('JSON data structure:', {
+      hasMetadata: !!jsonData.metadata,
+      hasTransactions: !!jsonData.transactions,
+      transactionCount: jsonData.transactions?.length || 0,
+      metadataKeys: Object.keys(jsonData.metadata || {})
+    });
 
-    return {
+    const processor = new TransactionDataProcessor(jsonData);
+    console.log('Processor created with', processor.transactions.length, 'transactions');
+
+    const calculatedDataRange = processor.calculateDataRange();
+    console.log('Data range:', calculatedDataRange);
+
+    const result = {
       metadata: {
         ...processor.metadata,
         dataRange: calculatedDataRange
@@ -356,6 +353,9 @@ export const loadTransactionData = async (jsonData) => {
       calculateRefundsForPeriod: processor.calculateRefundsForPeriod.bind(processor),
       allTransactions: processor.transactions
     };
+
+    console.log('Processing complete. Earnings data:', result.earningsData);
+    return result;
   } catch (error) {
     console.error('Error processing transaction data:', error);
     throw error;

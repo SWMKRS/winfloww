@@ -1,0 +1,3181 @@
+{
+  "metadata": {
+    "userName": "James Bond",
+    "utcOffset": "+02:00",
+    "operationalStatus": true,
+    "totalMessages": 47,
+    "platformFee": 0.5
+  },
+  "creators": [
+    {
+      "id": "sophia_rose",
+      "name": "Sophia Rose",
+      "alias": "@sophia_rose",
+      "joinDate": "2024-01-15"
+    },
+    {
+      "id": "emma_jade",
+      "name": "Emma Jade",
+      "alias": "@emma_jade",
+      "joinDate": "2024-02-20"
+    },
+    {
+      "id": "ava_luna",
+      "name": "Ava Luna",
+      "alias": "@ava_luna",
+      "joinDate": "2024-03-10"
+    },
+    {
+      "id": "mia_grace",
+      "name": "Mia Grace",
+      "alias": "@mia_grace",
+      "joinDate": "2024-04-05"
+    },
+    {
+      "id": "olivia_sky",
+      "name": "Olivia Sky",
+      "alias": "@olivia_sky",
+      "joinDate": "2024-05-12"
+    },
+    {
+      "id": "charlotte_moon",
+      "name": "Charlotte Moon",
+      "alias": "@charlotte_moon",
+      "joinDate": "2024-06-18"
+    },
+    {
+      "id": "isabella_star",
+      "name": "Isabella Star",
+      "alias": "@isabella_star",
+      "joinDate": "2024-07-25"
+    },
+    {
+      "id": "amelia_sun",
+      "name": "Amelia Sun",
+      "alias": "@amelia_sun",
+      "joinDate": "2024-08-30"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "tx_001",
+      "timestamp": "2025-10-16T11:45:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@ava_luna",
+      "amount": 20.81,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_002",
+      "timestamp": "2025-10-16T07:47:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@olivia_sky",
+      "amount": 32.88,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_003",
+      "timestamp": "2025-10-16T11:58:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@olivia_sky",
+      "amount": 11.26,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_004",
+      "timestamp": "2025-10-17T01:07:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@isabella_star",
+      "amount": 19.55,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_005",
+      "timestamp": "2025-10-15T14:50:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 20.12,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_006",
+      "timestamp": "2025-10-16T01:16:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 3.9,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_007",
+      "timestamp": "2025-10-16T01:15:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@isabella_star",
+      "amount": 23.6,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_008",
+      "timestamp": "2025-10-14T19:12:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@ava_luna",
+      "amount": 27.25,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_009",
+      "timestamp": "2025-10-14T23:36:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@amelia_sun",
+      "amount": 15.19,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_010",
+      "timestamp": "2025-10-14T13:26:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@emma_jade",
+      "amount": 59.01,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_011",
+      "timestamp": "2025-10-14T15:05:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@olivia_sky",
+      "amount": 5.71,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_012",
+      "timestamp": "2025-10-13T07:43:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 67.74,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_013",
+      "timestamp": "2025-10-13T23:46:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@mia_grace",
+      "amount": 34.66,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_014",
+      "timestamp": "2025-10-13T09:06:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@emma_jade",
+      "amount": 12.49,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_015",
+      "timestamp": "2025-10-12T22:55:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@ava_luna",
+      "amount": 4.7,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_016",
+      "timestamp": "2025-10-12T22:39:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@amelia_sun",
+      "amount": 50.15,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_017",
+      "timestamp": "2025-10-12T10:04:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@mia_grace",
+      "amount": 8.74,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_018",
+      "timestamp": "2025-10-12T14:38:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 71.86,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_019",
+      "timestamp": "2025-10-11T16:35:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@emma_jade",
+      "amount": 11.84,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_020",
+      "timestamp": "2025-10-11T21:59:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@emma_jade",
+      "amount": 9.23,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_021",
+      "timestamp": "2025-10-11T10:42:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@isabella_star",
+      "amount": 18.48,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_022",
+      "timestamp": "2025-10-10T12:14:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@isabella_star",
+      "amount": 25.61,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_023",
+      "timestamp": "2025-10-10T15:58:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@emma_jade",
+      "amount": 20.06,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_024",
+      "timestamp": "2025-10-10T07:23:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@sophia_rose",
+      "amount": 18.09,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_025",
+      "timestamp": "2025-10-10T10:51:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@emma_jade",
+      "amount": 4.12,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_026",
+      "timestamp": "2025-10-09T11:42:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@amelia_sun",
+      "amount": 9.94,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_027",
+      "timestamp": "2025-10-09T15:11:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@mia_grace",
+      "amount": 10.25,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_028",
+      "timestamp": "2025-10-09T12:06:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@sophia_rose",
+      "amount": 10.18,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_029",
+      "timestamp": "2025-10-09T05:49:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@olivia_sky",
+      "amount": 23.96,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_030",
+      "timestamp": "2025-10-08T12:19:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@sophia_rose",
+      "amount": 21.46,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_031",
+      "timestamp": "2025-10-08T23:32:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 5.13,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_032",
+      "timestamp": "2025-10-08T16:09:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@emma_jade",
+      "amount": 19.22,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_033",
+      "timestamp": "2025-10-07T20:06:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 33.74,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_034",
+      "timestamp": "2025-10-07T17:55:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@ava_luna",
+      "amount": 20.01,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_035",
+      "timestamp": "2025-10-07T22:55:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 60.92,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_036",
+      "timestamp": "2025-10-06T11:33:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@olivia_sky",
+      "amount": 44.58,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_037",
+      "timestamp": "2025-10-06T21:07:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 27.66,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_038",
+      "timestamp": "2025-10-06T09:29:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 30.96,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_039",
+      "timestamp": "2025-10-07T03:10:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 24.01,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_040",
+      "timestamp": "2025-10-05T23:17:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@sophia_rose",
+      "amount": 62.95,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_041",
+      "timestamp": "2025-10-05T16:55:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@mia_grace",
+      "amount": 25.42,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_042",
+      "timestamp": "2025-10-06T06:32:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 23.03,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_043",
+      "timestamp": "2025-10-05T05:25:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 26.41,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_044",
+      "timestamp": "2025-10-04T20:31:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@isabella_star",
+      "amount": 18.81,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_045",
+      "timestamp": "2025-10-04T08:34:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@emma_jade",
+      "amount": 23.57,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_046",
+      "timestamp": "2025-10-04T20:00:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@isabella_star",
+      "amount": 13.77,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_047",
+      "timestamp": "2025-10-04T00:25:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@sophia_rose",
+      "amount": 55.94,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_048",
+      "timestamp": "2025-10-03T13:20:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@sophia_rose",
+      "amount": 14.32,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_049",
+      "timestamp": "2025-10-04T04:29:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@emma_jade",
+      "amount": 25.72,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_050",
+      "timestamp": "2025-10-03T03:31:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@ava_luna",
+      "amount": 38.47,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_051",
+      "timestamp": "2025-10-03T06:32:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@mia_grace",
+      "amount": 24.47,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_052",
+      "timestamp": "2025-10-02T20:18:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@emma_jade",
+      "amount": 53.14,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_053",
+      "timestamp": "2025-10-01T11:21:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@olivia_sky",
+      "amount": 13.88,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_054",
+      "timestamp": "2025-10-01T17:47:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@sophia_rose",
+      "amount": 19.14,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_055",
+      "timestamp": "2025-10-01T10:38:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@olivia_sky",
+      "amount": 65.44,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_056",
+      "timestamp": "2025-10-01T08:09:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@amelia_sun",
+      "amount": 43.03,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_057",
+      "timestamp": "2025-09-30T21:18:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@ava_luna",
+      "amount": 31.33,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_058",
+      "timestamp": "2025-10-01T00:07:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@mia_grace",
+      "amount": 38.75,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_059",
+      "timestamp": "2025-09-30T12:57:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@mia_grace",
+      "amount": 7.63,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_060",
+      "timestamp": "2025-09-29T21:55:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@ava_luna",
+      "amount": 26.09,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_061",
+      "timestamp": "2025-09-29T08:15:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@sophia_rose",
+      "amount": 15.39,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_062",
+      "timestamp": "2025-09-29T22:34:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@olivia_sky",
+      "amount": 56.74,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_063",
+      "timestamp": "2025-09-29T19:41:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@emma_jade",
+      "amount": 71.55,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_064",
+      "timestamp": "2025-09-29T01:36:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@olivia_sky",
+      "amount": 95.38,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_065",
+      "timestamp": "2025-09-28T15:23:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@amelia_sun",
+      "amount": 37.72,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_066",
+      "timestamp": "2025-09-28T10:30:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@amelia_sun",
+      "amount": 90.56,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_067",
+      "timestamp": "2025-09-27T08:10:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@sophia_rose",
+      "amount": 38.57,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_068",
+      "timestamp": "2025-09-27T08:01:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@amelia_sun",
+      "amount": 40.98,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_069",
+      "timestamp": "2025-09-27T17:07:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@mia_grace",
+      "amount": 54.38,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_070",
+      "timestamp": "2025-09-27T21:26:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@amelia_sun",
+      "amount": 13.44,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_071",
+      "timestamp": "2025-09-26T23:03:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@sophia_rose",
+      "amount": 37.05,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_072",
+      "timestamp": "2025-09-27T01:27:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@ava_luna",
+      "amount": 26.37,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_073",
+      "timestamp": "2025-09-26T07:20:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@ava_luna",
+      "amount": 22.61,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_074",
+      "timestamp": "2025-09-25T09:30:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@ava_luna",
+      "amount": 15.45,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_075",
+      "timestamp": "2025-09-25T17:35:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@amelia_sun",
+      "amount": 52.71,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_076",
+      "timestamp": "2025-09-25T09:45:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@sophia_rose",
+      "amount": 21.05,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_077",
+      "timestamp": "2025-09-26T02:15:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@sophia_rose",
+      "amount": 31.85,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_078",
+      "timestamp": "2025-09-25T02:09:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@mia_grace",
+      "amount": 15.41,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_079",
+      "timestamp": "2025-09-24T09:40:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@isabella_star",
+      "amount": 15.15,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_080",
+      "timestamp": "2025-09-25T06:59:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@amelia_sun",
+      "amount": 13.78,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_081",
+      "timestamp": "2025-09-23T11:33:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@sophia_rose",
+      "amount": 26.6,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_082",
+      "timestamp": "2025-09-24T01:40:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@ava_luna",
+      "amount": 66.73,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_083",
+      "timestamp": "2025-09-23T19:18:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 58.17,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_084",
+      "timestamp": "2025-09-23T22:01:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@ava_luna",
+      "amount": 29.21,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_085",
+      "timestamp": "2025-09-22T09:52:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@sophia_rose",
+      "amount": 12.89,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_086",
+      "timestamp": "2025-09-23T06:59:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@amelia_sun",
+      "amount": 6.14,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_087",
+      "timestamp": "2025-09-22T13:44:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@mia_grace",
+      "amount": 6.93,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_088",
+      "timestamp": "2025-09-22T06:02:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@isabella_star",
+      "amount": 99.42,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_089",
+      "timestamp": "2025-09-21T10:16:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@isabella_star",
+      "amount": 55.38,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_090",
+      "timestamp": "2025-09-22T06:04:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@sophia_rose",
+      "amount": 39.66,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_091",
+      "timestamp": "2025-09-21T11:31:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@isabella_star",
+      "amount": 17.17,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_092",
+      "timestamp": "2025-09-21T00:56:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@isabella_star",
+      "amount": 7.39,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_093",
+      "timestamp": "2025-09-20T20:03:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@mia_grace",
+      "amount": 34.88,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_094",
+      "timestamp": "2025-09-20T13:24:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 118.35,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_095",
+      "timestamp": "2025-09-20T00:21:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@olivia_sky",
+      "amount": 12.97,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_096",
+      "timestamp": "2025-09-19T07:23:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@isabella_star",
+      "amount": 14.61,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_097",
+      "timestamp": "2025-09-20T02:24:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 35.9,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_098",
+      "timestamp": "2025-09-19T21:50:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@isabella_star",
+      "amount": 58.16,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_099",
+      "timestamp": "2025-09-18T15:37:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@sophia_rose",
+      "amount": 22.84,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_100",
+      "timestamp": "2025-09-19T04:41:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@amelia_sun",
+      "amount": 43.37,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_101",
+      "timestamp": "2025-09-18T22:19:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@ava_luna",
+      "amount": 56.14,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_102",
+      "timestamp": "2025-09-18T05:48:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@ava_luna",
+      "amount": 22.07,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_103",
+      "timestamp": "2025-09-17T14:07:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@emma_jade",
+      "amount": 27.26,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_104",
+      "timestamp": "2025-09-17T07:18:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@emma_jade",
+      "amount": 4.86,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_105",
+      "timestamp": "2025-09-16T15:21:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@sophia_rose",
+      "amount": 55.66,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_106",
+      "timestamp": "2025-09-16T23:08:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 13.39,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_107",
+      "timestamp": "2025-09-16T08:17:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@mia_grace",
+      "amount": 28.68,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_108",
+      "timestamp": "2025-09-16T19:39:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@emma_jade",
+      "amount": 15.17,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_109",
+      "timestamp": "2025-09-16T06:33:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 14.58,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_110",
+      "timestamp": "2025-09-16T01:45:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@mia_grace",
+      "amount": 41.14,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_111",
+      "timestamp": "2025-09-15T09:58:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@amelia_sun",
+      "amount": 72.92,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_112",
+      "timestamp": "2025-09-14T19:21:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 25.52,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_113",
+      "timestamp": "2025-09-14T21:04:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@sophia_rose",
+      "amount": 21.65,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_114",
+      "timestamp": "2025-09-14T07:42:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 13.97,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_115",
+      "timestamp": "2025-09-14T09:26:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@sophia_rose",
+      "amount": 25.01,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_116",
+      "timestamp": "2025-09-13T20:09:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@amelia_sun",
+      "amount": 42.84,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_117",
+      "timestamp": "2025-09-13T14:04:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@emma_jade",
+      "amount": 8.74,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_118",
+      "timestamp": "2025-09-14T06:02:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@olivia_sky",
+      "amount": 25.55,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_119",
+      "timestamp": "2025-09-13T05:43:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@olivia_sky",
+      "amount": 71.32,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_120",
+      "timestamp": "2025-09-12T07:25:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@sophia_rose",
+      "amount": 5.52,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_121",
+      "timestamp": "2025-09-13T03:12:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@amelia_sun",
+      "amount": 94.83,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_122",
+      "timestamp": "2025-09-12T19:15:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@isabella_star",
+      "amount": 113.56,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_123",
+      "timestamp": "2025-09-11T07:57:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 40.71,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_124",
+      "timestamp": "2025-09-12T04:34:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@olivia_sky",
+      "amount": 85.67,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_125",
+      "timestamp": "2025-09-11T16:03:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@olivia_sky",
+      "amount": 72.32,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_126",
+      "timestamp": "2025-09-10T21:09:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@mia_grace",
+      "amount": 6.31,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_127",
+      "timestamp": "2025-09-10T14:58:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 65.71,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_128",
+      "timestamp": "2025-09-10T14:09:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@olivia_sky",
+      "amount": 34.1,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_129",
+      "timestamp": "2025-09-11T06:44:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@amelia_sun",
+      "amount": 29.8,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_130",
+      "timestamp": "2025-09-10T03:05:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@mia_grace",
+      "amount": 24.19,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_131",
+      "timestamp": "2025-09-09T23:19:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@sophia_rose",
+      "amount": 18.19,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_132",
+      "timestamp": "2025-09-10T04:01:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 21.51,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_133",
+      "timestamp": "2025-09-08T15:50:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@mia_grace",
+      "amount": 101.44,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_134",
+      "timestamp": "2025-09-08T18:14:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@olivia_sky",
+      "amount": 35.11,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_135",
+      "timestamp": "2025-09-08T16:41:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@mia_grace",
+      "amount": 30.04,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_136",
+      "timestamp": "2025-09-09T02:07:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@olivia_sky",
+      "amount": 20.53,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_137",
+      "timestamp": "2025-09-07T20:18:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@amelia_sun",
+      "amount": 64.32,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_138",
+      "timestamp": "2025-09-07T21:35:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@olivia_sky",
+      "amount": 23.9,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_139",
+      "timestamp": "2025-09-08T06:10:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 32.32,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_140",
+      "timestamp": "2025-09-06T14:25:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@sophia_rose",
+      "amount": 45.3,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_141",
+      "timestamp": "2025-09-07T02:44:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@sophia_rose",
+      "amount": 31.59,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_142",
+      "timestamp": "2025-09-06T14:49:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@emma_jade",
+      "amount": 12.77,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_143",
+      "timestamp": "2025-09-07T06:13:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 40.94,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_144",
+      "timestamp": "2025-09-05T21:19:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@amelia_sun",
+      "amount": 88.49,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_145",
+      "timestamp": "2025-09-05T18:59:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@ava_luna",
+      "amount": 80.78,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_146",
+      "timestamp": "2025-09-05T09:07:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@mia_grace",
+      "amount": 80.09,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_147",
+      "timestamp": "2025-09-04T10:34:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@ava_luna",
+      "amount": 19.23,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_148",
+      "timestamp": "2025-09-04T12:30:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@amelia_sun",
+      "amount": 38.91,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_149",
+      "timestamp": "2025-09-05T03:57:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@emma_jade",
+      "amount": 29.87,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_150",
+      "timestamp": "2025-09-04T20:45:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@isabella_star",
+      "amount": 117.85,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_151",
+      "timestamp": "2025-09-04T02:09:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@sophia_rose",
+      "amount": 40.7,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_152",
+      "timestamp": "2025-09-03T20:12:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@amelia_sun",
+      "amount": 13.28,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_153",
+      "timestamp": "2025-09-03T10:45:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@sophia_rose",
+      "amount": 32.12,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_154",
+      "timestamp": "2025-09-02T19:55:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@mia_grace",
+      "amount": 24.01,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_155",
+      "timestamp": "2025-09-02T13:40:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@ava_luna",
+      "amount": 11.9,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_156",
+      "timestamp": "2025-09-02T23:51:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@ava_luna",
+      "amount": 45.47,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_157",
+      "timestamp": "2025-09-01T08:22:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@olivia_sky",
+      "amount": 131.92,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_158",
+      "timestamp": "2025-09-01T15:56:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@sophia_rose",
+      "amount": 19.25,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_159",
+      "timestamp": "2025-09-01T17:58:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 31.61,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_160",
+      "timestamp": "2025-09-01T19:28:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@mia_grace",
+      "amount": 66.71,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_161",
+      "timestamp": "2025-08-31T19:34:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@isabella_star",
+      "amount": 71.18,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_162",
+      "timestamp": "2025-09-01T03:13:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@ava_luna",
+      "amount": 27.19,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_163",
+      "timestamp": "2025-09-01T01:37:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@ava_luna",
+      "amount": 11.07,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_164",
+      "timestamp": "2025-08-30T09:03:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@sophia_rose",
+      "amount": 110.15,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_165",
+      "timestamp": "2025-08-30T20:03:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@olivia_sky",
+      "amount": 21.84,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_166",
+      "timestamp": "2025-08-30T18:22:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@isabella_star",
+      "amount": 48.49,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_167",
+      "timestamp": "2025-08-31T00:15:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@olivia_sky",
+      "amount": 8.44,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_168",
+      "timestamp": "2025-08-29T20:28:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@isabella_star",
+      "amount": 19.22,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_169",
+      "timestamp": "2025-08-30T03:52:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@amelia_sun",
+      "amount": 129.6,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_170",
+      "timestamp": "2025-08-29T14:26:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@isabella_star",
+      "amount": 47.37,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_171",
+      "timestamp": "2025-08-28T10:12:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@isabella_star",
+      "amount": 132.33,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_172",
+      "timestamp": "2025-08-28T09:58:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@olivia_sky",
+      "amount": 27.9,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_173",
+      "timestamp": "2025-08-28T17:22:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@sophia_rose",
+      "amount": 9.33,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_174",
+      "timestamp": "2025-08-29T03:29:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@mia_grace",
+      "amount": 89.63,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_175",
+      "timestamp": "2025-08-28T01:43:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@emma_jade",
+      "amount": 9.58,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_176",
+      "timestamp": "2025-08-27T20:41:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@emma_jade",
+      "amount": 18.02,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_177",
+      "timestamp": "2025-08-27T15:57:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@isabella_star",
+      "amount": 41.45,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_178",
+      "timestamp": "2025-08-26T09:22:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@amelia_sun",
+      "amount": 26.82,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_179",
+      "timestamp": "2025-08-27T02:17:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@amelia_sun",
+      "amount": 10.79,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_180",
+      "timestamp": "2025-08-27T05:06:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 43.02,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_181",
+      "timestamp": "2025-08-26T12:07:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 100.94,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_182",
+      "timestamp": "2025-08-25T07:13:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@ava_luna",
+      "amount": 44.4,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_183",
+      "timestamp": "2025-08-25T09:03:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@emma_jade",
+      "amount": 24.06,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_184",
+      "timestamp": "2025-08-25T09:00:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@mia_grace",
+      "amount": 44.96,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_185",
+      "timestamp": "2025-08-25T00:55:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@sophia_rose",
+      "amount": 71.69,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_186",
+      "timestamp": "2025-08-25T01:52:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@sophia_rose",
+      "amount": 32.25,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_187",
+      "timestamp": "2025-08-24T20:22:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@isabella_star",
+      "amount": 19.62,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_188",
+      "timestamp": "2025-08-24T20:40:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 24.02,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_189",
+      "timestamp": "2025-08-23T23:50:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@amelia_sun",
+      "amount": 48.23,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_190",
+      "timestamp": "2025-08-24T04:43:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@sophia_rose",
+      "amount": 28.84,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_191",
+      "timestamp": "2025-08-23T12:34:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@olivia_sky",
+      "amount": 39.16,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_192",
+      "timestamp": "2025-08-22T07:28:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@sophia_rose",
+      "amount": 38.01,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_193",
+      "timestamp": "2025-08-23T06:03:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@emma_jade",
+      "amount": 52.22,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_194",
+      "timestamp": "2025-08-23T05:26:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@olivia_sky",
+      "amount": 8.95,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_195",
+      "timestamp": "2025-08-23T02:33:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@mia_grace",
+      "amount": 19.16,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_196",
+      "timestamp": "2025-08-21T09:23:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 21.06,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_197",
+      "timestamp": "2025-08-22T04:02:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@sophia_rose",
+      "amount": 20,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_198",
+      "timestamp": "2025-08-21T12:44:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 22.31,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_199",
+      "timestamp": "2025-08-20T09:36:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@amelia_sun",
+      "amount": 34.47,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_200",
+      "timestamp": "2025-08-20T13:58:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@ava_luna",
+      "amount": 28.23,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_201",
+      "timestamp": "2025-08-21T04:59:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@mia_grace",
+      "amount": 57.21,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_202",
+      "timestamp": "2025-08-21T01:11:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@amelia_sun",
+      "amount": 43.52,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_203",
+      "timestamp": "2025-08-20T06:26:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@olivia_sky",
+      "amount": 49.72,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_204",
+      "timestamp": "2025-08-19T22:41:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@isabella_star",
+      "amount": 63.99,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_205",
+      "timestamp": "2025-08-19T07:18:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@amelia_sun",
+      "amount": 24.27,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_206",
+      "timestamp": "2025-08-18T12:22:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@ava_luna",
+      "amount": 17.47,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_207",
+      "timestamp": "2025-08-18T07:55:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@mia_grace",
+      "amount": 80.94,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_208",
+      "timestamp": "2025-08-18T09:51:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@ava_luna",
+      "amount": 101.53,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_209",
+      "timestamp": "2025-08-17T12:01:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 60.16,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_210",
+      "timestamp": "2025-08-17T09:20:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@isabella_star",
+      "amount": 27.15,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_211",
+      "timestamp": "2025-08-17T20:25:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@emma_jade",
+      "amount": 95.82,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_212",
+      "timestamp": "2025-08-17T08:54:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@emma_jade",
+      "amount": 36.6,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_213",
+      "timestamp": "2025-08-17T00:33:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@isabella_star",
+      "amount": 38.3,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_214",
+      "timestamp": "2025-08-16T21:11:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@sophia_rose",
+      "amount": 45.62,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_215",
+      "timestamp": "2025-08-17T03:35:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@emma_jade",
+      "amount": 48.89,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_216",
+      "timestamp": "2025-08-15T17:00:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@isabella_star",
+      "amount": 76.06,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_217",
+      "timestamp": "2025-08-16T01:01:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@ava_luna",
+      "amount": 82.66,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_218",
+      "timestamp": "2025-08-15T17:49:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@isabella_star",
+      "amount": 20.24,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_219",
+      "timestamp": "2025-08-15T08:32:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@amelia_sun",
+      "amount": 58.46,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_220",
+      "timestamp": "2025-08-14T08:32:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@amelia_sun",
+      "amount": 21.4,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_221",
+      "timestamp": "2025-08-14T16:25:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@isabella_star",
+      "amount": 26.58,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_222",
+      "timestamp": "2025-08-15T05:16:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@olivia_sky",
+      "amount": 13.01,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_223",
+      "timestamp": "2025-08-13T17:23:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 36.17,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_224",
+      "timestamp": "2025-08-13T12:24:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@ava_luna",
+      "amount": 21.49,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_225",
+      "timestamp": "2025-08-13T21:05:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@sophia_rose",
+      "amount": 77.93,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_226",
+      "timestamp": "2025-08-14T00:20:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 36.42,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_227",
+      "timestamp": "2025-08-12T19:42:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@mia_grace",
+      "amount": 80.38,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_228",
+      "timestamp": "2025-08-12T13:08:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 159.18,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_229",
+      "timestamp": "2025-08-12T12:29:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@ava_luna",
+      "amount": 77.4,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_230",
+      "timestamp": "2025-08-11T09:55:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@ava_luna",
+      "amount": 48.71,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_231",
+      "timestamp": "2025-08-11T17:09:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@olivia_sky",
+      "amount": 39.05,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_232",
+      "timestamp": "2025-08-11T09:44:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@isabella_star",
+      "amount": 49.84,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_233",
+      "timestamp": "2025-08-11T23:40:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@olivia_sky",
+      "amount": 76.95,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_234",
+      "timestamp": "2025-08-10T08:04:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@mia_grace",
+      "amount": 151.92,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_235",
+      "timestamp": "2025-08-11T03:45:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 19.92,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_236",
+      "timestamp": "2025-08-11T03:31:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@ava_luna",
+      "amount": 77.34,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_237",
+      "timestamp": "2025-08-10T00:55:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@emma_jade",
+      "amount": 8.07,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_238",
+      "timestamp": "2025-08-10T01:25:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@emma_jade",
+      "amount": 31.78,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_239",
+      "timestamp": "2025-08-09T18:15:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@isabella_star",
+      "amount": 78.5,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_240",
+      "timestamp": "2025-08-10T04:45:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@sophia_rose",
+      "amount": 27.13,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_241",
+      "timestamp": "2025-08-09T02:10:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@isabella_star",
+      "amount": 112.37,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_242",
+      "timestamp": "2025-08-08T18:50:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@olivia_sky",
+      "amount": 33.4,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_243",
+      "timestamp": "2025-08-08T10:16:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@ava_luna",
+      "amount": 64.28,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_244",
+      "timestamp": "2025-08-07T10:44:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@ava_luna",
+      "amount": 36.03,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_245",
+      "timestamp": "2025-08-07T14:00:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 18.78,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_246",
+      "timestamp": "2025-08-07T14:31:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@ava_luna",
+      "amount": 162.87,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_247",
+      "timestamp": "2025-08-07T22:08:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@sophia_rose",
+      "amount": 42.31,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_248",
+      "timestamp": "2025-08-06T07:33:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 114.7,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_249",
+      "timestamp": "2025-08-07T05:22:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 55.34,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_250",
+      "timestamp": "2025-08-06T16:17:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 44.63,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_251",
+      "timestamp": "2025-08-05T15:31:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@amelia_sun",
+      "amount": 11.92,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_252",
+      "timestamp": "2025-08-06T05:52:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@amelia_sun",
+      "amount": 49.29,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_253",
+      "timestamp": "2025-08-05T09:50:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@sophia_rose",
+      "amount": 58.66,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_254",
+      "timestamp": "2025-08-05T14:33:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@sophia_rose",
+      "amount": 63.62,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_255",
+      "timestamp": "2025-08-05T02:39:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@mia_grace",
+      "amount": 33.1,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_256",
+      "timestamp": "2025-08-04T20:53:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@emma_jade",
+      "amount": 11.53,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_257",
+      "timestamp": "2025-08-04T20:13:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@emma_jade",
+      "amount": 20.75,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_258",
+      "timestamp": "2025-08-03T21:36:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@isabella_star",
+      "amount": 25.73,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_259",
+      "timestamp": "2025-08-03T16:30:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@olivia_sky",
+      "amount": 9.92,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_260",
+      "timestamp": "2025-08-03T11:49:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@olivia_sky",
+      "amount": 21.05,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_261",
+      "timestamp": "2025-08-02T08:30:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@sophia_rose",
+      "amount": 113.47,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_262",
+      "timestamp": "2025-08-02T19:03:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@mia_grace",
+      "amount": 115.4,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_263",
+      "timestamp": "2025-08-02T21:14:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@mia_grace",
+      "amount": 115.41,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_264",
+      "timestamp": "2025-08-02T07:07:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@emma_jade",
+      "amount": 73.18,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_265",
+      "timestamp": "2025-08-02T00:05:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@isabella_star",
+      "amount": 90.34,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_266",
+      "timestamp": "2025-08-02T03:02:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@olivia_sky",
+      "amount": 13.29,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_267",
+      "timestamp": "2025-08-01T19:26:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@isabella_star",
+      "amount": 46.15,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_268",
+      "timestamp": "2025-07-31T09:35:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@isabella_star",
+      "amount": 70.29,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_269",
+      "timestamp": "2025-07-31T23:26:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@amelia_sun",
+      "amount": 34.09,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_270",
+      "timestamp": "2025-07-31T22:24:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@isabella_star",
+      "amount": 18.55,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_271",
+      "timestamp": "2025-07-31T12:10:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@ava_luna",
+      "amount": 56.27,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_272",
+      "timestamp": "2025-07-31T03:04:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@isabella_star",
+      "amount": 36.68,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_273",
+      "timestamp": "2025-07-30T17:17:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@mia_grace",
+      "amount": 24.63,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_274",
+      "timestamp": "2025-07-31T01:56:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@sophia_rose",
+      "amount": 18.27,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_275",
+      "timestamp": "2025-07-29T09:09:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@isabella_star",
+      "amount": 33.41,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_276",
+      "timestamp": "2025-07-30T02:03:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@emma_jade",
+      "amount": 45.44,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_277",
+      "timestamp": "2025-07-29T20:05:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@amelia_sun",
+      "amount": 44.9,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_278",
+      "timestamp": "2025-07-30T00:19:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@isabella_star",
+      "amount": 75.17,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_279",
+      "timestamp": "2025-07-28T19:39:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@olivia_sky",
+      "amount": 52.8,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_280",
+      "timestamp": "2025-07-28T12:55:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@amelia_sun",
+      "amount": 29.87,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_281",
+      "timestamp": "2025-07-29T03:01:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@amelia_sun",
+      "amount": 31.27,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_282",
+      "timestamp": "2025-07-27T10:39:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@olivia_sky",
+      "amount": 41.6,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_283",
+      "timestamp": "2025-07-27T08:54:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@olivia_sky",
+      "amount": 91.18,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_284",
+      "timestamp": "2025-07-27T18:08:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@isabella_star",
+      "amount": 80.91,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_285",
+      "timestamp": "2025-07-27T11:38:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@amelia_sun",
+      "amount": 52.88,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_286",
+      "timestamp": "2025-07-27T05:50:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@ava_luna",
+      "amount": 35.67,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_287",
+      "timestamp": "2025-07-27T06:00:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@sophia_rose",
+      "amount": 24.03,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_288",
+      "timestamp": "2025-07-26T07:08:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 48.1,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_289",
+      "timestamp": "2025-07-25T14:43:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@mia_grace",
+      "amount": 17.91,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_290",
+      "timestamp": "2025-07-26T06:43:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@isabella_star",
+      "amount": 90.64,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_291",
+      "timestamp": "2025-07-26T02:41:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@amelia_sun",
+      "amount": 30.85,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_292",
+      "timestamp": "2025-07-25T11:48:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@isabella_star",
+      "amount": 36.12,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_293",
+      "timestamp": "2025-07-25T04:12:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@emma_jade",
+      "amount": 46.47,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_294",
+      "timestamp": "2025-07-24T10:18:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@amelia_sun",
+      "amount": 48.8,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_295",
+      "timestamp": "2025-07-24T08:13:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 77.96,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_296",
+      "timestamp": "2025-07-24T06:20:00.233Z",
+      "channel": "posts",
+      "creatorAlias": "@isabella_star",
+      "amount": 25.06,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_297",
+      "timestamp": "2025-07-23T20:08:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@mia_grace",
+      "amount": 37.88,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_298",
+      "timestamp": "2025-07-24T01:40:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@emma_jade",
+      "amount": 15.14,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_299",
+      "timestamp": "2025-07-23T20:22:00.233Z",
+      "channel": "subscriptions",
+      "creatorAlias": "@olivia_sky",
+      "amount": 28.65,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_300",
+      "timestamp": "2025-07-22T16:38:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@olivia_sky",
+      "amount": 58.17,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_301",
+      "timestamp": "2025-07-22T09:36:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@sophia_rose",
+      "amount": 80.19,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_302",
+      "timestamp": "2025-07-23T05:09:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@mia_grace",
+      "amount": 129.28,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_303",
+      "timestamp": "2025-07-22T05:55:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@ava_luna",
+      "amount": 121.63,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_304",
+      "timestamp": "2025-07-21T22:35:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@ava_luna",
+      "amount": 124.5,
+      "isRefunded": true,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_305",
+      "timestamp": "2025-07-21T19:09:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@emma_jade",
+      "amount": 52.51,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_306",
+      "timestamp": "2025-07-21T21:45:00.233Z",
+      "channel": "streams",
+      "creatorAlias": "@amelia_sun",
+      "amount": 36.67,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_307",
+      "timestamp": "2025-07-21T05:21:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@ava_luna",
+      "amount": 110.26,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_308",
+      "timestamp": "2025-07-20T17:14:00.233Z",
+      "channel": "tips",
+      "creatorAlias": "@ava_luna",
+      "amount": 118.7,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_309",
+      "timestamp": "2025-07-21T05:07:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@charlotte_moon",
+      "amount": 183.15,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_310",
+      "timestamp": "2025-07-19T07:46:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@emma_jade",
+      "amount": 98.98,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_311",
+      "timestamp": "2025-07-20T00:26:00.233Z",
+      "channel": "referrals",
+      "creatorAlias": "@ava_luna",
+      "amount": 157.56,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    },
+    {
+      "id": "tx_312",
+      "timestamp": "2025-07-19T21:04:00.233Z",
+      "channel": "messages",
+      "creatorAlias": "@olivia_sky",
+      "amount": 27.76,
+      "isRefunded": false,
+      "refundTimestamp": null,
+      "refundAmount": 0
+    }
+  ]
+}
