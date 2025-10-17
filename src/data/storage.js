@@ -118,8 +118,7 @@ class UnifiedStorage {
    */
   async deleteFile(filename) {
     if (this.isElectron) {
-      // electron would need to implement file deletion
-      return { success: false, error: 'Delete not implemented for Electron' };
+      return await window.electron.deleteFile(filename);
     } else {
       try {
         localStorage.removeItem(`data_${filename}`);
@@ -143,11 +142,31 @@ class UnifiedStorage {
    */
   async getFileTimestamp(filename) {
     if (this.isElectron) {
-      // electron would need to track this in settings
-      return new Date();
+      return await window.electron.getFileTimestamp(filename);
     } else {
       const timestamp = localStorage.getItem(`timestamp_${filename}`);
       return timestamp ? new Date(timestamp) : new Date();
+    }
+  }
+
+  /**
+   * Download a file
+   */
+  async downloadFile(filename, data) {
+    if (this.isElectron) {
+      return await window.electron.downloadFile(filename, data);
+    } else {
+      // browser download using blob
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      link.click();
+
+      URL.revokeObjectURL(url);
+      return { success: true };
     }
   }
 

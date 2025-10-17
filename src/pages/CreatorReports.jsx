@@ -198,22 +198,22 @@ function CreatorReports() {
       {
         value: 'hour',
         label: 'Shown by hour',
-        disabled: daysDiff > 7 // Only allow hours for 7 days or less
+        disabled: true // always disabled
       },
       {
         value: 'day',
         label: 'Shown by day',
-        disabled: false // Always available
+        disabled: false // always available
       },
       {
         value: 'week',
         label: 'Shown by week',
-        disabled: weeksDiff < 1 // Need at least 1 week
+        disabled: weeksDiff < 1 // need at least 1 week
       },
       {
         value: 'month',
         label: 'Shown by month',
-        disabled: monthsDiff < 1 // Need at least 1 month
+        disabled: monthsDiff < 1 // need at least 1 month
       }
     ];
 

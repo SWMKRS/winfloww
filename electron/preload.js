@@ -12,6 +12,9 @@ contextBridge.exposeInMainWorld('electron', {
   loadSavedData: (filename) => ipcRenderer.invoke('load-saved-data', filename),
   listSavedFiles: () => ipcRenderer.invoke('list-saved-files'),
   openFileDialog: () => ipcRenderer.invoke('open-file-dialog'),
+  deleteFile: (filename) => ipcRenderer.invoke('delete-file', filename),
+  getFileTimestamp: (filename) => ipcRenderer.invoke('get-file-timestamp', filename),
+  downloadFile: (filename, data) => ipcRenderer.invoke('download-file', filename, data),
 });
 
 

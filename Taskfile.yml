@@ -1,7 +1,7 @@
 version: '3'
 
 vars:
-  APP_NAME: Winfloww
+  APP_NAME: Infloww
 
 tasks:
   install:
@@ -36,40 +36,40 @@ tasks:
       - npm run electron-pack
 
   build:mac:
-    desc: 'Build Mac installer (.dmg and .zip) with Winfloww branding - ARM64 only'
+    desc: 'Build Mac installer (.dmg and .zip) with Infloww branding - ARM64 only'
     deps: [build]
     cmds:
-      - npx electron-builder --mac --arm64 --config.productName="Winfloww" --config.mac.icon="src/assets/app-logo/logo.icns"
+      - npx electron-builder --mac --arm64 --config.productName="Infloww" --config.mac.icon="src/assets/app-logo/logo.icns"
 
   build:mac:x64:
-    desc: 'Build Mac installer (.dmg and .zip) with Winfloww branding - Intel x64 only'
+    desc: 'Build Mac installer (.dmg and .zip) with Infloww branding - Intel x64 only'
     deps: [build]
     cmds:
-      - npx electron-builder --mac --x64 --config.productName="Winfloww" --config.mac.icon="src/assets/app-logo/logo.icns"
+      - npx electron-builder --mac --x64 --config.productName="Infloww" --config.mac.icon="src/assets/app-logo/logo.icns"
 
   build:mac:all:
-    desc: 'Build Mac installer (.dmg and .zip) with Winfloww branding - Both ARM64 and x64'
+    desc: 'Build Mac installer (.dmg and .zip) with Infloww branding - Both ARM64 and x64'
     deps: [build]
     cmds:
-      - npx electron-builder --mac --arm64 --x64 --config.productName="Winfloww" --config.mac.icon="src/assets/app-logo/logo.icns"
+      - npx electron-builder --mac --arm64 --x64 --config.productName="Infloww" --config.mac.icon="src/assets/app-logo/logo.icns"
 
   build:windows:
-    desc: 'Build Windows installer (.exe) with Winfloww branding'
+    desc: 'Build Windows installer (.exe) with Infloww branding'
     deps: [build]
     cmds:
-      - npx electron-builder --win --config.productName="Winfloww" --config.win.icon="src/assets/app-logo/logo.png"
+      - npx electron-builder --win --config.productName="Infloww" --config.win.icon="src/assets/app-logo/logo.png"
 
   build:linux:
-    desc: 'Build Linux installer (.AppImage, .deb) with Winfloww branding'
+    desc: 'Build Linux installer (.AppImage, .deb) with Infloww branding'
     deps: [build]
     cmds:
-      - npx electron-builder --linux --config.productName="Winfloww"
+      - npx electron-builder --linux --config.productName="Infloww"
 
   build:all:
     desc: 'Build installers for all platforms (Mac, Windows, Linux)'
     deps: [build]
     cmds:
-      - npx electron-builder -mwl --config.productName="Winfloww" --config.mac.icon="src/assets/app-logo/logo.icns" --config.win.icon="src/assets/app-logo/logo.png"
+      - npx electron-builder -mwl --config.productName="Infloww" --config.mac.icon="src/assets/app-logo/logo.icns" --config.win.icon="src/assets/app-logo/logo.png"
 
   clean:
     desc: 'Clean build artifacts and node_modules'

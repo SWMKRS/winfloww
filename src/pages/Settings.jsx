@@ -1,30 +1,32 @@
 import { useState, useEffect } from 'react';
-import { Card, Upload, Button, message, Table, Space, Tag } from 'antd';
-import { UploadOutlined, DownloadOutlined, DeleteOutlined, CheckOutlined } from '@ant-design/icons';
+import { Card, Upload, Button, message, Table, Space, Tag, Modal } from 'antd';
+import { UploadOutlined, DownloadOutlined, DeleteOutlined, CheckOutlined, ClearOutlined } from '@ant-design/icons';
 
 import { useData } from '../data/DataContext';
 import './Settings.css';
 
 function Settings() {
-  const { transactionData, processedData, isLoading, loadCustomData, switchDataFile, currentDataFile, listSavedFiles, getFileTimestamp, deleteFile } = useData();
+  const { transactionData, processedData, isLoading, loadCustomData, switchDataFile, currentDataFile, listSavedFiles, getFileTimestamp, deleteFile, downloadFile, clearAllData } = useData();
   const [uploading, setUploading] = useState(false);
-  const [uploadedFiles, setUploadedFiles] = useState([
-    {
-      id: 'default',
-      name: 'default.json',
-      timestamp: new Date('2025-10-15T22:09:53Z'),
-      isDefault: true,
-      isActive: false
-    }
-  ]);
+  const [clearModalVisible, setClearModalVisible] = useState(false);
+  const [uploadedFiles, setUploadedFiles] = useState([]);
 
   // load saved files on mount and update active state
   useEffect(() => {
     const loadSavedFiles = async () => {
       try {
         const savedFiles = await listSavedFiles();
-        const fileList = await Promise.all(savedFiles.map(async filename => ({
-          id: filename === 'default.json' ? 'default' : filename,
+
+        // filter out duplicate default.json entries and ensure we only have one
+        const uniqueFiles = savedFiles.filter((filename, index, arr) => {
+          if (filename === 'default.json') {
+            return arr.indexOf(filename) === index; // only keep the first occurrence
+          }
+          return true;
+        });
+
+        const fileList = await Promise.all(uniqueFiles.map(async (filename, index) => ({
+          id: filename === 'default.json' ? 'default' : `${filename}-${index}`,
           name: filename,
           timestamp: filename === 'default.json'
             ? new Date('2025-10-15T22:09:53Z')
@@ -89,6 +91,12 @@ function Settings() {
   const handleFileUpload = async (file) => {
     setUploading(true);
     try {
+      // prevent uploading default.json
+      if (file.name.toLowerCase() === 'default.json') {
+        message.error('Cannot upload a file named "default.json". Please rename your file.');
+        return;
+      }
+
       const text = await file.text();
       const jsonData = JSON.parse(text);
 
@@ -127,25 +135,38 @@ function Settings() {
     // active state will be updated automatically by useEffect
   };
 
-  const handleDownloadFile = (file) => {
-    if (file.isDefault) {
-      // download the processed data with calculated fields
-      const dataToDownload = {
-        metadata: processedData.metadata,
-        transactions: transactionData?.transactions || []
-      };
+  const handleDownloadFile = async (file) => {
+    try {
+      let dataToDownload;
+      let filename;
 
-      const blob = new Blob([JSON.stringify(dataToDownload, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
+      if (file.isDefault) {
+        // download the processed data with calculated fields
+        dataToDownload = {
+          metadata: processedData.metadata,
+          transactions: transactionData?.transactions || []
+        };
+        filename = 'default.json';
+      } else {
+        // for uploaded files, load the data from storage
+        const { storage } = await import('../data/storage');
+        dataToDownload = await storage.loadData(file.name);
+        if (!dataToDownload) {
+          message.error('Failed to load file data');
+          return;
+        }
+        filename = file.name;
+      }
 
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = file.name.toLowerCase().replace(/\s+/g, '-') + '.json';
-      link.click();
+      const result = await downloadFile(filename, dataToDownload);
 
-      URL.revokeObjectURL(url);
-    } else {
-      message.info('Download functionality not implemented yet');
+      if (result.success) {
+        message.success('File downloaded successfully');
+      } else {
+        message.error(`Download failed: ${result.error}`);
+      }
+    } catch (error) {
+      message.error(`Download failed: ${error.message}`);
     }
   };
 
@@ -175,6 +196,35 @@ function Settings() {
       }
     } catch (error) {
       message.error(`Delete failed: ${error.message}`);
+    }
+  };
+
+  const handleClearDatabase = async () => {
+    try {
+      await clearAllData();
+      setClearModalVisible(false);
+      // reload the file list with duplicate filtering
+      const savedFiles = await listSavedFiles();
+
+      const uniqueFiles = savedFiles.filter((filename, index, arr) => {
+        if (filename === 'default.json') {
+          return arr.indexOf(filename) === index; // only keep the first occurrence
+        }
+        return true;
+      });
+
+      const fileList = await Promise.all(uniqueFiles.map(async (filename, index) => ({
+        id: filename === 'default.json' ? 'default' : `${filename}-${index}`,
+        name: filename,
+        timestamp: filename === 'default.json'
+          ? new Date('2025-10-15T22:09:53Z')
+          : await getFileTimestamp(filename),
+        isDefault: filename === 'default.json',
+        isActive: filename === currentDataFile
+      })));
+      setUploadedFiles(fileList);
+    } catch (error) {
+      message.error(`Clear database failed: ${error.message}`);
     }
   };
 
@@ -281,8 +331,42 @@ function Settings() {
               Files are validated for proper schema before upload
             </div>
           </Card>
+
+          {/* Clear Database Section */}
+          <Card size="small" title="Database Management">
+            <Button
+              danger
+              icon={<ClearOutlined />}
+              onClick={() => setClearModalVisible(true)}
+              disabled={isLoading}
+            >
+              Clear All Uploaded Files
+            </Button>
+            <div style={{ marginTop: 8, fontSize: 12, color: '#666' }}>
+              This will delete all uploaded files and switch back to default data
+            </div>
+          </Card>
         </Space>
       </Card>
+
+      {/* Clear Database Confirmation Modal */}
+      <Modal
+        title="Clear All Uploaded Files"
+        open={clearModalVisible}
+        onOk={handleClearDatabase}
+        onCancel={() => setClearModalVisible(false)}
+        okText="Clear Database"
+        cancelText="Cancel"
+        okButtonProps={{ danger: true }}
+      >
+        <p>Are you sure you want to clear all uploaded files?</p>
+        <p>This action will:</p>
+        <ul>
+          <li>Delete all uploaded JSON files</li>
+          <li>Switch back to the default data</li>
+          <li>Cannot be undone</li>
+        </ul>
+      </Modal>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { message } from 'antd';
 import { loadTransactionData, getEmptyData, calculateNotificationData } from './dataProcessor';
 import { storage } from './storage';
 
@@ -169,6 +170,40 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  const downloadFile = async (filename, data) => {
+    try {
+      return await storage.downloadFile(filename, data);
+    } catch (err) {
+      console.error('Error downloading file:', err);
+      return { success: false, error: err.message };
+    }
+  };
+
+  const clearAllData = async () => {
+    try {
+      setIsLoading(true);
+      setError(null);
+
+      // clear all uploaded files except default
+      const savedFiles = await listSavedFiles();
+      const filesToDelete = savedFiles.filter(filename => filename !== 'default.json');
+
+      for (const filename of filesToDelete) {
+        await deleteFile(filename);
+      }
+
+      // switch back to default
+      await switchDataFile('default.json');
+
+      message.success('Database cleared successfully!');
+    } catch (err) {
+      console.error('Error clearing database:', err);
+      message.error(`Failed to clear database: ${err.message}`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const value = {
     transactionData,
     processedData,
@@ -183,7 +218,9 @@ export const DataProvider = ({ children }) => {
     openFileDialog,
     listSavedFiles,
     getFileTimestamp,
-    deleteFile
+    deleteFile,
+    downloadFile,
+    clearAllData
   };
 
   return (
