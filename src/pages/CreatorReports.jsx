@@ -10,15 +10,7 @@ import {
 import dayjs from 'dayjs';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
 
-import {
-  earningsData as mockEarningsData,
-  creatorTableData as mockCreatorTableData,
-  creatorStatistics as mockCreatorStatistics,
-  generateDynamicEarningsTrends,
-  generateDynamicSalesChart,
-  calculateEarningsForPeriod,
-  allTransactions
-} from '../data/mockData';
+import { useData } from '../data/DataContext';
 import EarningsOverview from '../components/EarningsOverview';
 import calendarIcon from '../assets/creator_reports/calendar_icon.png';
 import exportIcon from '../assets/creator_reports/export.png';
@@ -115,8 +107,6 @@ const EarningsChannelTooltip = ({ active, payload, label }) => {
 
 const { RangePicker } = DatePicker;
 
-// use dynamic data from mockData
-
 function CreatorReports() {
   const [timeFilter, setTimeFilter] = useState('This week');
   const [earningsType, setEarningsType] = useState('Net earnings');
@@ -126,6 +116,7 @@ function CreatorReports() {
   const [selectedPreset, setSelectedPreset] = useState('Last 7 days');
   const [pickerOpen, setPickerOpen] = useState(false);
   const [hoveredBar, setHoveredBar] = useState(null);
+  const { processedData } = useData();
 
   // handle preset selection
   const handlePresetClick = (label, range) => {
@@ -184,15 +175,15 @@ function CreatorReports() {
   // get current data based on date range using dynamic calculations
   const currentEarnings = useMemo(() => {
     if (!dateRange || !dateRange[0] || !dateRange[1]) {
-      return mockEarningsData['This week'][earningsType] || mockEarningsData['This week']['Gross earnings'];
+      return processedData.earningsData['This week'][earningsType] || processedData.earningsData['This week']['Gross earnings'];
     }
 
-    const earnings = calculateEarningsForPeriod(allTransactions, dateRange[0], dateRange[1]);
+    const earnings = processedData.calculateEarningsForPeriod(dateRange[0], dateRange[1]);
     const channels = ['subscriptions', 'tips', 'posts', 'messages', 'referrals', 'streams'];
     const channelEarnings = {};
 
     channels.forEach(channel => {
-      channelEarnings[channel] = calculateEarningsForPeriod(allTransactions, dateRange[0], dateRange[1], channel);
+      channelEarnings[channel] = processedData.calculateEarningsForPeriod(dateRange[0], dateRange[1], channel);
     });
 
     return {
@@ -209,16 +200,16 @@ function CreatorReports() {
   // generate dynamic chart data based on date range
   const dynamicEarningsTrends = useMemo(() => {
     if (!dateRange || !dateRange[0] || !dateRange[1]) {
-      return generateDynamicEarningsTrends(dayjs().subtract(6, 'days'), dayjs());
+      return processedData.generateDynamicEarningsTrends(dayjs().subtract(6, 'days'), dayjs());
     }
-    return generateDynamicEarningsTrends(dateRange[0], dateRange[1]);
+    return processedData.generateDynamicEarningsTrends(dateRange[0], dateRange[1]);
   }, [dateRange]);
 
   const dynamicSalesChart = useMemo(() => {
     if (!dateRange || !dateRange[0] || !dateRange[1]) {
-      return generateDynamicSalesChart(dayjs().subtract(6, 'days'), dayjs());
+      return processedData.generateDynamicSalesChart(dayjs().subtract(6, 'days'), dayjs());
     }
-    return generateDynamicSalesChart(dateRange[0], dateRange[1]);
+    return processedData.generateDynamicSalesChart(dateRange[0], dateRange[1]);
   }, [dateRange]);
 
   return (
@@ -544,7 +535,7 @@ function CreatorReports() {
                 <Row gutter={[16, 16]} style={{ marginBottom: 24 }}>
                 <Col xs={24} sm={12} md={6}>
                     <div className="stat-card">
-                    <div className="stat-value">{mockCreatorStatistics.creators}</div>
+                    <div className="stat-value">{processedData.creatorStatistics.creators}</div>
                     <div className="stat-label">
                         <span>Creators</span>
                         <Tooltip title="Total number of creators">
@@ -555,7 +546,7 @@ function CreatorReports() {
                 </Col>
                 <Col xs={24} sm={12} md={6}>
                     <div className="stat-card">
-                    <div className="stat-value">${mockCreatorStatistics.messageEarnings.toFixed(2)}</div>
+                    <div className="stat-value">${processedData.creatorStatistics.messageEarnings.toFixed(2)}</div>
                     <div className="stat-label">
                         <span>Message earnings</span>
                         <Tooltip title="Total earnings from messages">
@@ -566,7 +557,7 @@ function CreatorReports() {
                 </Col>
                 <Col xs={24} sm={12} md={6}>
                     <div className="stat-card">
-                    <div className="stat-value">${mockCreatorStatistics.totalEarnings.toFixed(2)}</div>
+                    <div className="stat-value">${processedData.creatorStatistics.totalEarnings.toFixed(2)}</div>
                     <div className="stat-label">
                         <span>Total earnings</span>
                         <Tooltip title="Total earnings across all channels">
@@ -577,7 +568,7 @@ function CreatorReports() {
                 </Col>
                 <Col xs={24} sm={12} md={6}>
                     <div className="stat-card">
-                    <div className="stat-value">${mockCreatorStatistics.refunded.toFixed(2)}</div>
+                    <div className="stat-value">${processedData.creatorStatistics.refunded.toFixed(2)}</div>
                     <div className="stat-label">
                         <span>Refunded</span>
                         <Tooltip title="Total amount refunded">
@@ -851,7 +842,7 @@ function CreatorReports() {
                     width: 200,
                     },
                 ]}
-                dataSource={mockCreatorTableData}
+                dataSource={processedData.creatorTableData}
                 pagination={false}
                 locale={{
                     emptyText: (

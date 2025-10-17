@@ -65,11 +65,20 @@
   color: #333;
 }
 
+.status-badge.partial-outage {
+  background: #e8e8e8;
+  color: #333;
+}
+
 .status-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background: #4bb619;
+}
+
+.status-badge.partial-outage .status-dot {
+  background: #faad14;
 }
 
 .header-button {

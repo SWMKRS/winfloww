@@ -1,6 +1,7 @@
 import { Layout, Button, Dropdown } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 
+import { useData } from '../data/DataContext';
 import notificationsIcon from '../assets/header/notifications.png';
 import sidebarActiveIcon from '../assets/header/sidebar_active.png';
 import sidebarInactiveIcon from '../assets/header/sidebar_inactive.png';
@@ -12,6 +13,24 @@ import './Header.css';
 const { Header: AntHeader } = Layout;
 
 function Header({ sidebarCollapsed, onToggleSidebar }) {
+  const { processedData } = useData();
+  const operationalStatus = processedData.metadata?.operationalStatus ?? true;
+  const utcOffset = processedData.metadata?.utcOffset ?? '-07:00';
+  const userName = processedData.metadata?.userName ?? 'User';
+
+  // generate initials from userName
+  const getInitials = (name) => {
+    const words = name.trim().split(/\s+/);
+    if (words.length >= 2) {
+      return (words[0][0] + words[words.length - 1][0]).toUpperCase();
+    }
+    return name.substring(0, 2).toUpperCase();
+  };
+
+  const userInitials = getInitials(userName);
+
+  console.log(userName, userInitials);
+
   const userMenuItems = [
     {
       key: 'profile',
@@ -44,15 +63,15 @@ function Header({ sidebarCollapsed, onToggleSidebar }) {
 
       <div className="header-right">
         {/* Status */}
-        <div className="status-badge operational">
+        <div className={`status-badge ${operationalStatus ? 'operational' : 'partial-outage'}`}>
           <span className="status-dot"></span>
-          <span>Operational</span>
+          <span>{operationalStatus ? 'Operational' : 'Partial outage'}</span>
         </div>
 
         {/* Timezone */}
         <div className="header-timezone-badge">
           <img src={utcIcon} alt="UTC" className="header-badge-icon" />
-          <span>UTC-07:00</span>
+          <span>UTC{utcOffset}</span>
           <InfoCircleOutlined style={{ fontSize: 18 }} />
         </div>
 
@@ -86,7 +105,7 @@ function Header({ sidebarCollapsed, onToggleSidebar }) {
         {/* User Menu */}
         <Dropdown menu={{ items: userMenuItems }} placement="bottomRight">
           <Button type="text" className="user-button">
-            <div className="user-avatar">FD</div>
+            <div className="user-avatar">{userInitials}</div>
           </Button>
         </Dropdown>
       </div>

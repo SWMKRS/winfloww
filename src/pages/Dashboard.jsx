@@ -6,7 +6,7 @@ import {
 } from '@ant-design/icons';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
 
-import { earningsData as mockEarningsData, salesChartData as mockSalesData } from '../data/mockData';
+import { useData } from '../data/DataContext';
 import EarningsOverview from '../components/EarningsOverview';
 import noDataImage from '../assets/no_data.png';
 import clockedInEmployeesLogo from '../assets/dashboard/clocked_in_employees_logo.png';
@@ -37,15 +37,16 @@ const CustomTooltip = ({ active, payload }) => {
 function Dashboard() {
   const [timeFilter, setTimeFilter] = useState('This week');
   const [earningsType, setEarningsType] = useState('Gross earnings');
+  const { processedData } = useData();
 
-  // Get current data based on filters
+  // get current data based on filters
   const currentEarnings = useMemo(() => {
-    return mockEarningsData[timeFilter]?.[earningsType] || mockEarningsData['This week']['Gross earnings'];
-  }, [timeFilter, earningsType]);
+    return processedData.earningsData[timeFilter]?.[earningsType] || processedData.earningsData['This week']['Gross earnings'];
+  }, [timeFilter, earningsType, processedData]);
 
   const salesChartData = useMemo(() => {
-    return mockSalesData[timeFilter] || mockSalesData['This week'];
-  }, [timeFilter]);
+    return processedData.salesChartData[timeFilter] || processedData.salesChartData['This week'];
+  }, [timeFilter, processedData]);
 
   const currentEmployees = useMemo(() => {
     return [];
@@ -70,7 +71,7 @@ function Dashboard() {
         className="dashboard-card earnings-overview-card"
         title={
           <div className="card-title-row">
-            <div style={{ paddingTop: '80px' }}>
+            <div style={{ paddingTop: '70px' }}>
             </div>
             <span style={{ marginRight: '12px' }}>
               Creator earnings overview
@@ -107,7 +108,9 @@ function Dashboard() {
           </div>
         }
       >
-        <EarningsOverview currentEarnings={currentEarnings} />
+        <div style={{ paddingBottom: '6px' }}>
+          <EarningsOverview currentEarnings={currentEarnings} />
+        </div>
       </Card>
 
       {/* Second Row: My Shifts, Clocked-in Employees, Employee Sales */}
@@ -192,7 +195,9 @@ function Dashboard() {
                   axisLine={false}
                   tickLine={false}
                   width={60}
-                  tickFormatter={(value) => `$${(value / 1000).toFixed(0)}K`}
+                  domain={[0, 1000]}
+                  ticks={[0, 200, 400, 600, 800, 1000]}
+                  tickFormatter={(value) => value.toLocaleString()}
                 />
                     <RechartsTooltip
                       content={<CustomTooltip />}

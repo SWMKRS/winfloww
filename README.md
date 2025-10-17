@@ -10,13 +10,13 @@ Given the time constraints, we took a conservative approach: building a near-rep
 
 ## Update Mock Data
 
-Edit `src/data/mockData.js` - it's just plain objects:
+The app now uses a centralized DataContext for managing data. Notification data is managed through the DataContext in `src/data/DataContext.jsx`:
 
-- **earningsData**: gross/net earnings for subscriptions, posts, messages, tips
-- **employeesData**: employee hours and sales
-- **shiftsData**: shift schedules and totals
-- **salesChartData**: chart values (currently zeroed out)
-- **notificationData**: message counts
+- **notificationData**: message counts and notification state
+- **transactionData**: raw transaction data from JSON files
+- **processedData**: processed statistics and chart data
+
+To update notification counts, use the `updateNotificationData` function from the `useData` hook.
 
 Each export has keys for time periods: `Yesterday`, `Today`, `This week`, `This month`.
 

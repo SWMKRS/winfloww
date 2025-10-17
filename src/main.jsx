@@ -14,7 +14,12 @@ const theme = {
     colorInfo: '#3467ff',
     colorTextBase: '#000000',
     colorBgBase: '#ffffff',
-    fontFamily: 'Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif',
+    // fontFamily: 'Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif',
+
+    // fontFamily: 'Inter',
+    fontFamily: 'BlinkMacSystemFont',
+    // fontWeight: 500,
+
     borderRadius: 8,
   },
 };

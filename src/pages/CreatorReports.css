@@ -34,7 +34,7 @@
 
 .timezone-badge {
 
-    font-family: BlinkMacSystemFont, 'Roboto', sans-serif;
+    /* font-family: BlinkMacSystemFont, 'Roboto', sans-serif; */
 
   display: inline-flex;
   align-items: center;
@@ -67,13 +67,14 @@
 
 .page-tabs .ant-tabs-tab {
   padding: 12px 0;
-  margin-right: 32px;
+  /* margin-right: 5px; */
   font-size: 14px;
+  font-weight: 500;
 }
 
 .page-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #3467ff;
-  font-weight: 500;
+  /* font-weight: 500; */
 }
 
 .page-tabs .ant-tabs-ink-bar {

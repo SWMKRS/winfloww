@@ -1,0 +1,48 @@
+.settings-page {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.settings-card {
+  margin-bottom: 24px;
+}
+
+.settings-card .ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* default file row styling */
+.default-file-row {
+  background-color: #f8f9fa !important;
+}
+
+.default-file-row:hover {
+  background-color: #e9ecef !important;
+}
+
+/* table styling */
+.settings-card .ant-table-thead > tr > th {
+  background-color: #fafafa;
+  font-weight: 600;
+}
+
+.settings-card .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* upload button styling */
+.settings-card .ant-upload {
+  display: block;
+}
+
+.settings-card .ant-btn {
+  border-radius: 6px;
+}
+
+/* tag styling */
+.settings-card .ant-tag {
+  border-radius: 4px;
+  font-size: 11px;
+  padding: 2px 6px;
+}

@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import chevronIcon from '../assets/icons/chevron.png';
 import './CustomMenu.css';
 
-function CustomMenuItem({ item, isActive, isChildActive, selectedKey, onClick, level = 0, collapsed }) {
+function CustomMenuItem({ item, isActive, isChildActive, selectedKey, onClick, level = 0, collapsed, className = '' }) {
   /**
    * Renders a menu item with optional submenu expansion.
    */
@@ -75,14 +75,14 @@ function CustomMenuItem({ item, isActive, isChildActive, selectedKey, onClick, l
   if (item.iconData) {
     const { iconActive, iconInactive, iconHover } = item.iconData;
     const currentIcon = isSelected ? (iconActive || iconHover || iconInactive) : (isHovered ? (iconHover || iconInactive) : iconInactive);
-    displayIcon = <img src={currentIcon} alt='' style={{ width: 27, height: 27 }} />;
+    displayIcon = <img src={currentIcon} alt='' style={{ width: 28, height: 28 }} />;
   }
 
   return (
     <div className='menu-item-wrapper' style={{ position: 'relative' }}>
       <div
         ref={menuItemRef}
-        className={`menu-item ${isSelected ? 'active' : ''} ${collapsed ? 'collapsed' : ''}`}
+        className={`menu-item ${isSelected ? 'active' : ''} ${collapsed ? 'collapsed' : ''} ${className}`}
         onClick={handleClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -155,7 +155,7 @@ function CustomMenuItem({ item, isActive, isChildActive, selectedKey, onClick, l
               if (child.iconData) {
                 const { iconActive, iconInactive, iconHover } = child.iconData;
                 const iconSrc = childIsActive ? (iconActive || iconHover || iconInactive) : (childHovered ? (iconHover || iconInactive) : iconInactive);
-                childIcon = <img src={iconSrc} alt='' style={{ width: 27, height: 27 }} />;
+                childIcon = <img src={iconSrc} alt='' style={{ width: 28, height: 28 }} />;
               }
               return (
                 <div
@@ -199,6 +199,7 @@ function CustomMenu({ items, selectedKey, onClick, collapsed = false }) {
         return (
           <CustomMenuItem
             key={item.key}
+            className={item.className || ''}
             item={item}
             isActive={isActive}
             isChildActive={isChildActive}

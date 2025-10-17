@@ -1,0 +1,80 @@
+.help-support {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.help-support-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.help-support-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.controls-card {
+  position: sticky;
+  top: 24px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comparison-card {
+  min-height: 600px;
+}
+
+.font-comparison-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.font-sample {
+  padding: 16px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  background: #fafafa;
+  transition: all 0.2s ease;
+}
+
+.font-sample:hover {
+  border-color: #d9d9d9;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.font-label {
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.font-text {
+  color: #333;
+  word-break: break-word;
+}
+
+/* responsive design */
+@media (max-width: 768px) {
+  .help-support-content {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .controls-card {
+    position: static;
+  }
+
+  .help-support {
+    padding: 16px;
+  }
+}
+

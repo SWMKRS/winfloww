@@ -1,6 +1,10 @@
 .earnings-overview {
   background: #fff;
   border: none;
+
+  /* font-family: 'Inter Bold', sans-serif !important; */
+
+  /* font-family: BlinkMacSystemFont, 'Roboto', sans-serif !important; */
 }
 
 /* total earnings circle */
@@ -9,41 +13,45 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 24px;
+  padding: 18px 24px 24px 24px;
   background: #ffffff;
   border: none;
   border-radius: 12px;
   min-height: 180px;
 }
 
+.earnings-overview-card > .ant-card-head {
+    /* margin-top: -1px; */
+    /* padding-top: 3px; */
+    padding-top: 3px;;
+}
+
 .earnings-logo {
-  width: 46px;
-  height: 46px;
-  margin-bottom: 12px;
+  width: 47px;
+  height: 47px;
+  margin-bottom: 16px;
   object-fit: contain;
 }
 
 .earnings-label {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 550;
   color: #448ef7;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
 
 .earnings-amount {
-  font-size: 32px;
   font-weight: 800;
   color: #3467ff;
-  font-family: BlinkMacSystemFont, 'Roboto', sans-serif;
 }
 
 .earnings-dollar {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 800;
 }
 
 .earnings-number {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 800;
 }
 
@@ -52,12 +60,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* padding: 0 24px 0 20px; */
-  margin: 0 24px 0 20px;
+  margin: 0 28px 0 32px;
   background: white;
   border: none;
   border-radius: 12px;
-  min-height: 80px;
+  min-height: 75px;
 }
 
 .earnings-cards-wrapper {
@@ -93,17 +100,17 @@
 }
 
 .earnings-card-amount {
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 700;
   color: #000;
   line-height: 1;
-  font-family: BlinkMacSystemFont, 'Roboto', sans-serif;
+  /* font-family: BlinkMacSystemFont, 'Roboto', sans-serif; */
 }
 
 .earnings-card-title {
-  font-size: 13px;
+  font-size: 12px;
   color: #777;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .earnings-card-icon {

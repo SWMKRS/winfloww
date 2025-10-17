@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Layout, Select, Badge } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { notificationData } from '../data/mockData';
+import { useData } from '../data/DataContext';
 import chevronIcon from '../assets/icons/chevron.png';
 import ofLogo from '../assets/of_logo.webp';
 import fanslyLogo from '../assets/fansly_logo.svg';
@@ -114,8 +114,59 @@ const { Option } = Select;
 function Sidebar({ collapsed }) {
   const [selectedPlatform, setSelectedPlatform] = useState('onlyfans');
   const [openKeys, setOpenKeys] = useState([]);
+  const [showPlatformDropdown, setShowPlatformDropdown] = useState(false);
+  const [platformDropdownPosition, setPlatformDropdownPosition] = useState({ top: 0, left: 0 });
+  const [showUncollapsedPlatformDropdown, setShowUncollapsedPlatformDropdown] = useState(false);
+  const [uncollapsedPlatformDropdownPosition, setUncollapsedPlatformDropdownPosition] = useState({ top: 0, left: 0 });
+  const platformSelectorRef = useRef(null);
+  const uncollapsedPlatformSelectorRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const { notificationData } = useData();
+
+  const handlePlatformSelectorClick = () => {
+    if (collapsed && platformSelectorRef.current) {
+      const rect = platformSelectorRef.current.getBoundingClientRect();
+      setPlatformDropdownPosition({
+        top: rect.top,
+        left: rect.right
+      });
+      setShowPlatformDropdown(true);
+    }
+  };
+
+  const handlePlatformChange = (platform) => {
+    setSelectedPlatform(platform);
+    setShowPlatformDropdown(false);
+    setShowUncollapsedPlatformDropdown(false);
+  };
+
+  const handleUncollapsedPlatformSelectorClick = () => {
+    if (!collapsed && uncollapsedPlatformSelectorRef.current) {
+      const rect = uncollapsedPlatformSelectorRef.current.getBoundingClientRect();
+      setUncollapsedPlatformDropdownPosition({
+        top: rect.bottom - 0,
+        left: rect.left + (rect.width - 250) / 2 // center horizontally, 250px is wider than button
+      });
+      setShowUncollapsedPlatformDropdown(true);
+    }
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (platformSelectorRef.current && !platformSelectorRef.current.contains(event.target)) {
+        setShowPlatformDropdown(false);
+      }
+      if (uncollapsedPlatformSelectorRef.current && !uncollapsedPlatformSelectorRef.current.contains(event.target)) {
+        setShowUncollapsedPlatformDropdown(false);
+      }
+    };
+
+    if (showPlatformDropdown || showUncollapsedPlatformDropdown) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [showPlatformDropdown, showUncollapsedPlatformDropdown]);
 
   const menuItems = [
     {
@@ -254,6 +305,7 @@ function Sidebar({ collapsed }) {
       iconInactive: messagingInactive,
       iconHover: messagingHover,
       label: 'Messages Pro',
+      className: 'messages-pro-menu-item',
       badge: (
         <Badge
           count={notificationData.totalMessages}
@@ -462,7 +514,7 @@ function Sidebar({ collapsed }) {
   return (
     <Sider
       collapsed={collapsed}
-      width={260}
+      width={257}
       collapsedWidth={60}
       className="app-sidebar"
       style={{
@@ -472,57 +524,320 @@ function Sidebar({ collapsed }) {
       {/* platform selector */}
       <div className={`platform-selector-container ${collapsed ? 'collapsed' : ''}`}>
         <div className="platform-selector-wrapper">
-          <Select
-            value={selectedPlatform}
-            onChange={setSelectedPlatform}
-            style={{ width: '100%' }}
-            suffixIcon={null}
-            className="platform-selector"
-            popupMatchSelectWidth={false}
-            classNames={{ popup: collapsed ? 'platform-selector-dropdown-collapsed' : '' }}
-            styles={{ popup: collapsed ? { minWidth: '180px' } : {} }}
-            placement={collapsed ? 'rightTop' : 'bottomLeft'}
-            dropdownAlign={collapsed ? { offset: [12, 0] } : undefined}
-          >
-          <Option value="onlyfans">
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingLeft: '4px' }}>
-                <img src={ofLogo} alt="OF" style={{ width: 20, height: 20 }} />
-                <span className={collapsed ? 'platform-label' : ''}>OnlyFans</span>
-              </span>
-              {!collapsed && (
-                <span style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
-                  {notificationData.totalMessages > 0 && (
-                    <span className="notification-dot" />
-                  )}
-                  <img src={chevronIcon} alt='' style={{ width: 12, height: 12, transform: 'rotate(90deg)', opacity: 0.38, marginRight: '4px' }} />
-                </span>
+          {collapsed ? (
+            <div
+              ref={platformSelectorRef}
+              className="platform-selector platform-selector-collapsed"
+              onClick={handlePlatformSelectorClick}
+              style={{
+                width: '48px',
+                height: '48px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                borderRadius: '8px',
+                background: '#e8e8e8'
+              }}
+            >
+              <img src={selectedPlatform === 'onlyfans' ? ofLogo : fanslyLogo} alt="Platform" style={{ width: 20, height: 20 }} />
+              {notificationData.totalMessages > 0 && (
+                <div className="platform-notification-dot notification-dot"></div>
               )}
             </div>
-          </Option>
-          <Option value="fansly">
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <img src={fanslyLogo} alt="Fansly" style={{ width: 16, height: 16 }} />
-                <span className={collapsed ? 'platform-label' : ''}>Fansly</span>
-              </span>
-              {!collapsed && (
-                <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  {notificationData.totalMessages > 0 && (
-                    <span className="notification-dot" />
-                  )}
-                  <img src={chevronIcon} alt='' style={{ width: 12, height: 12, transform: 'rotate(90deg)', opacity: 0.38, marginRight: '4px' }} />
+          ) : (
+            <div
+              ref={uncollapsedPlatformSelectorRef}
+              className="platform-selector platform-selector-uncollapsed"
+              onClick={handleUncollapsedPlatformSelectorClick}
+              style={{
+                width: '100%',
+                height: '48px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                cursor: 'pointer',
+                borderRadius: '8px',
+                background: '#e8e8e8',
+                padding: '14px 10px'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingLeft: '4px' }}>
+                <img src={selectedPlatform === 'onlyfans' ? ofLogo : fanslyLogo} alt="Platform" style={{ width: selectedPlatform === 'onlyfans' ? 20 : 16, height: selectedPlatform === 'onlyfans' ? 20 : 16 }} />
+                <span style={{ fontSize: '17px', fontWeight: '600', color: '#000' }}>
+                  {selectedPlatform === 'onlyfans' ? 'OnlyFans' : 'Fansly'}
                 </span>
-              )}
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
+                {notificationData.totalMessages > 0 && (
+                  <span className="notification-dot" />
+                )}
+                <img src={chevronIcon} alt='' style={{ width: 12, height: 12, transform: 'rotate(90deg)', opacity: 0.38 }} />
+              </div>
             </div>
-          </Option>
-        </Select>
-        {/* notification dot for collapsed state */}
-        {collapsed && notificationData.totalMessages > 0 && (
-          <div className="platform-notification-dot notification-dot"></div>
-        )}
+          )}
         </div>
       </div>
+
+      {/* custom platform dropdown for collapsed state */}
+      {collapsed && showPlatformDropdown && (
+        <div
+          className="platform-dropdown-custom"
+          style={{
+            position: 'fixed',
+            left: `${platformDropdownPosition.left}px`,
+            top: `${platformDropdownPosition.top}px`,
+            background: '#ffffff',
+            borderRadius: '8px',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+            minWidth: '200px',
+            padding: '4px',
+            zIndex: 9999,
+            border: '1px solid #f0f0f0'
+          }}
+        >
+          <div
+            className="platform-dropdown-item"
+            onClick={() => handlePlatformChange('onlyfans')}
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '20px 1fr auto',
+              alignItems: 'center',
+              gap: '5px',
+              padding: '8px 12px',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              backgroundColor: 'transparent',
+              color: '#000000'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#ff6b35';
+              e.target.style.color = '#ffffff';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = 'transparent';
+              e.target.style.color = '#000000';
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {selectedPlatform === 'onlyfans' && (
+                <svg width="22" height="22" viewBox="0 0 12 12" fill="none">
+                  <path d="M10 3L4.5 8.5L2 6" stroke="currentColor" strokeWidth="1"/>
+                </svg>
+              )}
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <img src={ofLogo} alt="OF" style={{ width: 24, height: 24 }} />
+              <span style={{ fontWeight: '500', fontSize: '18px' }}>OnlyFans</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+              <Badge
+                count={notificationData.totalMessages}
+                showZero
+                styles={{
+                  indicator: {
+                    backgroundColor: '#ff69b4',
+                    fontWeight: '600',
+                    padding: '0 6px',
+                    height: '18px',
+                    lineHeight: '18px',
+                    fontSize: '10px',
+                    minWidth: '18px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    boxShadow: 'none'
+                  }
+                }}
+              />
+            </div>
+          </div>
+          <div
+            className="platform-dropdown-item"
+            onClick={() => handlePlatformChange('fansly')}
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '20px 1fr auto',
+              alignItems: 'center',
+              gap: '5px',
+              padding: '8px 12px',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              backgroundColor: 'transparent',
+              color: '#000000'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#ff6b35';
+              e.target.style.color = '#ffffff';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = 'transparent';
+              e.target.style.color = '#000000';
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {selectedPlatform === 'fansly' && (
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M10 3L4.5 8.5L2 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              )}
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <img src={fanslyLogo} alt="Fansly" style={{ width: 24, height: 24 }} />
+              <span style={{ fontWeight: '500', fontSize: '18px' }}>Fansly</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+              <Badge
+                count={notificationData.totalMessages}
+                showZero
+                styles={{
+                  indicator: {
+                    backgroundColor: '#ff69b4',
+                    fontWeight: '600',
+                    padding: '0 6px',
+                    height: '18px',
+                    lineHeight: '18px',
+                    fontSize: '10px',
+                    minWidth: '18px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    boxShadow: 'none'
+                  }
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* custom platform dropdown for uncollapsed state */}
+      {!collapsed && showUncollapsedPlatformDropdown && (
+        <div
+          className="platform-dropdown-custom"
+          style={{
+            position: 'fixed',
+            left: `${uncollapsedPlatformDropdownPosition.left}px`,
+            top: `${uncollapsedPlatformDropdownPosition.top}px`,
+            background: '#ffffff',
+            borderRadius: '8px',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+            minWidth: '250px',
+            padding: '4px',
+            zIndex: 9999,
+            border: '1px solid #f0f0f0'
+          }}
+        >
+          <div
+            className="platform-dropdown-item"
+            onClick={() => handlePlatformChange('onlyfans')}
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '20px 1fr auto',
+              alignItems: 'center',
+              gap: '5px',
+              padding: '8px 12px',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              backgroundColor: 'transparent',
+              color: '#000000'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#ff6b35';
+              e.target.style.color = '#ffffff';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = 'transparent';
+              e.target.style.color = '#000000';
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {selectedPlatform === 'onlyfans' && (
+                <svg width="22" height="22" viewBox="0 0 12 12" fill="none">
+                  <path d="M10 3L4.5 8.5L2 6" stroke="currentColor" strokeWidth="1"/>
+                </svg>
+              )}
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <img src={ofLogo} alt="OF" style={{ width: 24, height: 24 }} />
+              <span style={{ fontWeight: '500', fontSize: '18px' }}>OnlyFans</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+              <Badge
+                count={notificationData.totalMessages}
+                showZero
+                styles={{
+                  indicator: {
+                    backgroundColor: '#ff69b4',
+                    fontWeight: '600',
+                    padding: '0 6px',
+                    height: '18px',
+                    lineHeight: '18px',
+                    fontSize: '10px',
+                    minWidth: '18px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    boxShadow: 'none'
+                  }
+                }}
+              />
+            </div>
+          </div>
+          <div
+            className="platform-dropdown-item"
+            onClick={() => handlePlatformChange('fansly')}
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '20px 1fr auto',
+              alignItems: 'center',
+              gap: '5px',
+              padding: '8px 12px',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              backgroundColor: 'transparent',
+              color: '#000000'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#ff6b35';
+              e.target.style.color = '#ffffff';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = 'transparent';
+              e.target.style.color = '#000000';
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {selectedPlatform === 'fansly' && (
+                <svg width="22" height="22" viewBox="0 0 12 12" fill="none">
+                  <path d="M10 3L4.5 8.5L2 6" stroke="currentColor" strokeWidth="1"/>
+                </svg>
+              )}
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <img src={fanslyLogo} alt="Fansly" style={{ width: 24, height: 24 }} />
+              <span style={{ fontWeight: '500', fontSize: '18px' }}>Fansly</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+              <Badge
+                count={notificationData.totalMessages}
+                showZero
+                styles={{
+                  indicator: {
+                    backgroundColor: '#ff69b4',
+                    fontWeight: '600',
+                    padding: '0 6px',
+                    height: '18px',
+                    lineHeight: '18px',
+                    fontSize: '10px',
+                    minWidth: '18px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    boxShadow: 'none'
+                  }
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* main menu */}
       <div className="sidebar-menu-container">
@@ -531,6 +846,7 @@ function Sidebar({ collapsed }) {
             return {
               key: item.key,
               icon: item.icon,
+              className: item.className && !collapsed ? item.className : '',
               iconData: item.iconActive && item.iconInactive && item.iconHover ? {
                 iconActive: item.iconActive,
                 iconInactive: item.iconInactive,

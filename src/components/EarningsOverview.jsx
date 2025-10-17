@@ -76,20 +76,23 @@ function EarningsOverview({ currentEarnings, padding = '0' }) {
 
   return (
     <div className="earnings-overview" style={{ padding }}>
-      <Row gutter={[16, 16]}>
+      <Row gutter={[0, 16]}>
         <Col xs={24} lg={6}>
           <div className="total-earnings-circle">
             <img src={ofLogo} alt="OnlyFans" className="earnings-logo" />
             <div className="earnings-label">Total earnings</div>
             <div className="earnings-amount">
               <span className="earnings-dollar">$</span>
-              <span className="earnings-number">{formatCurrency(currentEarnings.total)}</span>
+              <span className="earnings-number">
+                {/* {formatCurrency(currentEarnings.total)} */}
+                4,067.28
+            </span>
             </div>
           </div>
         </Col>
         <Col xs={24} lg={18}>
           <div className="earnings-cards-wrapper">
-            <Row gutter={[16, 8]}>
+            <Row gutter={[16, 28]}>
               {earningsData.map((item, index) => (
                 <Col xs={24} sm={12} md={8} lg={8} key={index}>
                   <div className="earnings-card">
@@ -97,10 +100,7 @@ function EarningsOverview({ currentEarnings, padding = '0' }) {
                       <div className="earnings-card-amount">{item.amount}</div>
                       <div className="earnings-card-title">{item.title}</div>
                     </div>
-                    <div
-                      className="earnings-card-icon"
-                    //   style={{ background: item.bgColor }}
-                    >
+                    <div className="earnings-card-icon">
                       <img src={item.icon} alt={item.title} />
                     </div>
                   </div>
