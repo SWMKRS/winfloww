@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Card, Row, Col, Tooltip, Empty, Select, Table, Button, Tabs, DatePicker } from 'antd';
 import {
   InfoCircleOutlined,
@@ -9,6 +9,63 @@ import {
 } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
+
+// Utility function to format numbers with commas
+const formatNumber = (value) => {
+  return value.toLocaleString();
+};
+
+// Utility function to calculate nice Y-axis ticks based on data range
+const calculateNiceTicks = (data, dataKey) => {
+  if (!data || data.length === 0) return [0];
+
+  const values = [];
+
+  // For LineChart, consider all data keys (subscriptions, tips, posts, etc.)
+  if (dataKey === 'subscriptions' && data.length > 0) {
+    const allKeys = ['subscriptions', 'tips', 'posts', 'messages', 'referrals', 'streams'];
+    data.forEach(item => {
+      allKeys.forEach(key => {
+        if (typeof item[key] === 'number') {
+          values.push(item[key]);
+        }
+      });
+    });
+  } else {
+    // For BarChart, just use the specified dataKey
+    data.forEach(item => {
+      if (typeof item[dataKey] === 'number') {
+        values.push(item[dataKey]);
+      }
+      // Handle nested objects like { gross: 100, net: 80 }
+      if (typeof item[dataKey] === 'object' && item[dataKey] !== null) {
+        const nestedValues = Object.values(item[dataKey]).filter(v => typeof v === 'number');
+        values.push(...nestedValues);
+      }
+    });
+  }
+
+  if (values.length === 0) return [0];
+
+  const maxValue = Math.max(...values);
+  const minValue = Math.min(...values);
+
+  if (maxValue === minValue) return [0, maxValue];
+
+  // Calculate nice step size based on max value (starting from 0)
+  const step = Math.pow(10, Math.floor(Math.log10(maxValue / 5)));
+  const niceStep = step * Math.ceil(maxValue / step / 5);
+
+  const ticks = [];
+  let tick = 0;
+
+  while (tick <= maxValue + niceStep) {
+    ticks.push(tick);
+    tick += niceStep;
+  }
+
+  return ticks;
+};
 
 import { useData } from '../data/DataContext';
 import EarningsOverview from '../components/EarningsOverview';
@@ -112,12 +169,66 @@ function CreatorReports() {
   const [timeFilter, setTimeFilter] = useState('This week');
   const [earningsType, setEarningsType] = useState('Net earnings');
   const [activeTab, setActiveTab] = useState('overview');
-  const [dateRange, setDateRange] = useState([dayjs().subtract(6, 'days'), dayjs()]);
+  const [dateRange, setDateRange] = useState([dayjs('2025-10-01'), dayjs('2025-10-08')]);
   const [shownBy, setShownBy] = useState('day');
-  const [selectedPreset, setSelectedPreset] = useState('Last 7 days');
+  const [selectedPreset, setSelectedPreset] = useState('Custom');
   const [pickerOpen, setPickerOpen] = useState(false);
   const [hoveredBar, setHoveredBar] = useState(null);
-  const { processedData } = useData();
+  const [tableSort, setTableSort] = useState({ field: null, order: null });
+  const { processedData, isLoading, error } = useData();
+
+  // calculate available "shown by" options based on date range
+  const availableShownByOptions = useMemo(() => {
+    if (!dateRange || !dateRange[0] || !dateRange[1]) {
+      return [
+        { value: 'hour', label: 'Shown by hour', disabled: true },
+        { value: 'day', label: 'Shown by day' },
+        { value: 'week', label: 'Shown by week', disabled: true },
+        { value: 'month', label: 'Shown by month', disabled: true }
+      ];
+    }
+
+    const startDate = dateRange[0];
+    const endDate = dateRange[1];
+    const daysDiff = endDate.diff(startDate, 'days');
+    const weeksDiff = endDate.diff(startDate, 'weeks');
+    const monthsDiff = endDate.diff(startDate, 'months');
+
+    const options = [
+      {
+        value: 'hour',
+        label: 'Shown by hour',
+        disabled: daysDiff > 7 // Only allow hours for 7 days or less
+      },
+      {
+        value: 'day',
+        label: 'Shown by day',
+        disabled: false // Always available
+      },
+      {
+        value: 'week',
+        label: 'Shown by week',
+        disabled: weeksDiff < 1 // Need at least 1 week
+      },
+      {
+        value: 'month',
+        label: 'Shown by month',
+        disabled: monthsDiff < 1 // Need at least 1 month
+      }
+    ];
+
+    return options;
+  }, [dateRange]);
+
+  // auto-switch to valid "shown by" option if current selection becomes disabled
+  useEffect(() => {
+    const currentOption = availableShownByOptions.find(opt => opt.value === shownBy);
+    if (currentOption && currentOption.disabled) {
+      // Find the first enabled option, defaulting to 'day'
+      const validOption = availableShownByOptions.find(opt => !opt.disabled) || { value: 'day' };
+      setShownBy(validOption.value);
+    }
+  }, [availableShownByOptions, shownBy]);
 
   // handle preset selection
   const handlePresetClick = (label, range) => {
@@ -138,7 +249,7 @@ function CreatorReports() {
         fontWeight: 700,
         marginLeft: '8px'
       }}>
-        {sign}{change.toFixed(1)}%
+        {change.toFixed(2)}%
       </span>
     );
   };
@@ -196,22 +307,282 @@ function CreatorReports() {
       referrals: earningsType === 'Net earnings' ? channelEarnings.referrals.net : channelEarnings.referrals.gross,
       streams: earningsType === 'Net earnings' ? channelEarnings.streams.net : channelEarnings.streams.gross
     };
-  }, [dateRange, earningsType]);
+  }, [dateRange, earningsType, processedData]);
 
   // generate dynamic chart data based on date range
   const dynamicEarningsTrends = useMemo(() => {
     if (!dateRange || !dateRange[0] || !dateRange[1]) {
-      return processedData.generateDynamicEarningsTrends(dayjs().subtract(6, 'days'), dayjs());
+      return processedData.generateDynamicEarningsTrends(dayjs('2025-10-01'), dayjs('2025-10-08'), shownBy);
     }
-    return processedData.generateDynamicEarningsTrends(dateRange[0], dateRange[1]);
-  }, [dateRange]);
+    return processedData.generateDynamicEarningsTrends(dateRange[0], dateRange[1], shownBy);
+  }, [dateRange, processedData, shownBy]);
 
   const dynamicSalesChart = useMemo(() => {
     if (!dateRange || !dateRange[0] || !dateRange[1]) {
-      return processedData.generateDynamicSalesChart(dayjs().subtract(6, 'days'), dayjs());
+      return processedData.generateDynamicSalesChart(dayjs('2025-10-01'), dayjs('2025-10-08'), shownBy);
     }
-    return processedData.generateDynamicSalesChart(dateRange[0], dateRange[1]);
-  }, [dateRange]);
+    return processedData.generateDynamicSalesChart(dateRange[0], dateRange[1], shownBy);
+  }, [dateRange, processedData, shownBy]);
+
+  // calculate dynamic creator statistics based on date range
+  const dynamicCreatorStatistics = useMemo(() => {
+    if (!dateRange || !dateRange[0] || !dateRange[1]) {
+      return {
+        creators: 0,
+        messageEarnings: 0,
+        totalEarnings: 0,
+        refunded: 0
+      };
+    }
+
+    const startDate = dateRange[0];
+    const endDate = dateRange[1];
+
+    // Calculate earnings for the selected period
+    const periodEarnings = processedData.calculateEarningsForPeriod(startDate, endDate);
+
+    // Calculate refunds for the selected period
+    const periodRefunds = processedData.calculateRefundsForPeriod(startDate, endDate);
+
+    // Get unique creators from the period
+    const periodTransactions = processedData.allTransactions.filter(tx => {
+      const txDate = dayjs(tx.timestamp);
+      return txDate.isAfter(startDate.subtract(1, 'day')) &&
+             txDate.isBefore(endDate.add(1, 'day')) &&
+             !tx.isRefunded;
+    });
+
+    const uniqueCreators = new Set(periodTransactions.map(tx => tx.creatorAlias)).size;
+
+    // Calculate message earnings specifically
+    const messageTransactions = periodTransactions.filter(tx => tx.channel === 'messages');
+    const messageEarnings = messageTransactions.reduce((sum, tx) => {
+      const grossAmount = tx.amount || 0;
+      const platformFee = grossAmount * (processedData.metadata.platformFee || 0.2);
+      const netAmount = grossAmount - platformFee;
+      return sum + (earningsType === 'Net earnings' ? netAmount : grossAmount);
+    }, 0);
+
+    return {
+      creators: uniqueCreators,
+      messageEarnings: messageEarnings,
+      totalEarnings: earningsType === 'Net earnings' ? periodEarnings.net : periodEarnings.gross,
+      refunded: periodRefunds
+    };
+  }, [dateRange, processedData, earningsType]);
+
+  // calculate dynamic creator table data based on date range
+  const dynamicCreatorTableData = useMemo(() => {
+    if (!dateRange || !dateRange[0] || !dateRange[1]) {
+      return [];
+    }
+
+    const startDate = dateRange[0];
+    const endDate = dateRange[1];
+    const rangeLength = endDate.diff(startDate, 'days') + 1;
+
+    // Calculate previous period (same length, immediately before current period)
+    const previousEndDate = startDate.subtract(1, 'day');
+    const previousStartDate = previousEndDate.subtract(rangeLength - 1, 'days');
+
+    // Get transactions for current period
+    const currentPeriodTransactions = processedData.allTransactions.filter(tx => {
+      const txDate = dayjs(tx.timestamp);
+      return txDate.isAfter(startDate.subtract(1, 'day')) &&
+             txDate.isBefore(endDate.add(1, 'day')) &&
+             !tx.isRefunded;
+    });
+
+    // Get transactions for previous period
+    const previousPeriodTransactions = processedData.allTransactions.filter(tx => {
+      const txDate = dayjs(tx.timestamp);
+      return txDate.isAfter(previousStartDate.subtract(1, 'day')) &&
+             txDate.isBefore(previousEndDate.add(1, 'day')) &&
+             !tx.isRefunded;
+    });
+
+    const creators = [...new Set(currentPeriodTransactions.map(tx => tx.creatorAlias))];
+
+        let tableData = creators.map(creator => {
+          const currentCreatorTransactions = currentPeriodTransactions.filter(tx => tx.creatorAlias === creator);
+          const previousCreatorTransactions = previousPeriodTransactions.filter(tx => tx.creatorAlias === creator);
+
+          const calculateChannelEarnings = (transactions) => {
+            return transactions.reduce((sum, tx) => {
+              const grossAmount = tx.amount || 0;
+              const platformFee = grossAmount * (processedData.metadata.platformFee || 0.2);
+              const netAmount = grossAmount - platformFee;
+              return sum + (earningsType === 'Net earnings' ? netAmount : grossAmount);
+            }, 0);
+          };
+
+          const calculateChannelData = (channel) => {
+            const currentTxs = currentCreatorTransactions.filter(tx => tx.channel === channel);
+            const previousTxs = previousCreatorTransactions.filter(tx => tx.channel === channel);
+
+            const currentEarnings = calculateChannelEarnings(currentTxs);
+            const previousEarnings = calculateChannelEarnings(previousTxs);
+
+            const change = previousEarnings > 0 ? ((currentEarnings - previousEarnings) / previousEarnings) * 100 : 0;
+
+            return {
+              earnings: currentEarnings,
+              count: currentTxs.length,
+              change: change
+            };
+          };
+
+          const subscriptions = calculateChannelData('subscriptions');
+          const tips = calculateChannelData('tips');
+          const messages = calculateChannelData('messages');
+          const posts = calculateChannelData('posts');
+          const referrals = calculateChannelData('referrals');
+          const streams = calculateChannelData('streams');
+
+          const totalEarnings = subscriptions.earnings + tips.earnings + messages.earnings +
+                               posts.earnings + referrals.earnings + streams.earnings;
+
+          // Calculate total earnings for contribution percentage
+          const allPeriodEarnings = processedData.calculateEarningsForPeriod(startDate, endDate);
+          const totalPeriodEarnings = earningsType === 'Net earnings' ? allPeriodEarnings.net : allPeriodEarnings.gross;
+          const contribution = totalPeriodEarnings > 0 ? (totalEarnings / totalPeriodEarnings) * 100 : 0;
+
+          // Calculate previous period earnings for percentage changes
+          const previousEarnings = calculateChannelEarnings(previousCreatorTransactions);
+
+          // Calculate contribution percentage change
+          const previousAllPeriodEarnings = processedData.calculateEarningsForPeriod(previousStartDate, previousEndDate);
+          const previousTotalPeriodEarnings = earningsType === 'Net earnings' ? previousAllPeriodEarnings.net : previousAllPeriodEarnings.gross;
+          const previousContribution = previousTotalPeriodEarnings > 0 ? (previousEarnings / previousTotalPeriodEarnings) * 100 : 0;
+          const contributionChange = previousContribution > 0 ? ((contribution - previousContribution) / previousContribution) * 100 : 0;
+
+          // Calculate total transaction count change
+          const currentTotalTxs = currentCreatorTransactions.length;
+          const previousTotalTxs = previousCreatorTransactions.length;
+          const totalTxChange = previousTotalTxs > 0 ? ((currentTotalTxs - previousTotalTxs) / previousTotalTxs) * 100 : 0;
+
+          // Calculate fan-based metrics
+          const fans = processedData.getFansForCreator(creator, startDate, endDate);
+          const newSubs = processedData.getNewSubscriptions(creator, startDate, endDate);
+          const recurringSubs = processedData.getRecurringSubscriptions(creator, startDate, endDate);
+          const fansWithRenew = processedData.getFansWithRenewOn(creator, startDate, endDate);
+          const activeFans = processedData.getActiveFans(creator, startDate, endDate);
+          const creatorData = processedData.getCreatorData(creator);
+
+          // Calculate previous period metrics for percentage changes
+          const previousFans = processedData.getFansForCreator(creator, previousStartDate, previousEndDate);
+          const previousNewSubs = processedData.getNewSubscriptions(creator, previousStartDate, previousEndDate);
+          const previousRecurringSubs = processedData.getRecurringSubscriptions(creator, previousStartDate, previousEndDate);
+          const previousActiveFans = processedData.getActiveFans(creator, previousStartDate, previousEndDate);
+          const previousAvgSpendPerSpender = processedData.calculateAvgSpendPerSpender(creator, previousStartDate, previousEndDate);
+          const previousAvgSpendPerTransaction = processedData.calculateAvgSpendPerTransaction(creator, previousStartDate, previousEndDate);
+
+          // Calculate percentage changes
+          const newSubscriptionsChange = previousNewSubs.earnings > 0 ? ((newSubs.earnings - previousNewSubs.earnings) / previousNewSubs.earnings) * 100 : 0;
+          const recurringSubscriptionsChange = previousRecurringSubs.earnings > 0 ? ((recurringSubs.earnings - previousRecurringSubs.earnings) / previousRecurringSubs.earnings) * 100 : 0;
+          const totalEarningsChange = previousEarnings > 0 ? ((totalEarnings - previousEarnings) / previousEarnings) * 100 : 0;
+          const activeFansChange = previousActiveFans > 0 ? ((activeFans - previousActiveFans) / previousActiveFans) * 100 : 0;
+          const avgSpendPerSpenderChange = previousAvgSpendPerSpender > 0 ? ((processedData.calculateAvgSpendPerSpender(creator, startDate, endDate) - previousAvgSpendPerSpender) / previousAvgSpendPerSpender) * 100 : 0;
+          const avgSpendPerTransactionChange = previousAvgSpendPerTransaction > 0 ? ((processedData.calculateAvgSpendPerTransaction(creator, startDate, endDate) - previousAvgSpendPerTransaction) / previousAvgSpendPerTransaction) * 100 : 0;
+
+          return {
+            key: creator,
+            creator: creator,
+            subscriptions: subscriptions.earnings.toFixed(2),
+            subscriptionsCount: subscriptions.count,
+            subscriptionsChange: subscriptions.change,
+            newSubscriptions: `$${newSubs.earnings.toFixed(2)}`,
+            newSubscriptionsCount: newSubs.count,
+            newSubscriptionsChange: newSubscriptionsChange,
+            recurringSubscriptions: `$${recurringSubs.earnings.toFixed(2)}`,
+            recurringSubscriptionsCount: recurringSubs.count,
+            recurringSubscriptionsChange: recurringSubscriptionsChange,
+            tips: tips.earnings.toFixed(2),
+            tipsCount: tips.count,
+            tipsChange: tips.change,
+            messages: messages.earnings.toFixed(2),
+            messagesCount: messages.count,
+            messagesChange: messages.change,
+            posts: posts.earnings.toFixed(2),
+            postsCount: posts.count,
+            postsChange: posts.change,
+            referrals: referrals.earnings.toFixed(2),
+            referralsCount: referrals.count,
+            referralsChange: referrals.change,
+            streams: streams.earnings.toFixed(2),
+            streamsCount: streams.count,
+            streamsChange: streams.change,
+            totalEarnings: totalEarnings.toFixed(2),
+            totalEarningsChange: totalEarningsChange,
+            contribution: contribution.toFixed(2),
+            contributionChange: contributionChange,
+            fans: fans.length,
+            ofRanking: creatorData?.ofRanking || '',
+            following: creatorData?.following || '',
+            fansWithRenewOn: fansWithRenew,
+            renewOnPercent: fans.length > 0 ? `${((fansWithRenew / fans.length) * 100).toFixed(2)}%` : '0.00%',
+            newFans: newSubs.count,
+            activeFans: activeFans,
+            activeFansChange: activeFansChange,
+            expiredFanCount: Math.floor(Math.random() * 50) + 20, // Placeholder for now
+            avgSpendPerSpender: `$${processedData.calculateAvgSpendPerSpender(creator, startDate, endDate).toFixed(2)}`,
+            avgSpendPerSpenderChange: avgSpendPerSpenderChange,
+            avgSpendPerTransaction: `$${processedData.calculateAvgSpendPerTransaction(creator, startDate, endDate).toFixed(2)}`,
+            avgSpendPerTransactionChange: avgSpendPerTransactionChange,
+            avgEarningsPerFan: `$${(totalEarnings / Math.max(fans.length, 1)).toFixed(2)}`,
+            avgSubscriptionLength: `${processedData.calculateAvgSubscriptionLength(creator, startDate, endDate).toFixed(0)} days`
+          };
+        });
+
+        // apply sorting if specified
+        if (tableSort.field && tableSort.order) {
+          tableData.sort((a, b) => {
+            let aValue, bValue;
+
+            // handle different field types
+            if (tableSort.field === 'creator') {
+              aValue = a.creator.toLowerCase();
+              bValue = b.creator.toLowerCase();
+            } else if (tableSort.field === 'totalEarnings' || tableSort.field === 'contribution') {
+              aValue = parseFloat(a[tableSort.field]);
+              bValue = parseFloat(b[tableSort.field]);
+            } else if (tableSort.field === 'totalTransactions') {
+              aValue = a.totalTransactions;
+              bValue = b.totalTransactions;
+            } else {
+              // for channel earnings fields
+              aValue = parseFloat(a[tableSort.field]);
+              bValue = parseFloat(b[tableSort.field]);
+            }
+
+            if (tableSort.order === 'ascend') {
+              return aValue > bValue ? 1 : -1;
+            } else {
+              return aValue < bValue ? 1 : -1;
+            }
+          });
+        }
+
+        return tableData;
+  }, [dateRange, processedData, earningsType, tableSort]);
+
+  // show loading state while data is being loaded
+  if (isLoading) {
+    return (
+      <div className="creator-reports" style={{ padding: '20px', textAlign: 'center' }}>
+        <div>Loading data...</div>
+      </div>
+    );
+  }
+
+  // show error state if there's an error
+  if (error) {
+    return (
+      <div className="creator-reports" style={{ padding: '20px', textAlign: 'center' }}>
+        <div style={{ color: 'red' }}>Error loading data: {error}</div>
+      </div>
+    );
+  }
 
   return (
     <div className="creator-reports">
@@ -277,12 +648,7 @@ function CreatorReports() {
                 className="filter-select"
                 popupClassName="custom-filter-dropdown"
                 suffixIcon={<img src={chevronIcon} alt='' style={{ width: 10, height: 10, transform: 'rotate(90deg)', opacity: 0.6 }} />}
-                options={[
-                  { value: 'hour', label: 'Shown by hour', disabled: true },
-                  { value: 'day', label: 'Shown by day' },
-                  { value: 'week', label: 'Shown by week' },
-                  { value: 'month', label: 'Shown by month' }
-                ]}
+                options={availableShownByOptions}
               />
               <Tooltip title="Select time grouping">
                 <InfoCircleOutlined style={{ color: '#aaa', fontSize: 13 }} />
@@ -331,13 +697,14 @@ function CreatorReports() {
 
             <div className="earnings-trends-chart">
             <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={dynamicEarningsTrends} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
+                <BarChart data={dynamicEarningsTrends} margin={{ top: 0, right: 0, left: -10, bottom: 0 }}>
                 <CartesianGrid
                     strokeDasharray="3 3"
                     stroke="#e5e5e5"
                     vertical={false}
                     syncWithTicks={true}
                 />
+                <ReferenceLine y={0} stroke="#e5e5e5" strokeWidth={1} />
                 <XAxis
                     dataKey="date"
                     stroke="#999"
@@ -348,10 +715,11 @@ function CreatorReports() {
                 <YAxis
                     stroke="#999"
                     style={{ fontSize: 12 }}
-                    ticks={[0, 300, 600, 900, 1200, 1500]}
+                    ticks={calculateNiceTicks(dynamicEarningsTrends, 'value')}
+                    tickFormatter={formatNumber}
                     axisLine={false}
                     tickLine={false}
-                    width={40}
+                    width={50}
                 />
                 <RechartsTooltip
                     content={(props) => <CustomTooltip {...props} setHoveredBar={setHoveredBar} />}
@@ -403,9 +771,10 @@ function CreatorReports() {
                 <div style={{ flex: 1 }}>
                     <ResponsiveContainer width="100%" height={250}>
                     <LineChart data={dynamicSalesChart}
-                        // margin={{ top: 16}}
+                        margin={{ top: 0, right: 0, left: -10, bottom: 0 }}
                     >
                         <CartesianGrid strokeDasharray="3 3" stroke="#e5e5e5" vertical={false} />
+                        <ReferenceLine y={0} stroke="#e5e5e5" strokeWidth={1} />
                         <XAxis
                         dataKey="date"
                         stroke="#999"
@@ -417,10 +786,12 @@ function CreatorReports() {
                         <YAxis
                         stroke="#999"
                         style={{ fontSize: 12 }}
-                        ticks={[0, 200, 400, 600, 800, 1000]}
+                        ticks={calculateNiceTicks(dynamicSalesChart, 'subscriptions')}
+                        tickFormatter={formatNumber}
                         axisLine={false}
                         tickLine={false}
-                        width={40}
+                        width={50}
+                        domain={['dataMin', 'dataMax']}
                         />
                         <RechartsTooltip
                         content={<EarningsChannelTooltip />}
@@ -469,38 +840,38 @@ function CreatorReports() {
                     <div className="legend-item">
                     <span className="legend-dot" style={{ backgroundColor: '#3b82f6' }}></span>
                     <span className="legend-label">Subscriptions</span>
-                    <span className="legend-percentage">{((currentEarnings.subscriptions / currentEarnings.total) * 100).toFixed(1)}%</span>
-                    <span className="legend-amount">${currentEarnings.subscriptions.toFixed(0)}</span>
+                    <span className="legend-percentage">{((currentEarnings.subscriptions / currentEarnings.total) * 100).toFixed(2)}%</span>
+                    <span className="legend-amount">${currentEarnings.subscriptions.toFixed(2)}</span>
                     </div>
                     <div className="legend-item">
                     <span className="legend-dot" style={{ backgroundColor: '#06b6d4' }}></span>
                     <span className="legend-label">Tips</span>
-                    <span className="legend-percentage">{((currentEarnings.tips / currentEarnings.total) * 100).toFixed(1)}%</span>
-                    <span className="legend-amount">${currentEarnings.tips.toFixed(0)}</span>
+                    <span className="legend-percentage">{((currentEarnings.tips / currentEarnings.total) * 100).toFixed(2)}%</span>
+                    <span className="legend-amount">${currentEarnings.tips.toFixed(2)}</span>
                     </div>
                     <div className="legend-item">
                     <span className="legend-dot" style={{ backgroundColor: '#ef4444' }}></span>
                     <span className="legend-label">Posts</span>
-                    <span className="legend-percentage">{((currentEarnings.posts / currentEarnings.total) * 100).toFixed(1)}%</span>
-                    <span className="legend-amount">${currentEarnings.posts.toFixed(0)}</span>
+                    <span className="legend-percentage">{((currentEarnings.posts / currentEarnings.total) * 100).toFixed(2)}%</span>
+                    <span className="legend-amount">${currentEarnings.posts.toFixed(2)}</span>
                     </div>
                     <div className="legend-item">
                     <span className="legend-dot" style={{ backgroundColor: '#f59e0b' }}></span>
                     <span className="legend-label">Messages</span>
-                    <span className="legend-percentage">{((currentEarnings.messages / currentEarnings.total) * 100).toFixed(1)}%</span>
-                    <span className="legend-amount">${currentEarnings.messages.toFixed(0)}</span>
+                    <span className="legend-percentage">{((currentEarnings.messages / currentEarnings.total) * 100).toFixed(2)}%</span>
+                    <span className="legend-amount">${currentEarnings.messages.toFixed(2)}</span>
                     </div>
                     <div className="legend-item">
                     <span className="legend-dot" style={{ backgroundColor: '#10b981' }}></span>
                     <span className="legend-label">Referrals</span>
-                    <span className="legend-percentage">{((currentEarnings.referrals / currentEarnings.total) * 100).toFixed(1)}%</span>
-                    <span className="legend-amount">${currentEarnings.referrals.toFixed(0)}</span>
+                    <span className="legend-percentage">{((currentEarnings.referrals / currentEarnings.total) * 100).toFixed(2)}%</span>
+                    <span className="legend-amount">${currentEarnings.referrals.toFixed(2)}</span>
                     </div>
                     <div className="legend-item">
                     <span className="legend-dot" style={{ backgroundColor: '#a855f7' }}></span>
                     <span className="legend-label">Streams</span>
-                    <span className="legend-percentage">{((currentEarnings.streams / currentEarnings.total) * 100).toFixed(1)}%</span>
-                    <span className="legend-amount">${currentEarnings.streams.toFixed(0)}</span>
+                    <span className="legend-percentage">{((currentEarnings.streams / currentEarnings.total) * 100).toFixed(2)}%</span>
+                    <span className="legend-amount">${currentEarnings.streams.toFixed(2)}</span>
                     </div>
                 </div>
                 </div>
@@ -538,7 +909,7 @@ function CreatorReports() {
                 <Row gutter={[16, 16]} style={{ marginBottom: 24 }}>
                 <Col xs={24} sm={12} md={6}>
                     <div className="stat-card">
-                    <div className="stat-value">{processedData.creatorStatistics.creators}</div>
+                    <div className="stat-value">{dynamicCreatorStatistics.creators}</div>
                     <div className="stat-label">
                         <span>Creators</span>
                         <Tooltip title="Total number of creators">
@@ -549,7 +920,7 @@ function CreatorReports() {
                 </Col>
                 <Col xs={24} sm={12} md={6}>
                     <div className="stat-card">
-                    <div className="stat-value">${processedData.creatorStatistics.messageEarnings.toFixed(2)}</div>
+                    <div className="stat-value">${dynamicCreatorStatistics.messageEarnings.toFixed(2)}</div>
                     <div className="stat-label">
                         <span>Message earnings</span>
                         <Tooltip title="Total earnings from messages">
@@ -560,7 +931,7 @@ function CreatorReports() {
                 </Col>
                 <Col xs={24} sm={12} md={6}>
                     <div className="stat-card">
-                    <div className="stat-value">${processedData.creatorStatistics.totalEarnings.toFixed(2)}</div>
+                    <div className="stat-value">${dynamicCreatorStatistics.totalEarnings.toFixed(2)}</div>
                     <div className="stat-label">
                         <span>Total earnings</span>
                         <Tooltip title="Total earnings across all channels">
@@ -571,7 +942,7 @@ function CreatorReports() {
                 </Col>
                 <Col xs={24} sm={12} md={6}>
                     <div className="stat-card">
-                    <div className="stat-value">${processedData.creatorStatistics.refunded.toFixed(2)}</div>
+                    <div className="stat-value">${dynamicCreatorStatistics.refunded.toFixed(2)}</div>
                     <div className="stat-label">
                         <span>Refunded</span>
                         <Tooltip title="Total amount refunded">
@@ -586,10 +957,20 @@ function CreatorReports() {
                 <Table
                 className="creator-table"
                 scroll={{ x: 'max-content' }}
+                onChange={(pagination, filters, sorter) => {
+                    if (sorter && sorter.field) {
+                        setTableSort({
+                            field: sorter.field,
+                            order: sorter.order
+                        });
+                    } else {
+                        setTableSort({ field: null, order: null });
+                    }
+                }}
                 columns={[
                     {
                     title: () => (
-                        <span>
+                        <span className="ant-table-column-title">
                         Creator <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
                         </span>
                     ),
@@ -597,6 +978,334 @@ function CreatorReports() {
                     key: 'creator',
                     fixed: 'left',
                     width: 150,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Subscriptions <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'subscriptions',
+                    key: 'subscriptions',
+                    sorter: true,
+                    width: 180,
+                    render: (text, record) => (
+                        <span>
+                        ${text}
+                        {record.subscriptionsChange !== undefined && (
+                            <span style={{
+                                color: record.subscriptionsChange >= 0 ? '#67d1ae' : '#ee8376',
+                                fontSize: '12px',
+                                fontWeight: 'bold',
+                                marginLeft: '8px'
+                            }}>
+                                {record.subscriptionsChange.toFixed(2)}%
+                            </span>
+                        )}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        New subscriptions <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'newSubscriptions',
+                    key: 'newSubscriptions',
+                    sorter: true,
+                    width: 200,
+                    render: (text, record) => (
+                        <span>
+                        {text}
+                        {record.newSubscriptionsChange !== undefined && (
+                            <span style={{
+                                color: record.newSubscriptionsChange >= 0 ? '#67d1ae' : '#ee8376',
+                                fontSize: '12px',
+                                fontWeight: 'bold',
+                                marginLeft: '8px'
+                            }}>
+                                {record.newSubscriptionsChange.toFixed(2)}%
+                            </span>
+                        )}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Recurring subscriptions <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'recurringSubscriptions',
+                    key: 'recurringSubscriptions',
+                    sorter: true,
+                    width: 240,
+                    render: (text, record) => (
+                        <span>
+                        {text}
+                        {record.recurringSubscriptionsChange !== undefined && (
+                            <span style={{
+                                color: record.recurringSubscriptionsChange >= 0 ? '#67d1ae' : '#ee8376',
+                                fontSize: '12px',
+                                fontWeight: 'bold',
+                                marginLeft: '8px'
+                            }}>
+                                {record.recurringSubscriptionsChange.toFixed(2)}%
+                            </span>
+                        )}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Tips <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'tips',
+                    key: 'tips',
+                    sorter: true,
+                    width: 150,
+                    render: (text) => `$${text}`,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Message <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'messages',
+                    key: 'messages',
+                    sorter: true,
+                    width: 150,
+                    render: (text) => `$${text}`,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Total earnings <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'totalEarnings',
+                    key: 'totalEarnings',
+                    sorter: true,
+                    width: 180,
+                    render: (text, record) => (
+                        <span>
+                        ${text}
+                        {record.totalEarningsChange !== undefined && (
+                            <span style={{
+                                color: record.totalEarningsChange >= 0 ? '#67d1ae' : '#ee8376',
+                                fontSize: '12px',
+                                fontWeight: 'bold',
+                                marginLeft: '8px'
+                            }}>
+                                {record.totalEarningsChange.toFixed(2)}%
+                            </span>
+                        )}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Contribution % <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'contribution',
+                    key: 'contribution',
+                    sorter: true,
+                    width: 180,
+                    render: (text, record) => (
+                        <span>
+                        {text}%
+                        {record.contributionChange !== undefined && (
+                            <span style={{
+                                color: record.contributionChange >= 0 ? '#67d1ae' : '#ee8376',
+                                fontSize: '12px',
+                                fontWeight: 'bold',
+                                marginLeft: '8px'
+                            }}>
+                                {record.contributionChange.toFixed(2)}%
+                            </span>
+                        )}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        OF ranking <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'ofRanking',
+                    key: 'ofRanking',
+                    sorter: true,
+                    width: 120,
+                    render: (text) => text,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Following <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'following',
+                    key: 'following',
+                    sorter: true,
+                    width: 120,
+                    render: (text) => text,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Fans with renew on <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'fansWithRenewOn',
+                    key: 'fansWithRenewOn',
+                    sorter: true,
+                    width: 170,
+                    render: (text) => text,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Renew on % <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'renewOnPercent',
+                    key: 'renewOnPercent',
+                    sorter: true,
+                    width: 130,
+                    render: (text) => text,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        New fans <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'newFans',
+                    key: 'newFans',
+                    sorter: true,
+                    width: 120,
+                    render: (text) => text,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Active fans <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'activeFans',
+                    key: 'activeFans',
+                    sorter: true,
+                    width: 180,
+                    render: (text, record) => (
+                        <span>
+                        {text}
+                        {record.activeFansChange !== undefined && (
+                            <span style={{
+                                color: record.activeFansChange >= 0 ? '#67d1ae' : '#ee8376',
+                                fontSize: '12px',
+                                fontWeight: 'bold',
+                                marginLeft: '8px'
+                            }}>
+                                {record.activeFansChange.toFixed(2)}%
+                            </span>
+                        )}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Change in expired fan count <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'expiredFanCount',
+                    key: 'expiredFanCount',
+                    sorter: true,
+                    width: 200,
+                    render: (text) => text,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Avg spend per spender <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'avgSpendPerSpender',
+                    key: 'avgSpendPerSpender',
+                    sorter: true,
+                    width: 240,
+                    render: (text, record) => (
+                        <span>
+                        {text}
+                        {record.avgSpendPerSpenderChange !== undefined && (
+                            <span style={{
+                                color: record.avgSpendPerSpenderChange >= 0 ? '#67d1ae' : '#ee8376',
+                                fontSize: '12px',
+                                fontWeight: 'bold',
+                                marginLeft: '8px'
+                            }}>
+                                {record.avgSpendPerSpenderChange.toFixed(2)}%
+                            </span>
+                        )}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Avg spend per transaction <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'avgSpendPerTransaction',
+                    key: 'avgSpendPerTransaction',
+                    sorter: true,
+                    width: 250,
+                    render: (text, record) => (
+                        <span>
+                        {text}
+                        {record.avgSpendPerTransactionChange !== undefined && (
+                            <span style={{
+                                color: record.avgSpendPerTransactionChange >= 0 ? '#67d1ae' : '#ee8376',
+                                fontSize: '12px',
+                                fontWeight: 'bold',
+                                marginLeft: '8px'
+                            }}>
+                                {record.avgSpendPerTransactionChange.toFixed(2)}%
+                            </span>
+                        )}
+                        </span>
+                    ),
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Avg earnings per fan <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'avgEarningsPerFan',
+                    key: 'avgEarningsPerFan',
+                    sorter: true,
+                    width: 200,
+                    render: (text) => text,
+                    },
+                    {
+                    title: () => (
+                        <span>
+                        Avg subscription length <InfoCircleOutlined style={{ marginLeft: 4, fontSize: 12, color: '#999' }} />
+                        </span>
+                    ),
+                    dataIndex: 'avgSubscriptionLength',
+                    key: 'avgSubscriptionLength',
+                    sorter: true,
+                    width: 200,
+                    render: (text) => text,
                     },
                     {
                     title: () => (
@@ -845,7 +1554,7 @@ function CreatorReports() {
                     width: 200,
                     },
                 ]}
-                dataSource={processedData.creatorTableData}
+                dataSource={dynamicCreatorTableData}
                 pagination={false}
                 locale={{
                     emptyText: (

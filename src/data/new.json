@@ -11,49 +11,81 @@
       "id": "sophia_rose",
       "name": "Sophia Rose",
       "alias": "@sophia_rose",
-      "joinDate": "2024-01-15"
+      "joinDate": "2024-01-15",
+      "ofRanking": 583,
+      "following": 222,
+      "fanCount": 14,
+      "activeFanCount": 14
     },
     {
       "id": "emma_jade",
       "name": "Emma Jade",
       "alias": "@emma_jade",
-      "joinDate": "2024-02-20"
+      "joinDate": "2024-02-20",
+      "ofRanking": 2225,
+      "following": 499,
+      "fanCount": 15,
+      "activeFanCount": 11
     },
     {
       "id": "ava_luna",
       "name": "Ava Luna",
       "alias": "@ava_luna",
-      "joinDate": "2024-03-10"
+      "joinDate": "2024-03-10",
+      "ofRanking": 546,
+      "following": 641,
+      "fanCount": 19,
+      "activeFanCount": 15
     },
     {
       "id": "mia_grace",
       "name": "Mia Grace",
       "alias": "@mia_grace",
-      "joinDate": "2024-04-05"
+      "joinDate": "2024-04-05",
+      "ofRanking": 825,
+      "following": 1041,
+      "fanCount": 15,
+      "activeFanCount": 12
     },
     {
       "id": "olivia_sky",
       "name": "Olivia Sky",
       "alias": "@olivia_sky",
-      "joinDate": "2024-05-12"
+      "joinDate": "2024-05-12",
+      "ofRanking": 1416,
+      "following": 456,
+      "fanCount": 19,
+      "activeFanCount": 16
     },
     {
       "id": "charlotte_moon",
       "name": "Charlotte Moon",
       "alias": "@charlotte_moon",
-      "joinDate": "2024-06-18"
+      "joinDate": "2024-06-18",
+      "ofRanking": 2115,
+      "following": 303,
+      "fanCount": 12,
+      "activeFanCount": 11
     },
     {
       "id": "isabella_star",
       "name": "Isabella Star",
       "alias": "@isabella_star",
-      "joinDate": "2024-07-25"
+      "joinDate": "2024-07-25",
+      "ofRanking": 2238,
+      "following": 384,
+      "fanCount": 19,
+      "activeFanCount": 17
     },
     {
       "id": "amelia_sun",
       "name": "Amelia Sun",
       "alias": "@amelia_sun",
-      "joinDate": "2024-08-30"
+      "joinDate": "2024-08-30",
+      "ofRanking": 912,
+      "following": 938,
+      "fanCount": 15,
+      "activeFanCount": 13
     }
   ],
   "transactions": [
@@ -65,7 +97,8 @@
       "amount": 20.81,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_015"
     },
     {
       "id": "tx_002",
@@ -75,7 +108,8 @@
       "amount": 32.88,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_020"
     },
     {
       "id": "tx_003",
@@ -85,7 +119,8 @@
       "amount": 11.26,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_023"
     },
     {
       "id": "tx_004",
@@ -95,7 +130,8 @@
       "amount": 19.55,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_051"
     },
     {
       "id": "tx_005",
@@ -105,7 +141,8 @@
       "amount": 20.12,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_059"
     },
     {
       "id": "tx_006",
@@ -115,7 +152,8 @@
       "amount": 3.9,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_060"
     },
     {
       "id": "tx_007",
@@ -125,7 +163,8 @@
       "amount": 23.6,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_053"
     },
     {
       "id": "tx_008",
@@ -135,7 +174,8 @@
       "amount": 27.25,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_004"
     },
     {
       "id": "tx_009",
@@ -145,7 +185,8 @@
       "amount": 15.19,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_080"
     },
     {
       "id": "tx_010",
@@ -155,7 +196,8 @@
       "amount": 59.01,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_094"
     },
     {
       "id": "tx_011",
@@ -165,7 +207,8 @@
       "amount": 5.71,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_030"
     },
     {
       "id": "tx_012",
@@ -175,7 +218,8 @@
       "amount": 67.74,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_068"
     },
     {
       "id": "tx_013",
@@ -185,7 +229,8 @@
       "amount": 34.66,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_104"
     },
     {
       "id": "tx_014",
@@ -195,7 +240,8 @@
       "amount": 12.49,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_090"
     },
     {
       "id": "tx_015",
@@ -205,7 +251,8 @@
       "amount": 4.7,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_004"
     },
     {
       "id": "tx_016",
@@ -215,7 +262,8 @@
       "amount": 50.15,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_084"
     },
     {
       "id": "tx_017",
@@ -225,7 +273,8 @@
       "amount": 8.74,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_105"
     },
     {
       "id": "tx_018",
@@ -235,7 +284,8 @@
       "amount": 71.86,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_063"
     },
     {
       "id": "tx_019",
@@ -245,7 +295,8 @@
       "amount": 11.84,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_090"
     },
     {
       "id": "tx_020",
@@ -255,7 +306,8 @@
       "amount": 9.23,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_087"
     },
     {
       "id": "tx_021",
@@ -265,7 +317,8 @@
       "amount": 18.48,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_057"
     },
     {
       "id": "tx_022",
@@ -275,7 +328,8 @@
       "amount": 25.61,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_044"
     },
     {
       "id": "tx_023",
@@ -285,7 +339,8 @@
       "amount": 20.06,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_088"
     },
     {
       "id": "tx_024",
@@ -295,7 +350,8 @@
       "amount": 18.09,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_123"
     },
     {
       "id": "tx_025",
@@ -305,7 +361,8 @@
       "amount": 4.12,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_096"
     },
     {
       "id": "tx_026",
@@ -315,7 +372,8 @@
       "amount": 9.94,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_083"
     },
     {
       "id": "tx_027",
@@ -325,7 +383,8 @@
       "amount": 10.25,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_107"
     },
     {
       "id": "tx_028",
@@ -335,7 +394,8 @@
       "amount": 10.18,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_121"
     },
     {
       "id": "tx_029",
@@ -345,7 +405,8 @@
       "amount": 23.96,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_027"
     },
     {
       "id": "tx_030",
@@ -355,7 +416,8 @@
       "amount": 21.46,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_120"
     },
     {
       "id": "tx_031",
@@ -365,7 +427,8 @@
       "amount": 5.13,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_064"
     },
     {
       "id": "tx_032",
@@ -375,7 +438,8 @@
       "amount": 19.22,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_099"
     },
     {
       "id": "tx_033",
@@ -385,7 +449,8 @@
       "amount": 33.74,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_066"
     },
     {
       "id": "tx_034",
@@ -395,7 +460,8 @@
       "amount": 20.01,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_013"
     },
     {
       "id": "tx_035",
@@ -405,7 +471,8 @@
       "amount": 60.92,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_065"
     },
     {
       "id": "tx_036",
@@ -415,7 +482,8 @@
       "amount": 44.58,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_036"
     },
     {
       "id": "tx_037",
@@ -425,7 +493,8 @@
       "amount": 27.66,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_058"
     },
     {
       "id": "tx_038",
@@ -435,7 +504,8 @@
       "amount": 30.96,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_058"
     },
     {
       "id": "tx_039",
@@ -445,7 +515,8 @@
       "amount": 24.01,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_069"
     },
     {
       "id": "tx_040",
@@ -455,7 +526,8 @@
       "amount": 62.95,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_118"
     },
     {
       "id": "tx_041",
@@ -465,7 +537,8 @@
       "amount": 25.42,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_110"
     },
     {
       "id": "tx_042",
@@ -475,7 +548,8 @@
       "amount": 23.03,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_062"
     },
     {
       "id": "tx_043",
@@ -485,7 +559,8 @@
       "amount": 26.41,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_063"
     },
     {
       "id": "tx_044",
@@ -495,7 +570,8 @@
       "amount": 18.81,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_042"
     },
     {
       "id": "tx_045",
@@ -505,7 +581,8 @@
       "amount": 23.57,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_085"
     },
     {
       "id": "tx_046",
@@ -515,7 +592,8 @@
       "amount": 13.77,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_043"
     },
     {
       "id": "tx_047",
@@ -525,7 +603,8 @@
       "amount": 55.94,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_128"
     },
     {
       "id": "tx_048",
@@ -535,7 +614,8 @@
       "amount": 14.32,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_117"
     },
     {
       "id": "tx_049",
@@ -545,7 +625,8 @@
       "amount": 25.72,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_088"
     },
     {
       "id": "tx_050",
@@ -555,7 +636,8 @@
       "amount": 38.47,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_011"
     },
     {
       "id": "tx_051",
@@ -565,7 +647,8 @@
       "amount": 24.47,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_101"
     },
     {
       "id": "tx_052",
@@ -575,7 +658,8 @@
       "amount": 53.14,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_087"
     },
     {
       "id": "tx_053",
@@ -585,7 +669,8 @@
       "amount": 13.88,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_022"
     },
     {
       "id": "tx_054",
@@ -595,7 +680,8 @@
       "amount": 19.14,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_122"
     },
     {
       "id": "tx_055",
@@ -605,7 +691,8 @@
       "amount": 65.44,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_033"
     },
     {
       "id": "tx_056",
@@ -615,7 +702,8 @@
       "amount": 43.03,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_075"
     },
     {
       "id": "tx_057",
@@ -625,7 +713,8 @@
       "amount": 31.33,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_010"
     },
     {
       "id": "tx_058",
@@ -635,7 +724,8 @@
       "amount": 38.75,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_113"
     },
     {
       "id": "tx_059",
@@ -645,7 +735,8 @@
       "amount": 7.63,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_100"
     },
     {
       "id": "tx_060",
@@ -655,7 +746,8 @@
       "amount": 26.09,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_005"
     },
     {
       "id": "tx_061",
@@ -665,7 +757,8 @@
       "amount": 15.39,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_122"
     },
     {
       "id": "tx_062",
@@ -675,7 +768,8 @@
       "amount": 56.74,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_025"
     },
     {
       "id": "tx_063",
@@ -685,7 +779,8 @@
       "amount": 71.55,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_093"
     },
     {
       "id": "tx_064",
@@ -695,7 +790,8 @@
       "amount": 95.38,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_024"
     },
     {
       "id": "tx_065",
@@ -705,7 +801,8 @@
       "amount": 37.72,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_081"
     },
     {
       "id": "tx_066",
@@ -715,7 +812,8 @@
       "amount": 90.56,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_077"
     },
     {
       "id": "tx_067",
@@ -725,7 +823,8 @@
       "amount": 38.57,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_118"
     },
     {
       "id": "tx_068",
@@ -735,7 +834,8 @@
       "amount": 40.98,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_075"
     },
     {
       "id": "tx_069",
@@ -745,7 +845,8 @@
       "amount": 54.38,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_100"
     },
     {
       "id": "tx_070",
@@ -755,7 +856,8 @@
       "amount": 13.44,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_070"
     },
     {
       "id": "tx_071",
@@ -765,7 +867,8 @@
       "amount": 37.05,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_116"
     },
     {
       "id": "tx_072",
@@ -775,7 +878,8 @@
       "amount": 26.37,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_011"
     },
     {
       "id": "tx_073",
@@ -785,7 +889,8 @@
       "amount": 22.61,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_003"
     },
     {
       "id": "tx_074",
@@ -795,7 +900,8 @@
       "amount": 15.45,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_010"
     },
     {
       "id": "tx_075",
@@ -805,7 +911,8 @@
       "amount": 52.71,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_078"
     },
     {
       "id": "tx_076",
@@ -815,7 +922,8 @@
       "amount": 21.05,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_122"
     },
     {
       "id": "tx_077",
@@ -825,7 +933,8 @@
       "amount": 31.85,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_128"
     },
     {
       "id": "tx_078",
@@ -835,7 +944,8 @@
       "amount": 15.41,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_106"
     },
     {
       "id": "tx_079",
@@ -845,7 +955,8 @@
       "amount": 15.15,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_047"
     },
     {
       "id": "tx_080",
@@ -855,7 +966,8 @@
       "amount": 13.78,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_079"
     },
     {
       "id": "tx_081",
@@ -865,7 +977,8 @@
       "amount": 26.6,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_121"
     },
     {
       "id": "tx_082",
@@ -875,7 +988,8 @@
       "amount": 66.73,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_017"
     },
     {
       "id": "tx_083",
@@ -885,7 +999,8 @@
       "amount": 58.17,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_063"
     },
     {
       "id": "tx_084",
@@ -895,7 +1010,8 @@
       "amount": 29.21,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_002"
     },
     {
       "id": "tx_085",
@@ -905,7 +1021,8 @@
       "amount": 12.89,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_115"
     },
     {
       "id": "tx_086",
@@ -915,7 +1032,8 @@
       "amount": 6.14,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_071"
     },
     {
       "id": "tx_087",
@@ -925,7 +1043,8 @@
       "amount": 6.93,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_101"
     },
     {
       "id": "tx_088",
@@ -935,7 +1054,8 @@
       "amount": 99.42,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_045"
     },
     {
       "id": "tx_089",
@@ -945,7 +1065,8 @@
       "amount": 55.38,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_054"
     },
     {
       "id": "tx_090",
@@ -955,7 +1076,8 @@
       "amount": 39.66,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_124"
     },
     {
       "id": "tx_091",
@@ -965,7 +1087,8 @@
       "amount": 17.17,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_052"
     },
     {
       "id": "tx_092",
@@ -975,7 +1098,8 @@
       "amount": 7.39,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_052"
     },
     {
       "id": "tx_093",
@@ -985,7 +1109,8 @@
       "amount": 34.88,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_112"
     },
     {
       "id": "tx_094",
@@ -995,7 +1120,8 @@
       "amount": 118.35,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_064"
     },
     {
       "id": "tx_095",
@@ -1005,7 +1131,8 @@
       "amount": 12.97,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_038"
     },
     {
       "id": "tx_096",
@@ -1015,7 +1142,8 @@
       "amount": 14.61,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_056"
     },
     {
       "id": "tx_097",
@@ -1025,7 +1153,8 @@
       "amount": 35.9,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_066"
     },
     {
       "id": "tx_098",
@@ -1035,7 +1164,8 @@
       "amount": 58.16,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_040"
     },
     {
       "id": "tx_099",
@@ -1045,7 +1175,8 @@
       "amount": 22.84,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_115"
     },
     {
       "id": "tx_100",
@@ -1055,7 +1186,8 @@
       "amount": 43.37,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_076"
     },
     {
       "id": "tx_101",
@@ -1065,7 +1197,8 @@
       "amount": 56.14,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_009"
     },
     {
       "id": "tx_102",
@@ -1075,7 +1208,8 @@
       "amount": 22.07,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_002"
     },
     {
       "id": "tx_103",
@@ -1085,7 +1219,8 @@
       "amount": 27.26,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_086"
     },
     {
       "id": "tx_104",
@@ -1095,7 +1230,8 @@
       "amount": 4.86,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_089"
     },
     {
       "id": "tx_105",
@@ -1105,7 +1241,8 @@
       "amount": 55.66,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_117"
     },
     {
       "id": "tx_106",
@@ -1115,7 +1252,8 @@
       "amount": 13.39,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_065"
     },
     {
       "id": "tx_107",
@@ -1125,7 +1263,8 @@
       "amount": 28.68,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_102"
     },
     {
       "id": "tx_108",
@@ -1135,7 +1274,8 @@
       "amount": 15.17,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_094"
     },
     {
       "id": "tx_109",
@@ -1145,7 +1285,8 @@
       "amount": 14.58,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_067"
     },
     {
       "id": "tx_110",
@@ -1155,7 +1296,8 @@
       "amount": 41.14,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_114"
     },
     {
       "id": "tx_111",
@@ -1165,7 +1307,8 @@
       "amount": 72.92,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_070"
     },
     {
       "id": "tx_112",
@@ -1175,7 +1318,8 @@
       "amount": 25.52,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_061"
     },
     {
       "id": "tx_113",
@@ -1185,7 +1329,8 @@
       "amount": 21.65,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_116"
     },
     {
       "id": "tx_114",
@@ -1195,7 +1340,8 @@
       "amount": 13.97,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_067"
     },
     {
       "id": "tx_115",
@@ -1205,7 +1351,8 @@
       "amount": 25.01,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_128"
     },
     {
       "id": "tx_116",
@@ -1215,7 +1362,8 @@
       "amount": 42.84,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_076"
     },
     {
       "id": "tx_117",
@@ -1225,7 +1373,8 @@
       "amount": 8.74,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_088"
     },
     {
       "id": "tx_118",
@@ -1235,7 +1384,8 @@
       "amount": 25.55,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_024"
     },
     {
       "id": "tx_119",
@@ -1245,7 +1395,8 @@
       "amount": 71.32,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_022"
     },
     {
       "id": "tx_120",
@@ -1255,7 +1406,8 @@
       "amount": 5.52,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_123"
     },
     {
       "id": "tx_121",
@@ -1265,7 +1417,8 @@
       "amount": 94.83,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_071"
     },
     {
       "id": "tx_122",
@@ -1275,7 +1428,8 @@
       "amount": 113.56,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_041"
     },
     {
       "id": "tx_123",
@@ -1285,7 +1439,8 @@
       "amount": 40.71,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_059"
     },
     {
       "id": "tx_124",
@@ -1295,7 +1450,8 @@
       "amount": 85.67,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_034"
     },
     {
       "id": "tx_125",
@@ -1305,7 +1461,8 @@
       "amount": 72.32,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_037"
     },
     {
       "id": "tx_126",
@@ -1315,7 +1472,8 @@
       "amount": 6.31,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_102"
     },
     {
       "id": "tx_127",
@@ -1325,7 +1483,8 @@
       "amount": 65.71,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_068"
     },
     {
       "id": "tx_128",
@@ -1335,7 +1494,8 @@
       "amount": 34.1,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_035"
     },
     {
       "id": "tx_129",
@@ -1345,7 +1505,8 @@
       "amount": 29.8,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_078"
     },
     {
       "id": "tx_130",
@@ -1355,7 +1516,8 @@
       "amount": 24.19,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_100"
     },
     {
       "id": "tx_131",
@@ -1365,7 +1527,8 @@
       "amount": 18.19,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_116"
     },
     {
       "id": "tx_132",
@@ -1375,7 +1538,8 @@
       "amount": 21.51,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_063"
     },
     {
       "id": "tx_133",
@@ -1385,7 +1549,8 @@
       "amount": 101.44,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_103"
     },
     {
       "id": "tx_134",
@@ -1395,7 +1560,8 @@
       "amount": 35.11,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_025"
     },
     {
       "id": "tx_135",
@@ -1405,7 +1571,8 @@
       "amount": 30.04,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_105"
     },
     {
       "id": "tx_136",
@@ -1415,7 +1582,8 @@
       "amount": 20.53,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_026"
     },
     {
       "id": "tx_137",
@@ -1425,7 +1593,8 @@
       "amount": 64.32,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_074"
     },
     {
       "id": "tx_138",
@@ -1435,7 +1604,8 @@
       "amount": 23.9,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_029"
     },
     {
       "id": "tx_139",
@@ -1445,7 +1615,8 @@
       "amount": 32.32,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_062"
     },
     {
       "id": "tx_140",
@@ -1455,7 +1626,8 @@
       "amount": 45.3,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_120"
     },
     {
       "id": "tx_141",
@@ -1465,7 +1637,8 @@
       "amount": 31.59,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_115"
     },
     {
       "id": "tx_142",
@@ -1475,7 +1648,8 @@
       "amount": 12.77,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_095"
     },
     {
       "id": "tx_143",
@@ -1485,7 +1659,8 @@
       "amount": 40.94,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_069"
     },
     {
       "id": "tx_144",
@@ -1495,7 +1670,8 @@
       "amount": 88.49,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_079"
     },
     {
       "id": "tx_145",
@@ -1505,7 +1681,8 @@
       "amount": 80.78,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_013"
     },
     {
       "id": "tx_146",
@@ -1515,7 +1692,8 @@
       "amount": 80.09,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_108"
     },
     {
       "id": "tx_147",
@@ -1525,7 +1703,8 @@
       "amount": 19.23,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_014"
     },
     {
       "id": "tx_148",
@@ -1535,7 +1714,8 @@
       "amount": 38.91,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_083"
     },
     {
       "id": "tx_149",
@@ -1545,7 +1725,8 @@
       "amount": 29.87,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_087"
     },
     {
       "id": "tx_150",
@@ -1555,7 +1736,8 @@
       "amount": 117.85,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_045"
     },
     {
       "id": "tx_151",
@@ -1565,7 +1747,8 @@
       "amount": 40.7,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_118"
     },
     {
       "id": "tx_152",
@@ -1575,7 +1758,8 @@
       "amount": 13.28,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_077"
     },
     {
       "id": "tx_153",
@@ -1585,7 +1769,8 @@
       "amount": 32.12,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_119"
     },
     {
       "id": "tx_154",
@@ -1595,7 +1780,8 @@
       "amount": 24.01,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_108"
     },
     {
       "id": "tx_155",
@@ -1605,7 +1791,8 @@
       "amount": 11.9,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_001"
     },
     {
       "id": "tx_156",
@@ -1615,7 +1802,8 @@
       "amount": 45.47,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_014"
     },
     {
       "id": "tx_157",
@@ -1625,7 +1813,8 @@
       "amount": 131.92,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_027"
     },
     {
       "id": "tx_158",
@@ -1635,7 +1824,8 @@
       "amount": 19.25,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_124"
     },
     {
       "id": "tx_159",
@@ -1645,7 +1835,8 @@
       "amount": 31.61,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_058"
     },
     {
       "id": "tx_160",
@@ -1655,7 +1846,8 @@
       "amount": 66.71,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_101"
     },
     {
       "id": "tx_161",
@@ -1665,7 +1857,8 @@
       "amount": 71.18,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_039"
     },
     {
       "id": "tx_162",
@@ -1675,7 +1868,8 @@
       "amount": 27.19,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_006"
     },
     {
       "id": "tx_163",
@@ -1685,7 +1879,8 @@
       "amount": 11.07,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_008"
     },
     {
       "id": "tx_164",
@@ -1695,7 +1890,8 @@
       "amount": 110.15,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_119"
     },
     {
       "id": "tx_165",
@@ -1705,7 +1901,8 @@
       "amount": 21.84,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_037"
     },
     {
       "id": "tx_166",
@@ -1715,7 +1912,8 @@
       "amount": 48.49,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_050"
     },
     {
       "id": "tx_167",
@@ -1725,7 +1923,8 @@
       "amount": 8.44,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_023"
     },
     {
       "id": "tx_168",
@@ -1735,7 +1934,8 @@
       "amount": 19.22,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_047"
     },
     {
       "id": "tx_169",
@@ -1745,7 +1945,8 @@
       "amount": 129.6,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_071"
     },
     {
       "id": "tx_170",
@@ -1755,7 +1956,8 @@
       "amount": 47.37,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_054"
     },
     {
       "id": "tx_171",
@@ -1765,7 +1967,8 @@
       "amount": 132.33,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_055"
     },
     {
       "id": "tx_172",
@@ -1775,7 +1978,8 @@
       "amount": 27.9,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_020"
     },
     {
       "id": "tx_173",
@@ -1785,7 +1989,8 @@
       "amount": 9.33,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_126"
     },
     {
       "id": "tx_174",
@@ -1795,7 +2000,8 @@
       "amount": 89.63,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_102"
     },
     {
       "id": "tx_175",
@@ -1805,7 +2011,8 @@
       "amount": 9.58,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_095"
     },
     {
       "id": "tx_176",
@@ -1815,7 +2022,8 @@
       "amount": 18.02,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_092"
     },
     {
       "id": "tx_177",
@@ -1825,7 +2033,8 @@
       "amount": 41.45,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_056"
     },
     {
       "id": "tx_178",
@@ -1835,7 +2044,8 @@
       "amount": 26.82,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_081"
     },
     {
       "id": "tx_179",
@@ -1845,7 +2055,8 @@
       "amount": 10.79,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_072"
     },
     {
       "id": "tx_180",
@@ -1855,7 +2066,8 @@
       "amount": 43.02,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_061"
     },
     {
       "id": "tx_181",
@@ -1865,7 +2077,8 @@
       "amount": 100.94,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_059"
     },
     {
       "id": "tx_182",
@@ -1875,7 +2088,8 @@
       "amount": 44.4,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_019"
     },
     {
       "id": "tx_183",
@@ -1885,7 +2099,8 @@
       "amount": 24.06,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_091"
     },
     {
       "id": "tx_184",
@@ -1895,7 +2110,8 @@
       "amount": 44.96,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_107"
     },
     {
       "id": "tx_185",
@@ -1905,7 +2121,8 @@
       "amount": 71.69,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_120"
     },
     {
       "id": "tx_186",
@@ -1915,7 +2132,8 @@
       "amount": 32.25,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_125"
     },
     {
       "id": "tx_187",
@@ -1925,7 +2143,8 @@
       "amount": 19.62,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_039"
     },
     {
       "id": "tx_188",
@@ -1935,7 +2154,8 @@
       "amount": 24.02,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_061"
     },
     {
       "id": "tx_189",
@@ -1945,7 +2165,8 @@
       "amount": 48.23,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_072"
     },
     {
       "id": "tx_190",
@@ -1955,7 +2176,8 @@
       "amount": 28.84,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_127"
     },
     {
       "id": "tx_191",
@@ -1965,7 +2187,8 @@
       "amount": 39.16,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_032"
     },
     {
       "id": "tx_192",
@@ -1975,7 +2198,8 @@
       "amount": 38.01,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_124"
     },
     {
       "id": "tx_193",
@@ -1985,7 +2209,8 @@
       "amount": 52.22,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_097"
     },
     {
       "id": "tx_194",
@@ -1995,7 +2220,8 @@
       "amount": 8.95,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_021"
     },
     {
       "id": "tx_195",
@@ -2005,7 +2231,8 @@
       "amount": 19.16,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_106"
     },
     {
       "id": "tx_196",
@@ -2015,7 +2242,8 @@
       "amount": 21.06,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_068"
     },
     {
       "id": "tx_197",
@@ -2025,7 +2253,8 @@
       "amount": 20,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_126"
     },
     {
       "id": "tx_198",
@@ -2035,7 +2264,8 @@
       "amount": 22.31,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_060"
     },
     {
       "id": "tx_199",
@@ -2045,7 +2275,8 @@
       "amount": 34.47,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_082"
     },
     {
       "id": "tx_200",
@@ -2055,7 +2286,8 @@
       "amount": 28.23,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_017"
     },
     {
       "id": "tx_201",
@@ -2065,7 +2297,8 @@
       "amount": 57.21,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_114"
     },
     {
       "id": "tx_202",
@@ -2075,7 +2308,8 @@
       "amount": 43.52,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_074"
     },
     {
       "id": "tx_203",
@@ -2085,7 +2319,8 @@
       "amount": 49.72,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_031"
     },
     {
       "id": "tx_204",
@@ -2095,7 +2330,8 @@
       "amount": 63.99,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_049"
     },
     {
       "id": "tx_205",
@@ -2105,7 +2341,8 @@
       "amount": 24.27,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_072"
     },
     {
       "id": "tx_206",
@@ -2115,7 +2352,8 @@
       "amount": 17.47,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_001"
     },
     {
       "id": "tx_207",
@@ -2125,7 +2363,8 @@
       "amount": 80.94,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_109"
     },
     {
       "id": "tx_208",
@@ -2135,7 +2374,8 @@
       "amount": 101.53,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_003"
     },
     {
       "id": "tx_209",
@@ -2145,7 +2385,8 @@
       "amount": 60.16,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_059"
     },
     {
       "id": "tx_210",
@@ -2155,7 +2396,8 @@
       "amount": 27.15,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_039"
     },
     {
       "id": "tx_211",
@@ -2165,7 +2407,8 @@
       "amount": 95.82,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_099"
     },
     {
       "id": "tx_212",
@@ -2175,7 +2418,8 @@
       "amount": 36.6,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_089"
     },
     {
       "id": "tx_213",
@@ -2185,7 +2429,8 @@
       "amount": 38.3,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_046"
     },
     {
       "id": "tx_214",
@@ -2195,7 +2440,8 @@
       "amount": 45.62,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_127"
     },
     {
       "id": "tx_215",
@@ -2205,7 +2451,8 @@
       "amount": 48.89,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_098"
     },
     {
       "id": "tx_216",
@@ -2215,7 +2462,8 @@
       "amount": 76.06,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_057"
     },
     {
       "id": "tx_217",
@@ -2225,7 +2473,8 @@
       "amount": 82.66,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_006"
     },
     {
       "id": "tx_218",
@@ -2235,7 +2484,8 @@
       "amount": 20.24,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_048"
     },
     {
       "id": "tx_219",
@@ -2245,7 +2495,8 @@
       "amount": 58.46,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_070"
     },
     {
       "id": "tx_220",
@@ -2255,7 +2506,8 @@
       "amount": 21.4,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_074"
     },
     {
       "id": "tx_221",
@@ -2265,7 +2517,8 @@
       "amount": 26.58,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_053"
     },
     {
       "id": "tx_222",
@@ -2275,7 +2528,8 @@
       "amount": 13.01,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_036"
     },
     {
       "id": "tx_223",
@@ -2285,7 +2539,8 @@
       "amount": 36.17,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_060"
     },
     {
       "id": "tx_224",
@@ -2295,7 +2550,8 @@
       "amount": 21.49,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_016"
     },
     {
       "id": "tx_225",
@@ -2305,7 +2561,8 @@
       "amount": 77.93,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_126"
     },
     {
       "id": "tx_226",
@@ -2315,7 +2572,8 @@
       "amount": 36.42,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_069"
     },
     {
       "id": "tx_227",
@@ -2325,7 +2583,8 @@
       "amount": 80.38,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_110"
     },
     {
       "id": "tx_228",
@@ -2335,7 +2594,8 @@
       "amount": 159.18,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_058"
     },
     {
       "id": "tx_229",
@@ -2345,7 +2605,8 @@
       "amount": 77.4,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_012"
     },
     {
       "id": "tx_230",
@@ -2355,7 +2616,8 @@
       "amount": 48.71,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_007"
     },
     {
       "id": "tx_231",
@@ -2365,7 +2627,8 @@
       "amount": 39.05,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_026"
     },
     {
       "id": "tx_232",
@@ -2375,7 +2638,8 @@
       "amount": 49.84,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_044"
     },
     {
       "id": "tx_233",
@@ -2385,7 +2649,8 @@
       "amount": 76.95,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_028"
     },
     {
       "id": "tx_234",
@@ -2395,7 +2660,8 @@
       "amount": 151.92,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_111"
     },
     {
       "id": "tx_235",
@@ -2405,7 +2671,8 @@
       "amount": 19.92,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_062"
     },
     {
       "id": "tx_236",
@@ -2415,7 +2682,8 @@
       "amount": 77.34,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_016"
     },
     {
       "id": "tx_237",
@@ -2425,7 +2693,8 @@
       "amount": 8.07,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_093"
     },
     {
       "id": "tx_238",
@@ -2435,7 +2704,8 @@
       "amount": 31.78,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_086"
     },
     {
       "id": "tx_239",
@@ -2445,7 +2715,8 @@
       "amount": 78.5,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_040"
     },
     {
       "id": "tx_240",
@@ -2455,7 +2726,8 @@
       "amount": 27.13,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_123"
     },
     {
       "id": "tx_241",
@@ -2465,7 +2737,8 @@
       "amount": 112.37,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_041"
     },
     {
       "id": "tx_242",
@@ -2475,7 +2748,8 @@
       "amount": 33.4,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_028"
     },
     {
       "id": "tx_243",
@@ -2485,7 +2759,8 @@
       "amount": 64.28,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_009"
     },
     {
       "id": "tx_244",
@@ -2495,7 +2770,8 @@
       "amount": 36.03,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_018"
     },
     {
       "id": "tx_245",
@@ -2505,7 +2781,8 @@
       "amount": 18.78,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_062"
     },
     {
       "id": "tx_246",
@@ -2515,7 +2792,8 @@
       "amount": 162.87,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_008"
     },
     {
       "id": "tx_247",
@@ -2525,7 +2803,8 @@
       "amount": 42.31,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_121"
     },
     {
       "id": "tx_248",
@@ -2535,7 +2814,8 @@
       "amount": 114.7,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_065"
     },
     {
       "id": "tx_249",
@@ -2545,7 +2825,8 @@
       "amount": 55.34,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_060"
     },
     {
       "id": "tx_250",
@@ -2555,7 +2836,8 @@
       "amount": 44.63,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_067"
     },
     {
       "id": "tx_251",
@@ -2565,7 +2847,8 @@
       "amount": 11.92,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_078"
     },
     {
       "id": "tx_252",
@@ -2575,7 +2858,8 @@
       "amount": 49.29,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_075"
     },
     {
       "id": "tx_253",
@@ -2585,7 +2869,8 @@
       "amount": 58.66,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_125"
     },
     {
       "id": "tx_254",
@@ -2595,7 +2880,8 @@
       "amount": 63.62,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_115"
     },
     {
       "id": "tx_255",
@@ -2605,7 +2891,8 @@
       "amount": 33.1,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_111"
     },
     {
       "id": "tx_256",
@@ -2615,7 +2902,8 @@
       "amount": 11.53,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_097"
     },
     {
       "id": "tx_257",
@@ -2625,7 +2913,8 @@
       "amount": 20.75,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_086"
     },
     {
       "id": "tx_258",
@@ -2635,7 +2924,8 @@
       "amount": 25.73,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_042"
     },
     {
       "id": "tx_259",
@@ -2645,7 +2935,8 @@
       "amount": 9.92,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_031"
     },
     {
       "id": "tx_260",
@@ -2655,7 +2946,8 @@
       "amount": 21.05,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_033"
     },
     {
       "id": "tx_261",
@@ -2665,7 +2957,8 @@
       "amount": 113.47,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_127"
     },
     {
       "id": "tx_262",
@@ -2675,7 +2968,8 @@
       "amount": 115.4,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_104"
     },
     {
       "id": "tx_263",
@@ -2685,7 +2979,8 @@
       "amount": 115.41,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_112"
     },
     {
       "id": "tx_264",
@@ -2695,7 +2990,8 @@
       "amount": 73.18,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_085"
     },
     {
       "id": "tx_265",
@@ -2705,7 +3001,8 @@
       "amount": 90.34,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_043"
     },
     {
       "id": "tx_266",
@@ -2715,7 +3012,8 @@
       "amount": 13.29,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_021"
     },
     {
       "id": "tx_267",
@@ -2725,7 +3023,8 @@
       "amount": 46.15,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_050"
     },
     {
       "id": "tx_268",
@@ -2735,7 +3034,8 @@
       "amount": 70.29,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_041"
     },
     {
       "id": "tx_269",
@@ -2745,7 +3045,8 @@
       "amount": 34.09,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_077"
     },
     {
       "id": "tx_270",
@@ -2755,7 +3056,8 @@
       "amount": 18.55,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_055"
     },
     {
       "id": "tx_271",
@@ -2765,7 +3067,8 @@
       "amount": 56.27,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_001"
     },
     {
       "id": "tx_272",
@@ -2775,7 +3078,8 @@
       "amount": 36.68,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_040"
     },
     {
       "id": "tx_273",
@@ -2785,7 +3089,8 @@
       "amount": 24.63,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_103"
     },
     {
       "id": "tx_274",
@@ -2795,7 +3100,8 @@
       "amount": 18.27,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_125"
     },
     {
       "id": "tx_275",
@@ -2805,7 +3111,8 @@
       "amount": 33.41,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_046"
     },
     {
       "id": "tx_276",
@@ -2815,7 +3122,8 @@
       "amount": 45.44,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_096"
     },
     {
       "id": "tx_277",
@@ -2825,7 +3133,8 @@
       "amount": 44.9,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_084"
     },
     {
       "id": "tx_278",
@@ -2835,7 +3144,8 @@
       "amount": 75.17,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_051"
     },
     {
       "id": "tx_279",
@@ -2845,7 +3155,8 @@
       "amount": 52.8,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_038"
     },
     {
       "id": "tx_280",
@@ -2855,7 +3166,8 @@
       "amount": 29.87,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_073"
     },
     {
       "id": "tx_281",
@@ -2865,7 +3177,8 @@
       "amount": 31.27,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_080"
     },
     {
       "id": "tx_282",
@@ -2875,7 +3188,8 @@
       "amount": 41.6,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_034"
     },
     {
       "id": "tx_283",
@@ -2885,7 +3199,8 @@
       "amount": 91.18,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_030"
     },
     {
       "id": "tx_284",
@@ -2895,7 +3210,8 @@
       "amount": 80.91,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_048"
     },
     {
       "id": "tx_285",
@@ -2905,7 +3221,8 @@
       "amount": 52.88,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_073"
     },
     {
       "id": "tx_286",
@@ -2915,7 +3232,8 @@
       "amount": 35.67,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_005"
     },
     {
       "id": "tx_287",
@@ -2925,7 +3243,8 @@
       "amount": 24.03,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_119"
     },
     {
       "id": "tx_288",
@@ -2935,7 +3254,8 @@
       "amount": 48.1,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_066"
     },
     {
       "id": "tx_289",
@@ -2945,7 +3265,8 @@
       "amount": 17.91,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_113"
     },
     {
       "id": "tx_290",
@@ -2955,7 +3276,8 @@
       "amount": 90.64,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_049"
     },
     {
       "id": "tx_291",
@@ -2965,7 +3287,8 @@
       "amount": 30.85,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_082"
     },
     {
       "id": "tx_292",
@@ -2975,7 +3298,8 @@
       "amount": 36.12,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_042"
     },
     {
       "id": "tx_293",
@@ -2985,7 +3309,8 @@
       "amount": 46.47,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_092"
     },
     {
       "id": "tx_294",
@@ -2995,7 +3320,8 @@
       "amount": 48.8,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_073"
     },
     {
       "id": "tx_295",
@@ -3005,7 +3331,8 @@
       "amount": 77.96,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_061"
     },
     {
       "id": "tx_296",
@@ -3015,7 +3342,8 @@
       "amount": 25.06,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_043"
     },
     {
       "id": "tx_297",
@@ -3025,7 +3353,8 @@
       "amount": 37.88,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_103"
     },
     {
       "id": "tx_298",
@@ -3035,7 +3364,8 @@
       "amount": 15.14,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_098"
     },
     {
       "id": "tx_299",
@@ -3045,7 +3375,8 @@
       "amount": 28.65,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_029"
     },
     {
       "id": "tx_300",
@@ -3055,7 +3386,8 @@
       "amount": 58.17,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_035"
     },
     {
       "id": "tx_301",
@@ -3065,7 +3397,8 @@
       "amount": 80.19,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_117"
     },
     {
       "id": "tx_302",
@@ -3075,7 +3408,8 @@
       "amount": 129.28,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_109"
     },
     {
       "id": "tx_303",
@@ -3085,7 +3419,8 @@
       "amount": 121.63,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_007"
     },
     {
       "id": "tx_304",
@@ -3095,7 +3430,8 @@
       "amount": 124.5,
       "isRefunded": true,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_018"
     },
     {
       "id": "tx_305",
@@ -3105,7 +3441,8 @@
       "amount": 52.51,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_085"
     },
     {
       "id": "tx_306",
@@ -3115,7 +3452,8 @@
       "amount": 36.67,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_076"
     },
     {
       "id": "tx_307",
@@ -3125,7 +3463,8 @@
       "amount": 110.26,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_012"
     },
     {
       "id": "tx_308",
@@ -3135,7 +3474,8 @@
       "amount": 118.7,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_019"
     },
     {
       "id": "tx_309",
@@ -3145,7 +3485,8 @@
       "amount": 183.15,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_064"
     },
     {
       "id": "tx_310",
@@ -3155,7 +3496,8 @@
       "amount": 98.98,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_091"
     },
     {
       "id": "tx_311",
@@ -3165,7 +3507,8 @@
       "amount": 157.56,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_015"
     },
     {
       "id": "tx_312",
@@ -3175,7 +3518,1418 @@
       "amount": 27.76,
       "isRefunded": false,
       "refundTimestamp": null,
-      "refundAmount": 0
+      "refundAmount": 0,
+      "fanId": "fan_032"
+    }
+  ],
+  "fans": [
+    {
+      "fanId": "fan_001",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-04T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-02T13:40:00.233Z",
+      "totalSpent": 85.64,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_002",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-11T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-23T22:01:00.233Z",
+      "totalSpent": 51.28,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_003",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-24T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-26T07:20:00.233Z",
+      "totalSpent": 124.14,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_004",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-19T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-14T19:12:00.233Z",
+      "totalSpent": 31.95,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_005",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-31T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-29T21:55:00.233Z",
+      "totalSpent": 61.760000000000005,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_006",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-10-04T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-01T03:13:00.233Z",
+      "totalSpent": 109.85,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_007",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-05T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-11T09:55:00.233Z",
+      "totalSpent": 170.34,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_008",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-16T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-01T01:37:00.233Z",
+      "totalSpent": 173.94,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_009",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-18T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-18T22:19:00.233Z",
+      "totalSpent": 120.42,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_010",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-07-29T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-30T21:18:00.233Z",
+      "totalSpent": 46.78,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_011",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-14T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-03T03:31:00.233Z",
+      "totalSpent": 64.84,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_012",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-05T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-12T12:29:00.233Z",
+      "totalSpent": 187.66000000000003,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_013",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-24T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-07T17:55:00.233Z",
+      "totalSpent": 100.79,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_014",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-13T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-04T10:34:00.233Z",
+      "totalSpent": 64.7,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_015",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-30T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-16T11:45:00.233Z",
+      "totalSpent": 178.37,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_016",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-15T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-13T12:24:00.233Z",
+      "totalSpent": 98.83,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_017",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-28T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-24T01:40:00.233Z",
+      "totalSpent": 94.96000000000001,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_018",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-25T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-07T10:44:00.233Z",
+      "totalSpent": 160.53,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_019",
+      "creatorAlias": "@ava_luna",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-20T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-25T07:13:00.233Z",
+      "totalSpent": 163.1,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_020",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-01T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-16T07:47:00.233Z",
+      "totalSpent": 60.78,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_021",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-21T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-23T05:26:00.233Z",
+      "totalSpent": 22.24,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_022",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-13T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-01T11:21:00.233Z",
+      "totalSpent": 85.19999999999999,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_023",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-27T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-16T11:58:00.233Z",
+      "totalSpent": 19.7,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_024",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-03T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-29T01:36:00.233Z",
+      "totalSpent": 120.92999999999999,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_025",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-20T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-29T22:34:00.233Z",
+      "totalSpent": 91.85,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_026",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-24T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-09T02:07:00.233Z",
+      "totalSpent": 59.58,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_027",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-17T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-09T05:49:00.233Z",
+      "totalSpent": 155.88,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_028",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-06T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-11T23:40:00.233Z",
+      "totalSpent": 110.35,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_029",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-07T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-07T21:35:00.233Z",
+      "totalSpent": 52.55,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_030",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-02T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-14T15:05:00.233Z",
+      "totalSpent": 96.89,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_031",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-04T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-20T06:26:00.233Z",
+      "totalSpent": 59.64,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_032",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-25T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-23T12:34:00.233Z",
+      "totalSpent": 66.92,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_033",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-16T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-01T10:38:00.233Z",
+      "totalSpent": 86.49,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_034",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-02T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-12T04:34:00.233Z",
+      "totalSpent": 127.27000000000001,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_035",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-02T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-10T14:09:00.233Z",
+      "totalSpent": 92.27000000000001,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_036",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-09T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-06T11:33:00.233Z",
+      "totalSpent": 57.589999999999996,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_037",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-16T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-11T16:03:00.233Z",
+      "totalSpent": 94.16,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_038",
+      "creatorAlias": "@olivia_sky",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-15T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-20T00:21:00.233Z",
+      "totalSpent": 65.77,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_039",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-09-14T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-31T19:34:00.233Z",
+      "totalSpent": 117.95000000000002,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_040",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-30T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-19T21:50:00.233Z",
+      "totalSpent": 173.34,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_041",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-19T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-12T19:15:00.233Z",
+      "totalSpent": 296.22,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_042",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-07-19T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-04T20:31:00.233Z",
+      "totalSpent": 80.66,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_043",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-02T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-04T20:00:00.233Z",
+      "totalSpent": 129.17000000000002,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_044",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-14T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-10T12:14:00.233Z",
+      "totalSpent": 75.45,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_045",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-15T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-22T06:02:00.233Z",
+      "totalSpent": 217.26999999999998,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_046",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-08T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-17T00:33:00.233Z",
+      "totalSpent": 71.71,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_047",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-07-15T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-24T09:40:00.233Z",
+      "totalSpent": 34.37,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_048",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-06T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-15T17:49:00.233Z",
+      "totalSpent": 101.14999999999999,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_049",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-27T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-19T22:41:00.233Z",
+      "totalSpent": 154.63,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_050",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-11T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-30T18:22:00.233Z",
+      "totalSpent": 94.64,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_051",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-07T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-17T01:07:00.233Z",
+      "totalSpent": 94.72,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_052",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-05T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-21T11:31:00.233Z",
+      "totalSpent": 24.560000000000002,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_053",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-10-27T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-16T01:15:00.233Z",
+      "totalSpent": 50.18,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_054",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-08T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-21T10:16:00.233Z",
+      "totalSpent": 102.75,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_055",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-15T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-28T10:12:00.233Z",
+      "totalSpent": 150.88000000000002,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_056",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-21T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-19T07:23:00.233Z",
+      "totalSpent": 56.06,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_057",
+      "creatorAlias": "@isabella_star",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-10-12T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-11T10:42:00.233Z",
+      "totalSpent": 94.54,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_058",
+      "creatorAlias": "@charlotte_moon",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-29T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-06T21:07:00.233Z",
+      "totalSpent": 249.41000000000003,
+      "transactionCount": 4
+    },
+    {
+      "fanId": "fan_059",
+      "creatorAlias": "@charlotte_moon",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-17T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-15T14:50:00.233Z",
+      "totalSpent": 221.92999999999998,
+      "transactionCount": 4
+    },
+    {
+      "fanId": "fan_060",
+      "creatorAlias": "@charlotte_moon",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-02T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-16T01:16:00.233Z",
+      "totalSpent": 117.72,
+      "transactionCount": 4
+    },
+    {
+      "fanId": "fan_061",
+      "creatorAlias": "@charlotte_moon",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-08T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-14T19:21:00.233Z",
+      "totalSpent": 170.51999999999998,
+      "transactionCount": 4
+    },
+    {
+      "fanId": "fan_062",
+      "creatorAlias": "@charlotte_moon",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-26T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-06T06:32:00.233Z",
+      "totalSpent": 94.05,
+      "transactionCount": 4
+    },
+    {
+      "fanId": "fan_063",
+      "creatorAlias": "@charlotte_moon",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-02T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-12T14:38:00.233Z",
+      "totalSpent": 177.95000000000002,
+      "transactionCount": 4
+    },
+    {
+      "fanId": "fan_064",
+      "creatorAlias": "@charlotte_moon",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-07-30T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-08T23:32:00.233Z",
+      "totalSpent": 306.63,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_065",
+      "creatorAlias": "@charlotte_moon",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-09-15T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-07T22:55:00.233Z",
+      "totalSpent": 189.01,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_066",
+      "creatorAlias": "@charlotte_moon",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-18T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-07T20:06:00.233Z",
+      "totalSpent": 117.74000000000001,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_067",
+      "creatorAlias": "@charlotte_moon",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-25T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-16T06:33:00.233Z",
+      "totalSpent": 73.18,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_068",
+      "creatorAlias": "@charlotte_moon",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-02T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-13T07:43:00.233Z",
+      "totalSpent": 154.51,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_069",
+      "creatorAlias": "@charlotte_moon",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-31T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-07T03:10:00.233Z",
+      "totalSpent": 101.37,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_070",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-10-04T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-27T21:26:00.233Z",
+      "totalSpent": 144.82,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_071",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-09T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-23T06:59:00.233Z",
+      "totalSpent": 230.57,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_072",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-23T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-27T02:17:00.233Z",
+      "totalSpent": 83.28999999999999,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_073",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-15T00:00:00.000Z",
+      "lastTransactionDate": "2025-07-28T12:55:00.233Z",
+      "totalSpent": 131.55,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_074",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-10T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-07T20:18:00.233Z",
+      "totalSpent": 129.24,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_075",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-24T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-01T08:09:00.233Z",
+      "totalSpent": 133.3,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_076",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-09-14T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-19T04:41:00.233Z",
+      "totalSpent": 122.88000000000001,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_077",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-09-03T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-28T10:30:00.233Z",
+      "totalSpent": 137.93,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_078",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-10-23T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-25T17:35:00.233Z",
+      "totalSpent": 94.43,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_079",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-08T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-25T06:59:00.233Z",
+      "totalSpent": 102.27,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_080",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-30T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-14T23:36:00.233Z",
+      "totalSpent": 46.46,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_081",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-20T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-28T15:23:00.233Z",
+      "totalSpent": 64.53999999999999,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_082",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-07-19T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-20T09:36:00.233Z",
+      "totalSpent": 65.32,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_083",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-26T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-09T11:42:00.233Z",
+      "totalSpent": 48.849999999999994,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_084",
+      "creatorAlias": "@amelia_sun",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-09-07T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-12T22:39:00.233Z",
+      "totalSpent": 95.05,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_085",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-17T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-04T08:34:00.233Z",
+      "totalSpent": 149.26,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_086",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-21T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-17T14:07:00.233Z",
+      "totalSpent": 79.79,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_087",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-06T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-11T21:59:00.233Z",
+      "totalSpent": 92.24000000000001,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_088",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-11T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-10T15:58:00.233Z",
+      "totalSpent": 54.519999999999996,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_089",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-02T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-17T07:18:00.233Z",
+      "totalSpent": 41.46,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_090",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-03T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-13T09:06:00.233Z",
+      "totalSpent": 24.33,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_091",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-09-13T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-25T09:03:00.233Z",
+      "totalSpent": 123.04,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_092",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-25T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-27T20:41:00.233Z",
+      "totalSpent": 64.49,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_093",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-25T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-29T19:41:00.233Z",
+      "totalSpent": 79.62,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_094",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-07T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-14T13:26:00.233Z",
+      "totalSpent": 74.17999999999999,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_095",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-21T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-06T14:49:00.233Z",
+      "totalSpent": 22.35,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_096",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-12T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-10T10:51:00.233Z",
+      "totalSpent": 49.559999999999995,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_097",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-06T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-23T06:03:00.233Z",
+      "totalSpent": 63.75,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_098",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-03T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-17T03:35:00.233Z",
+      "totalSpent": 64.03,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_099",
+      "creatorAlias": "@emma_jade",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-16T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-08T16:09:00.233Z",
+      "totalSpent": 115.03999999999999,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_100",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-30T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-30T12:57:00.233Z",
+      "totalSpent": 86.2,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_101",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-07-21T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-03T06:32:00.233Z",
+      "totalSpent": 98.10999999999999,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_102",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-07-21T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-16T08:17:00.233Z",
+      "totalSpent": 124.62,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_103",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-29T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-08T15:50:00.233Z",
+      "totalSpent": 163.95,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_104",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "inactive",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-15T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-13T23:46:00.233Z",
+      "totalSpent": 150.06,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_105",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-07-30T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-12T10:04:00.233Z",
+      "totalSpent": 38.78,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_106",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-07-30T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-25T02:09:00.233Z",
+      "totalSpent": 34.57,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_107",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-21T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-09T15:11:00.233Z",
+      "totalSpent": 55.21,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_108",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-10-16T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-05T09:07:00.233Z",
+      "totalSpent": 104.10000000000001,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_109",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-29T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-18T07:55:00.233Z",
+      "totalSpent": 210.22,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_110",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-27T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-05T16:55:00.233Z",
+      "totalSpent": 105.8,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_111",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-10-28T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-10T08:04:00.233Z",
+      "totalSpent": 185.01999999999998,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_112",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-13T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-20T20:03:00.233Z",
+      "totalSpent": 150.29,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_113",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-27T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-01T00:07:00.233Z",
+      "totalSpent": 56.66,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_114",
+      "creatorAlias": "@mia_grace",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-05T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-16T01:45:00.233Z",
+      "totalSpent": 98.35,
+      "transactionCount": 2
+    },
+    {
+      "fanId": "fan_115",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-26T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-22T09:52:00.233Z",
+      "totalSpent": 130.94,
+      "transactionCount": 4
+    },
+    {
+      "fanId": "fan_116",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-24T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-26T23:03:00.233Z",
+      "totalSpent": 76.88999999999999,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_117",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-10T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-03T13:20:00.233Z",
+      "totalSpent": 150.17,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_118",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-10T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-05T23:17:00.233Z",
+      "totalSpent": 142.22000000000003,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_119",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-07-30T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-03T10:45:00.233Z",
+      "totalSpent": 166.3,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_120",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-08-06T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-08T12:19:00.233Z",
+      "totalSpent": 138.45,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_121",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-22T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-09T12:06:00.233Z",
+      "totalSpent": 79.09,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_122",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": false,
+      "subscriptionStartDate": "2025-07-12T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-01T17:47:00.233Z",
+      "totalSpent": 55.58,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_123",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-05T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-10T07:23:00.233Z",
+      "totalSpent": 50.739999999999995,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_124",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-10-06T00:00:00.000Z",
+      "lastTransactionDate": "2025-09-22T06:04:00.233Z",
+      "totalSpent": 96.91999999999999,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_125",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-14T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-25T01:52:00.233Z",
+      "totalSpent": 109.17999999999999,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_126",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-09-03T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-28T17:22:00.233Z",
+      "totalSpent": 107.26,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_127",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "recurring",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-07T00:00:00.000Z",
+      "lastTransactionDate": "2025-08-24T04:43:00.233Z",
+      "totalSpent": 187.93,
+      "transactionCount": 3
+    },
+    {
+      "fanId": "fan_128",
+      "creatorAlias": "@sophia_rose",
+      "subscriptionStatus": "active",
+      "subscriptionType": "new",
+      "renewOn": true,
+      "subscriptionStartDate": "2025-08-28T00:00:00.000Z",
+      "lastTransactionDate": "2025-10-04T00:25:00.233Z",
+      "totalSpent": 112.8,
+      "transactionCount": 3
     }
   ]
 }

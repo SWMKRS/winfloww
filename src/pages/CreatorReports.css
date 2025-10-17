@@ -386,7 +386,7 @@
 }
 
 .earnings-trends-chart {
-    margin-top: 12px;
+    margin-top: 20px;
     margin-bottom: 24px;
   background: #fff;
 }
@@ -484,8 +484,26 @@
   font-size: 13px;
 }
 
+.ant-table-column-title {
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+
+    color: #999999
+}
+
+/* Reduce spacing between sort buttons and column title */
+.creator-table .ant-table-column-sorters {
+    gap: 4px;
+}
+
+.creator-table .ant-table-column-sorters .ant-table-column-title {
+    /* margin-right: 4px; */
+}
+
 .creator-table .ant-table-thead > tr > th {
-  background: #fafafa;
+  background: #f9fafe;
   font-weight: 500;
   color: #666;
   border-bottom: none;
@@ -495,6 +513,7 @@
 .creator-table .ant-table-tbody > tr > td {
   padding: 16px;
   border-bottom: none;
+  font-weight: 500;
 }
 
 .creator-table .ant-table-tbody > tr:hover > td {
@@ -511,7 +530,7 @@
 }
 
 .creator-table .ant-table-thead .ant-table-cell-fix-left {
-  background: #fafafa;
+  background: #f9fafe;
 }
 
 .creator-table .ant-table-tbody > tr:hover .ant-table-cell-fix-left {

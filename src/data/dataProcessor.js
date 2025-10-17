@@ -7,9 +7,12 @@ class TransactionDataProcessor {
   constructor(transactionData) {
     this.metadata = transactionData.metadata;
     this.transactions = transactionData.transactions;
+    this.fans = transactionData.fans || [];
+    this.creators = transactionData.creators || [];
     this.platformFeeRate = this.metadata.platformFee || 0.2; // default 20% if not specified
     this.cache = new Map(); // cache for expensive calculations
     console.log('TransactionDataProcessor created with', this.transactions.length, 'transactions');
+    console.log('Fans:', this.fans.length, 'Creators:', this.creators.length);
   }
 
   /**
@@ -261,17 +264,53 @@ class TransactionDataProcessor {
   /**
    * Generates dynamic earnings trends for custom date ranges
    */
-  generateDynamicEarningsTrends(startDate, endDate) {
+  generateDynamicEarningsTrends(startDate, endDate, shownBy = 'day') {
     const data = [];
-    const days = Math.min(endDate.diff(startDate, 'days') + 1, 30);
+    let interval, dateFormat, maxPoints;
 
-    for (let i = 0; i < days; i++) {
-      const date = startDate.add(i, 'days');
-      const dayEarnings = this.calculateEarningsForPeriod(date, date);
+    switch (shownBy) {
+      case 'hour':
+        interval = 'hour';
+        dateFormat = 'MMM D, HH:mm';
+        maxPoints = 24;
+        break;
+      case 'week':
+        interval = 'week';
+        dateFormat = 'MMM D';
+        maxPoints = 12;
+        break;
+      case 'month':
+        interval = 'month';
+        dateFormat = 'MMM YYYY';
+        maxPoints = 12;
+        break;
+      default: // 'day'
+        interval = 'day';
+        dateFormat = 'MMM D';
+        maxPoints = 30;
+    }
+
+    const totalIntervals = Math.min(endDate.diff(startDate, interval) + 1, maxPoints);
+
+    for (let i = 0; i < totalIntervals; i++) {
+      const currentStart = startDate.add(i, interval);
+      let currentEnd;
+
+      if (interval === 'hour') {
+        currentEnd = currentStart.add(1, 'hour');
+      } else if (interval === 'week') {
+        currentEnd = currentStart.add(1, 'week');
+      } else if (interval === 'month') {
+        currentEnd = currentStart.add(1, 'month');
+      } else { // day
+        currentEnd = currentStart.add(1, 'day');
+      }
+
+      const periodEarnings = this.calculateEarningsForPeriod(currentStart, currentEnd);
 
       data.push({
-        date: date.format('MMM D'),
-        value: dayEarnings.gross
+        date: currentStart.format(dateFormat),
+        value: periodEarnings.gross
       });
     }
 
@@ -281,21 +320,57 @@ class TransactionDataProcessor {
   /**
    * Generates dynamic sales chart for custom date ranges
    */
-  generateDynamicSalesChart(startDate, endDate) {
+  generateDynamicSalesChart(startDate, endDate, shownBy = 'day') {
     const data = [];
-    const days = Math.min(endDate.diff(startDate, 'days') + 1, 30);
+    let interval, dateFormat, maxPoints;
 
-    for (let i = 0; i < days; i++) {
-      const date = startDate.add(i, 'days');
-      const channels = ['subscriptions', 'tips', 'posts', 'messages', 'referrals', 'streams'];
-      const dayData = { date: date.format('MMM D') };
+    switch (shownBy) {
+      case 'hour':
+        interval = 'hour';
+        dateFormat = 'MMM D, HH:mm';
+        maxPoints = 24;
+        break;
+      case 'week':
+        interval = 'week';
+        dateFormat = 'MMM D';
+        maxPoints = 12;
+        break;
+      case 'month':
+        interval = 'month';
+        dateFormat = 'MMM YYYY';
+        maxPoints = 12;
+        break;
+      default: // 'day'
+        interval = 'day';
+        dateFormat = 'MMM D';
+        maxPoints = 30;
+    }
+
+    const totalIntervals = Math.min(endDate.diff(startDate, interval) + 1, maxPoints);
+    const channels = ['subscriptions', 'tips', 'posts', 'messages', 'referrals', 'streams'];
+
+    for (let i = 0; i < totalIntervals; i++) {
+      const currentStart = startDate.add(i, interval);
+      let currentEnd;
+
+      if (interval === 'hour') {
+        currentEnd = currentStart.add(1, 'hour');
+      } else if (interval === 'week') {
+        currentEnd = currentStart.add(1, 'week');
+      } else if (interval === 'month') {
+        currentEnd = currentStart.add(1, 'month');
+      } else { // day
+        currentEnd = currentStart.add(1, 'day');
+      }
+
+      const periodData = { date: currentStart.format(dateFormat) };
 
       channels.forEach(channel => {
-        const channelEarnings = this.calculateEarningsForPeriod(date, date, channel);
-        dayData[channel] = channelEarnings.gross;
+        const channelEarnings = this.calculateEarningsForPeriod(currentStart, currentEnd, channel);
+        periodData[channel] = channelEarnings.gross;
       });
 
-      data.push(dayData);
+      data.push(periodData);
     }
 
     return data;
@@ -316,6 +391,144 @@ class TransactionDataProcessor {
       totalEarnings: thisWeekEarnings.gross,
       refunded: thisWeekRefunds
     };
+  }
+
+  // Fan-based calculation methods
+  getFansForCreator(creatorAlias, startDate, endDate) {
+    return this.fans.filter(fan => {
+      const fanStartDate = dayjs(fan.subscriptionStartDate);
+      return fan.creatorAlias === creatorAlias &&
+             fanStartDate.isBefore(endDate.add(1, 'day')) &&
+             fan.subscriptionStatus === 'active';
+    });
+  }
+
+  getNewSubscriptions(creatorAlias, startDate, endDate) {
+    const newFans = this.fans.filter(fan => {
+      const fanStartDate = dayjs(fan.subscriptionStartDate);
+      return fan.creatorAlias === creatorAlias &&
+             fan.subscriptionType === 'new' &&
+             fanStartDate.isAfter(startDate.subtract(1, 'day')) &&
+             fanStartDate.isBefore(endDate.add(1, 'day'));
+    });
+
+    const newFanIds = newFans.map(fan => fan.fanId);
+    const transactions = this.transactions.filter(tx =>
+      tx.creatorAlias === creatorAlias &&
+      newFanIds.includes(tx.fanId) &&
+      !tx.isRefunded
+    );
+
+    const earnings = transactions.reduce((sum, tx) => {
+      const grossAmount = tx.amount || 0;
+      const platformFee = grossAmount * this.platformFeeRate;
+      const netAmount = grossAmount - platformFee;
+      return sum + netAmount;
+    }, 0);
+
+    return {
+      count: newFans.length,
+      earnings: earnings
+    };
+  }
+
+  getRecurringSubscriptions(creatorAlias, startDate, endDate) {
+    const recurringFans = this.fans.filter(fan => {
+      const fanStartDate = dayjs(fan.subscriptionStartDate);
+      return fan.creatorAlias === creatorAlias &&
+             fan.subscriptionType === 'recurring' &&
+             fanStartDate.isBefore(startDate);
+    });
+
+    const recurringFanIds = recurringFans.map(fan => fan.fanId);
+    const transactions = this.transactions.filter(tx =>
+      tx.creatorAlias === creatorAlias &&
+      recurringFanIds.includes(tx.fanId) &&
+      !tx.isRefunded
+    );
+
+    const earnings = transactions.reduce((sum, tx) => {
+      const grossAmount = tx.amount || 0;
+      const platformFee = grossAmount * this.platformFeeRate;
+      const netAmount = grossAmount - platformFee;
+      return sum + netAmount;
+    }, 0);
+
+    return {
+      count: recurringFans.length,
+      earnings: earnings
+    };
+  }
+
+  getFansWithRenewOn(creatorAlias, startDate, endDate) {
+    const fans = this.getFansForCreator(creatorAlias, startDate, endDate);
+    return fans.filter(fan => fan.renewOn).length;
+  }
+
+  getActiveFans(creatorAlias, startDate, endDate) {
+    const fanIds = this.fans
+      .filter(fan => fan.creatorAlias === creatorAlias)
+      .map(fan => fan.fanId);
+
+    const activeFanIds = new Set();
+    this.transactions.forEach(tx => {
+      if (tx.creatorAlias === creatorAlias &&
+          fanIds.includes(tx.fanId) &&
+          !tx.isRefunded) {
+        const txDate = dayjs(tx.timestamp);
+        if (txDate.isAfter(startDate.subtract(1, 'day')) &&
+            txDate.isBefore(endDate.add(1, 'day'))) {
+          activeFanIds.add(tx.fanId);
+        }
+      }
+    });
+
+    return activeFanIds.size;
+  }
+
+  calculateAvgSpendPerSpender(creatorAlias, startDate, endDate) {
+    const activeFans = this.getActiveFans(creatorAlias, startDate, endDate);
+    if (activeFans === 0) return 0;
+
+    const earnings = this.calculateEarningsForPeriod(startDate, endDate, creatorAlias);
+    return earnings.net / activeFans;
+  }
+
+  calculateAvgSpendPerTransaction(creatorAlias, startDate, endDate) {
+    const transactions = this.transactions.filter(tx => {
+      const txDate = dayjs(tx.timestamp);
+      return tx.creatorAlias === creatorAlias &&
+             txDate.isAfter(startDate.subtract(1, 'day')) &&
+             txDate.isBefore(endDate.add(1, 'day')) &&
+             !tx.isRefunded;
+    });
+
+    if (transactions.length === 0) return 0;
+
+    const totalEarnings = transactions.reduce((sum, tx) => {
+      const grossAmount = tx.amount || 0;
+      const platformFee = grossAmount * this.platformFeeRate;
+      return sum + (grossAmount - platformFee);
+    }, 0);
+
+    return totalEarnings / transactions.length;
+  }
+
+  calculateAvgSubscriptionLength(creatorAlias, startDate, endDate) {
+    const fans = this.getFansForCreator(creatorAlias, startDate, endDate);
+    if (fans.length === 0) return 0;
+
+    const totalDays = fans.reduce((sum, fan) => {
+      const startDate = dayjs(fan.subscriptionStartDate);
+      const endDate = dayjs(fan.lastTransactionDate);
+      return sum + endDate.diff(startDate, 'days');
+    }, 0);
+
+    return totalDays / fans.length;
+  }
+
+  getCreatorData(creatorAlias) {
+    return this.creators.find(creator => creator.alias === creatorAlias);
   }
 }
 
@@ -351,6 +564,16 @@ export const loadTransactionData = async (jsonData) => {
       generateDynamicSalesChart: processor.generateDynamicSalesChart.bind(processor),
       calculateEarningsForPeriod: processor.calculateEarningsForPeriod.bind(processor),
       calculateRefundsForPeriod: processor.calculateRefundsForPeriod.bind(processor),
+      // Fan-based methods
+      getFansForCreator: processor.getFansForCreator.bind(processor),
+      getNewSubscriptions: processor.getNewSubscriptions.bind(processor),
+      getRecurringSubscriptions: processor.getRecurringSubscriptions.bind(processor),
+      getFansWithRenewOn: processor.getFansWithRenewOn.bind(processor),
+      getActiveFans: processor.getActiveFans.bind(processor),
+      calculateAvgSpendPerSpender: processor.calculateAvgSpendPerSpender.bind(processor),
+      calculateAvgSpendPerTransaction: processor.calculateAvgSpendPerTransaction.bind(processor),
+      calculateAvgSubscriptionLength: processor.calculateAvgSubscriptionLength.bind(processor),
+      getCreatorData: processor.getCreatorData.bind(processor),
       allTransactions: processor.transactions
     };
 
