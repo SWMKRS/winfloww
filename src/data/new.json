@@ -4,7 +4,9 @@
     "utcOffset": "+02:00",
     "operationalStatus": true,
     "totalMessages": 47,
-    "platformFee": 0.5
+    "platformFee": 0.5,
+    "version": "5.6.1",
+    "totalNotifications": 150
   },
   "creators": [
     {

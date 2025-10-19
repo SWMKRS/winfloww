@@ -80,7 +80,7 @@ function Dashboard() {
               </Tooltip>
             </span>
             <span className="timezone-label">
-              UTC-07:00
+              UTC{processedData.metadata?.utcOffset ?? '-07:00'}
               <Tooltip title="Timezone information">
                 <InfoCircleOutlined style={{ marginLeft: 6, color: '#999' }} />
               </Tooltip>

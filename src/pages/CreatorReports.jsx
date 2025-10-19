@@ -593,7 +593,7 @@ function CreatorReports() {
             <h1 className="page-title">
               Creator reports
               <span className="timezone-badge">
-                UTC+02:00
+                UTC{processedData.metadata?.utcOffset ?? '-07:00'}
                 <Tooltip title="Timezone information">
                   <InfoCircleOutlined style={{ marginLeft: 6, fontSize: 14 }} />
                 </Tooltip>

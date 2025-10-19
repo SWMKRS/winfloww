@@ -122,7 +122,7 @@ function Sidebar({ collapsed }) {
   const uncollapsedPlatformSelectorRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const { notificationData } = useData();
+  const { notificationData, appVersion } = useData();
 
   const handlePlatformSelectorClick = () => {
     if (collapsed && platformSelectorRef.current) {
@@ -924,7 +924,7 @@ function Sidebar({ collapsed }) {
         />
         {!collapsed && (
           <div className="sidebar-version">
-            Version 5.6.0
+            Version {appVersion}
           </div>
         )}
       </div>

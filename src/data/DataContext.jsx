@@ -13,7 +13,8 @@ export const DataProvider = ({ children }) => {
   const [processedData, setProcessedData] = useState(getEmptyData());
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [notificationData, setNotificationData] = useState({ totalMessages: 0 });
+  const [notificationData, setNotificationData] = useState({ totalMessages: 0, totalNotifications: 0 });
+  const [appVersion, setAppVersion] = useState('5.6.1');
   const [currentDataFile, setCurrentDataFile] = useState('default.json');
 
   // load data on mount
@@ -36,7 +37,11 @@ export const DataProvider = ({ children }) => {
         const notificationData = calculateNotificationData(data);
         setTransactionData(data);
         setProcessedData(processed);
-        setNotificationData(notificationData);
+        setNotificationData({
+          ...notificationData,
+          totalNotifications: data.metadata?.totalNotifications || 0
+        });
+        setAppVersion(data.metadata?.version || '5.6.1');
       } else {
         setProcessedData(getEmptyData());
       }
@@ -61,7 +66,11 @@ export const DataProvider = ({ children }) => {
       const notificationData = calculateNotificationData(jsonData);
       setTransactionData(jsonData);
       setProcessedData(processed);
-      setNotificationData(notificationData);
+      setNotificationData({
+        ...notificationData,
+        totalNotifications: jsonData.metadata?.totalNotifications || 0
+      });
+      setAppVersion(jsonData.metadata?.version || '5.6.1');
 
       // save to storage
       const filename = jsonFile.name || `upload_${Date.now()}.json`;
@@ -79,7 +88,8 @@ export const DataProvider = ({ children }) => {
   const clearData = () => {
     setTransactionData(null);
     setProcessedData(getEmptyData());
-    setNotificationData({ totalMessages: 0 });
+    setNotificationData({ totalMessages: 0, totalNotifications: 0 });
+    setAppVersion('5.6.1');
     setError(null);
     setCurrentDataFile('default.json');
   };
@@ -109,7 +119,11 @@ export const DataProvider = ({ children }) => {
         const notificationData = calculateNotificationData(data);
         setTransactionData(data);
         setProcessedData(processed);
-        setNotificationData(notificationData);
+        setNotificationData({
+          ...notificationData,
+          totalNotifications: data.metadata?.totalNotifications || 0
+        });
+        setAppVersion(data.metadata?.version || '5.6.1');
         setCurrentDataFile(filename);
         await storage.setCurrentDataFile(filename);
         console.log('Successfully switched to file:', filename);
@@ -210,6 +224,7 @@ export const DataProvider = ({ children }) => {
     isLoading,
     error,
     notificationData,
+    appVersion,
     currentDataFile,
     loadCustomData,
     clearData,

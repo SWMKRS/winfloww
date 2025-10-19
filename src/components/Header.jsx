@@ -2,7 +2,7 @@ import { Layout, Button, Dropdown } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 
 import { useData } from '../data/DataContext';
-import notificationsIcon from '../assets/header/notifications.png';
+import notificationsIcon from '../assets/header/notification_bell_header.png';
 import sidebarActiveIcon from '../assets/header/sidebar_active.png';
 import sidebarInactiveIcon from '../assets/header/sidebar_inactive.png';
 import referralsIcon from '../assets/header/referrals.png';
@@ -13,7 +13,7 @@ import './Header.css';
 const { Header: AntHeader } = Layout;
 
 function Header({ sidebarCollapsed, onToggleSidebar }) {
-  const { processedData } = useData();
+  const { processedData, notificationData } = useData();
   const operationalStatus = processedData.metadata?.operationalStatus ?? true;
   const utcOffset = processedData.metadata?.utcOffset ?? '-07:00';
   const userName = processedData.metadata?.userName ?? 'User';
@@ -96,11 +96,18 @@ function Header({ sidebarCollapsed, onToggleSidebar }) {
         </div>
 
         {/* Notifications */}
-        <img
-          src={notificationsIcon}
-          alt="Notifications"
-          className="notification-icon"
-        />
+        <div className="notification-container">
+          <img
+            src={notificationsIcon}
+            alt="Notifications"
+            className="notification-icon"
+          />
+          {notificationData.totalNotifications > 0 && (
+            <div className="notification-count">
+              {notificationData.totalNotifications > 99 ? '99+' : notificationData.totalNotifications}
+            </div>
+          )}
+        </div>
 
         {/* User Menu */}
         <Dropdown menu={{ items: userMenuItems }} placement="bottomRight">
