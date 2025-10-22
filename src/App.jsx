@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { Layout } from 'antd';
 
 import { DataProvider } from './data/DataContext';
@@ -19,10 +19,26 @@ const { Content } = Layout;
 function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
+    // force navigation to dashboard after loading
+    setTimeout(() => {
+      console.log('Forcing navigation to dashboard...');
+      navigate('/dashboard', { replace: true });
+    }, 100);
   };
+
+  // ensure app lands on dashboard after loading
+  useEffect(() => {
+    console.log('App useEffect - isLoading:', isLoading, 'pathname:', location.pathname);
+    if (!isLoading && location.pathname === '/') {
+      console.log('Redirecting to dashboard...');
+      navigate('/dashboard', { replace: true });
+    }
+  }, [isLoading, location.pathname, navigate]);
 
   if (isLoading) {
     return <LoadingPage onComplete={handleLoadingComplete} />;
