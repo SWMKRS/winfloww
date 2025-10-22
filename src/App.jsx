@@ -5,6 +5,7 @@ import { Layout } from 'antd';
 import { DataProvider } from './data/DataContext';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
+import LoadingPage from './components/LoadingPage';
 import Dashboard from './pages/Dashboard';
 import CreatorReports from './pages/CreatorReports';
 import Settings from './pages/Settings';
@@ -17,6 +18,15 @@ const { Content } = Layout;
 
 function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
+  if (isLoading) {
+    return <LoadingPage onComplete={handleLoadingComplete} />;
+  }
 
   return (
     <DataProvider>

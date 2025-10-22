@@ -1,0 +1,101 @@
+.loading-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  z-index: 9999;
+}
+
+.loading-page.white-transition {
+  background: white !important;
+  animation: whiteFlash 0.5s ease-in-out;
+}
+
+@keyframes whiteFlash {
+  0% {
+    background: white;
+    opacity: 1;
+  }
+  25% {
+    background: #e0e0e0;
+    opacity: 0.8;
+  }
+  50% {
+    background: white;
+    opacity: 1;
+  }
+  75% {
+    background: #f5f5f5;
+    opacity: 0.9;
+  }
+  100% {
+    background: white;
+    opacity: 1;
+  }
+}
+
+.phase-0 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infloww-logo-growing {
+  width: 300px;
+  height: auto;
+  animation: growLogo 3s ease-in-out forwards;
+}
+
+@keyframes growLogo {
+  from {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.phase-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.app-logo-static {
+  width: 80px;
+  height: auto;
+}
+
+.dots-container {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: black;
+}
+
+.dot.trailing {
+  background-color: #666666;
+}
+
+.dot.behind {
+  background-color: #cccccc;
+}
