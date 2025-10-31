@@ -66,8 +66,9 @@ class TransactionDataProcessor {
 
     const filtered = this.transactions.filter(tx => {
       const txDate = dayjs(tx.timestamp);
-      const isInPeriod = txDate.isAfter(startDate.subtract(1, 'day')) &&
-                        txDate.isBefore(endDate.add(1, 'day'));
+      const isOnOrAfterStart = txDate.isAfter(startDate) || txDate.isSame(startDate);
+      const isOnOrBeforeEnd = txDate.isBefore(endDate) || txDate.isSame(endDate);
+      const isInPeriod = isOnOrAfterStart && isOnOrBeforeEnd;
       const isChannelMatch = channel === null || tx.channel === channel;
       const isNotRefunded = !tx.isRefunded;
 
@@ -101,11 +102,15 @@ class TransactionDataProcessor {
    * Calculates refunds for a specific time period
    */
   calculateRefundsForPeriod(startDate, endDate) {
-    const refunded = this.transactions.filter(tx =>
-      tx.isRefunded &&
-      dayjs(tx.refundTimestamp).isAfter(startDate.subtract(1, 'day')) &&
-      dayjs(tx.refundTimestamp).isBefore(endDate.add(1, 'day'))
-    );
+    const refunded = this.transactions.filter(tx => {
+      if (!tx.isRefunded) {
+        return false;
+      }
+      const refundDate = dayjs(tx.refundTimestamp);
+      const isOnOrAfterStart = refundDate.isAfter(startDate) || refundDate.isSame(startDate);
+      const isOnOrBeforeEnd = refundDate.isBefore(endDate) || refundDate.isSame(endDate);
+      return isOnOrAfterStart && isOnOrBeforeEnd;
+    });
 
     // normalize and sum refund amounts
     const normalized = refunded.map(tx => this.normalizeTransaction(tx));
