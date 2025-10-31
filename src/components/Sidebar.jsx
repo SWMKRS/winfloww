@@ -308,21 +308,8 @@ function Sidebar({ collapsed }) {
       className: 'messages-pro-menu-item',
       badge: (
         <Badge
+          className="sidebar-notification-badge"
           count={notificationData.totalMessages}
-          styles={{
-            indicator: {
-              backgroundColor: '#ff69b4',
-              fontWeight: '600',
-              padding: '0 6px',
-              height: '18px',
-              lineHeight: '18px',
-              fontSize: '10px',
-              minWidth: '18px',
-              borderRadius: '50%',
-              border: 'none',
-              boxShadow: 'none'
-            }
-          }}
         />
       ),
       leavePageIcon: messagesProLeavePage,
@@ -632,22 +619,9 @@ function Sidebar({ collapsed }) {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
               <Badge
+                className="sidebar-notification-badge"
                 count={notificationData.totalMessages}
                 showZero
-                styles={{
-                  indicator: {
-                    backgroundColor: '#ff69b4',
-                    fontWeight: '600',
-                    padding: '0 6px',
-                    height: '18px',
-                    lineHeight: '18px',
-                    fontSize: '10px',
-                    minWidth: '18px',
-                    borderRadius: '50%',
-                    border: 'none',
-                    boxShadow: 'none'
-                  }
-                }}
               />
             </div>
           </div>
@@ -687,22 +661,9 @@ function Sidebar({ collapsed }) {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
               <Badge
+                className="sidebar-notification-badge"
                 count={notificationData.totalMessages}
                 showZero
-                styles={{
-                  indicator: {
-                    backgroundColor: '#ff69b4',
-                    fontWeight: '600',
-                    padding: '0 6px',
-                    height: '18px',
-                    lineHeight: '18px',
-                    fontSize: '10px',
-                    minWidth: '18px',
-                    borderRadius: '50%',
-                    border: 'none',
-                    boxShadow: 'none'
-                  }
-                }}
               />
             </div>
           </div>
@@ -762,22 +723,9 @@ function Sidebar({ collapsed }) {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
               <Badge
+                className="sidebar-notification-badge"
                 count={notificationData.totalMessages}
                 showZero
-                styles={{
-                  indicator: {
-                    backgroundColor: '#ff69b4',
-                    fontWeight: '600',
-                    padding: '0 6px',
-                    height: '18px',
-                    lineHeight: '18px',
-                    fontSize: '10px',
-                    minWidth: '18px',
-                    borderRadius: '50%',
-                    border: 'none',
-                    boxShadow: 'none'
-                  }
-                }}
               />
             </div>
           </div>
@@ -817,22 +765,9 @@ function Sidebar({ collapsed }) {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
               <Badge
+                className="sidebar-notification-badge"
                 count={notificationData.totalMessages}
                 showZero
-                styles={{
-                  indicator: {
-                    backgroundColor: '#ff69b4',
-                    fontWeight: '600',
-                    padding: '0 6px',
-                    height: '18px',
-                    lineHeight: '18px',
-                    fontSize: '10px',
-                    minWidth: '18px',
-                    borderRadius: '50%',
-                    border: 'none',
-                    boxShadow: 'none'
-                  }
-                }}
               />
             </div>
           </div>
