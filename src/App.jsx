@@ -17,7 +17,7 @@ import './styles/App.css';
 const { Content } = Layout;
 
 function App() {
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
@@ -120,4 +120,3 @@ function App() {
 }
 
 export default App;
-
