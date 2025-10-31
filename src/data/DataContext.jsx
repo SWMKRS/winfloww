@@ -16,6 +16,7 @@ export const DataProvider = ({ children }) => {
   const [notificationData, setNotificationData] = useState({ totalMessages: 0, totalNotifications: 0 });
   const [appVersion, setAppVersion] = useState('5.6.1');
   const [currentDataFile, setCurrentDataFile] = useState('default.json');
+  const [initialLoadComplete, setInitialLoadComplete] = useState(false);
 
   // load data on mount
   useEffect(() => {
@@ -51,6 +52,7 @@ export const DataProvider = ({ children }) => {
       setProcessedData(getEmptyData());
     } finally {
       setIsLoading(false);
+      setInitialLoadComplete(true);
     }
   };
 
@@ -235,7 +237,8 @@ export const DataProvider = ({ children }) => {
     getFileTimestamp,
     deleteFile,
     downloadFile,
-    clearAllData
+    clearAllData,
+    initialLoadComplete
   };
 
   return (
